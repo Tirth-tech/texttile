@@ -1,0 +1,12 @@
+{
+  "mode": "interactive",
+  "tech_stack": {
+    "framework": "Vanilla HTML5 / CSS3 / JavaScript",
+    "styling": "Vanilla CSS - Artisan Studio Theme (Warm Linen, Earthy Terracotta, Soft Shadows)",
+    "storage": "Browser LocalStorage with seed data & export capabilities"
+  },
+  "workflow": {
+    "auto_commit": true,
+    "ui_review": true
+  }
+}

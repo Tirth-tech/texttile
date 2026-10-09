@@ -1,0 +1,327 @@
+/* =========================================================================
+   TECH DIFFERENCE (JUTE → COTTON TRANSFORMATION) SECTION
+   ========================================================================= */
+
+.tech-difference {
+  position: relative;
+  background: #10B981;
+  background: linear-gradient(135deg, #05A064 0%, #10B981 50%, #059669 100%);
+  color: #14281D;
+  padding: 5rem 1.5rem 6rem;
+  overflow: hidden;
+  font-family: var(--font-body, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
+}
+
+/* Top Decorative Organic Waves */
+.tech-difference__waves-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.tech-difference__waves-top svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Bottom Waves */
+.tech-difference__waves-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.tech-difference__waves-bottom svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Main Container */
+.tech-difference__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+
+/* 2-Column Grid */
+.tech-difference__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .tech-difference__grid {
+    grid-template-columns: 1.05fr 1.2fr;
+    gap: 4.5rem;
+  }
+}
+
+/* ── LEFT VISUALS: JUTE → ARROW → COTTON ────────────────────────────────── */
+.tech-difference__visuals {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tech-difference__fibers-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 580px;
+}
+
+@media (min-width: 640px) {
+  .tech-difference__fibers-row {
+    gap: 1.5rem;
+  }
+}
+
+/* Individual Fiber Card */
+.fiber-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(24px) scale(0.92);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fiber-card--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Fiber Image Circle / Container */
+.fiber-card__img-wrap {
+  width: 150px;
+  height: 150px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.75rem;
+  box-shadow: 0 16px 36px rgba(4, 76, 47, 0.25),
+              0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+@media (min-width: 640px) {
+  .fiber-card__img-wrap {
+    width: 190px;
+    height: 190px;
+    border-radius: 34px;
+    padding: 1rem;
+  }
+}
+
+.fiber-card__img-wrap:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 22px 45px rgba(4, 76, 47, 0.32);
+}
+
+.fiber-card__img-wrap--cotton {
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(255, 255, 255, 0.35),
+              0 16px 36px rgba(4, 76, 47, 0.22);
+}
+
+.fiber-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  display: block;
+}
+
+/* Tag underneath fiber */
+.fiber-card__tag {
+  margin-top: 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #0d281a;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.fiber-card__tag--cotton {
+  background: #ffffff;
+  color: #05683e;
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Glowing Sparkle on Cotton */
+.fiber-card__sparkle {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #047857;
+  border: 2px solid #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: pulseSparkle 2s ease-in-out infinite;
+}
+
+@keyframes pulseSparkle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* ── TRANSFORMATION ARROW ───────────────────────────────────────────────── */
+.transformation-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  opacity: 0;
+  transform: scale(0.7) translateX(-10px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .transformation-arrow {
+    width: 95px;
+  }
+}
+
+.transformation-arrow--visible {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+}
+
+.transformation-arrow__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ── RIGHT CONTENT & COPY ───────────────────────────────────────────────── */
+.tech-difference__content {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-difference__content--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Headline */
+.tech-difference__title {
+  font-family: var(--font-heading, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #0b2216;
+  margin: 0 0 1.25rem 0;
+}
+
+/* Paragraph Description */
+.tech-difference__desc {
+  font-size: 0.95rem;
+  line-height: 1.68;
+  color: #0e2e1e;
+  margin: 0 0 2rem 0;
+  max-width: 620px;
+  font-weight: 400;
+}
+
+@media (min-width: 640px) {
+  .tech-difference__desc {
+    font-size: 1.025rem;
+  }
+}
+
+/* Subtitle */
+.tech-difference__subtitle {
+  font-family: var(--font-heading, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #082114;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.35;
+}
+
+/* 4 Feature Badges Grid */
+.tech-difference__features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem 1.75rem;
+}
+
+@media (min-width: 540px) {
+  .tech-difference__features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Individual Feature Item */
+.tech-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(8px);
+  padding: 0.85rem 1.1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.tech-feature-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.tech-feature-item__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.tech-feature-item__text {
+  font-size: 0.825rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #0b2216;
+  margin: 0;
+}

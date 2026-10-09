@@ -1,0 +1,250 @@
+/* =========================================================================
+   APPLICATIONS PAGE STYLES (INDEX DIRECTORY & ALTERNATING PRODUCT BLOCKS)
+   ========================================================================= */
+
+.applications-page {
+  background: #FAF8F5;
+  min-height: 100vh;
+  padding-top: 5.5rem;
+  padding-bottom: 7rem;
+  font-family: var(--font-body, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
+  color: #1A1D1B;
+}
+
+/* ── 1. TOP HERO & INDEX DIRECTORY ──────────────────────────────────────── */
+.applications-hero {
+  padding: 3.5rem 1.5rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.applications-hero__container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.applications-hero__header {
+  margin-bottom: 2.5rem;
+}
+
+.applications-hero__dash {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #1A1D1B;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.1em;
+}
+
+.applications-hero__title {
+  font-family: var(--font-mono, "SF Mono", Menlo, Consolas, monospace);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: #1A1D1B;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Index List with Horizontal Separators */
+.applications-index {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 2rem;
+}
+
+.applications-index__row {
+  cursor: pointer;
+  padding: 0.85rem 0 0.5rem;
+  transition: all 0.25s ease;
+}
+
+.applications-index__button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  padding: 0 0 0.5rem 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.applications-index__text {
+  font-family: var(--font-mono, "SF Mono", Menlo, Consolas, monospace);
+  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #1A1D1B;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.applications-index__num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #10B981;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.applications-index__line {
+  width: 100%;
+  height: 1px;
+  background-color: #1A1D1B;
+  transition: background-color 0.2s ease, height 0.2s ease;
+}
+
+/* Hover & Active states */
+.applications-index__row:hover .applications-index__text,
+.applications-index__row--active .applications-index__text {
+  color: #059669;
+  transform: translateX(6px);
+}
+
+.applications-index__row:hover .applications-index__num,
+.applications-index__row--active .applications-index__num {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.applications-index__row:hover .applications-index__line,
+.applications-index__row--active .applications-index__line {
+  background-color: #059669;
+  height: 1.5px;
+}
+
+/* ── 2. DETAILED APPLICATION BLOCKS ─────────────────────────────────────── */
+.applications-content {
+  padding: 2rem 1.5rem;
+}
+
+.applications-content__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+/* Application Block (Grid) */
+.application-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  scroll-margin-top: 100px;
+}
+
+@media (min-width: 900px) {
+  .application-block {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4.5rem;
+  }
+
+  /* Alternating left/right layout */
+  .application-block--right .application-block__media {
+    order: 2;
+  }
+
+  .application-block--right .application-block__details {
+    order: 1;
+  }
+}
+
+/* Media / Image Container */
+.application-block__media {
+  width: 100%;
+}
+
+.application-block__img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(18, 24, 21, 0.08),
+              0 2px 6px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(26, 29, 27, 0.08);
+  background: #eae6df;
+}
+
+.application-block__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.application-block:hover .application-block__img {
+  transform: scale(1.03);
+}
+
+/* Details & Copy */
+.application-block__details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.application-block__heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin: 0;
+  font-family: var(--font-mono, "SF Mono", Menlo, Consolas, monospace);
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #1A1D1B;
+}
+
+.application-block__number {
+  color: #10B981;
+  font-weight: 600;
+}
+
+.application-block__title-text {
+  text-transform: uppercase;
+}
+
+.application-block__desc {
+  font-size: 0.925rem;
+  line-height: 1.75;
+  color: #374151;
+  margin: 0;
+  font-weight: 400;
+}
+
+@media (min-width: 640px) {
+  .application-block__desc {
+    font-size: 1rem;
+  }
+}
+
+/* CTA Link */
+.application-block__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0.25rem 0;
+  color: #059669;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.application-block__cta:hover {
+  color: #047857;
+  transform: translateX(3px);
+}

@@ -1,0 +1,183 @@
+/* =========================================================================
+   HERO SECTION & CENTERED VIDEO STYLES
+   ========================================================================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 540px;
+  background: #0f1411;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centered Video Wrapper - Symmetrical 100% Full-bleed */
+.hero__video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Video Element - Full-bleed Page Cover */
+.hero__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+/* Dark atmospheric gradient overlays - Perfectly Symmetrical */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center,
+      rgba(15, 20, 17, 0.40) 0%,
+      rgba(15, 20, 17, 0.70) 65%,
+      rgba(15, 20, 17, 0.90) 100%);
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+}
+
+/* Dimmed overlay when text disappears */
+.hero__overlay--dimmed {
+  opacity: 0.25;
+}
+
+/* Symmetrical Ambient Accent Glows */
+.hero__glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  filter: blur(95px);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.18;
+  transition: opacity 1.5s ease-out;
+}
+
+.hero__glow--left {
+  top: 25%;
+  left: 8%;
+  background: #84cc16;
+}
+
+.hero__glow--right {
+  top: 25%;
+  right: 8%;
+  background: #84cc16;
+}
+
+.hero__glow--hidden {
+  opacity: 0;
+}
+
+/* Brand & Headline Content Container */
+.hero__content {
+  position: relative;
+  z-index: 10;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+  transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Initial visible state */
+.hero__content--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Slowly disappears when image appears */
+.hero__content--faded {
+  opacity: 0;
+  transform: translateY(-16px) scale(0.98);
+  pointer-events: none;
+}
+
+/* Company badge */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  background: rgba(30, 58, 43, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(132, 204, 22, 0.35);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #84cc16;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.hero__badge-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+/* Main headline */
+.hero__title {
+  font-family: var(--font-heading, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #faf8f5;
+  margin: 0 0 1.25rem 0;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.65);
+}
+
+/* Description paragraph */
+.hero__description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: #e2e8f0;
+  max-width: 680px;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
+}
+
+/* Bottom blend into the rest of the page */
+.hero__bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(to top, rgba(15, 20, 17, 0.98), transparent);
+  z-index: 3;
+  pointer-events: none;
+}

@@ -1,0 +1,194 @@
+/* ===========================
+   HERO SECTION
+   =========================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  background: #121513;
+}
+
+/* ── Slide images ─────────────────── */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1.4s ease, transform 6s ease;
+  z-index: 0;
+}
+
+.hero-slide--active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.hero-slide__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65) contrast(1.05);
+}
+
+/* ── Gradient overlay ─────────────── */
+.hero-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    rgba(18, 21, 19, 0.85) 0%,
+    rgba(18, 21, 19, 0.35) 40%,
+    rgba(18, 21, 19, 0.15) 70%,
+    rgba(18, 21, 19, 0.25) 100%
+  );
+}
+
+/* ── Ambient glow blobs ───────────── */
+.hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hero-glow--left {
+  top: 20%;
+  left: 5%;
+  width: 420px;
+  height: 420px;
+  background: rgba(132, 204, 22, 0.08);
+  filter: blur(140px);
+}
+
+.hero-glow--right {
+  bottom: 8%;
+  right: 5%;
+  width: 380px;
+  height: 380px;
+  background: rgba(200, 90, 50, 0.12);
+  filter: blur(130px);
+}
+
+/* ── Text content overlay ─────────── */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  z-index: 10;
+  padding: 24px;
+  pointer-events: none;
+}
+
+/* Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #84CC16;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+.hero-badge__icon {
+  width: 14px;
+  height: 14px;
+  color: #84CC16;
+}
+
+/* Title */
+.hero-title {
+  font-size: clamp(44px, 8vw, 110px);
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  font-family: inherit;
+  color: #ffffff;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Description */
+.hero-description {
+  margin-top: 24px;
+  font-size: clamp(15px, 2vw, 20px);
+  letter-spacing: 0.03em;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 680px;
+  line-height: 1.6;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Slide indicators ─────────────── */
+.hero-indicators {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+.hero-indicator {
+  width: 32px;
+  height: 3px;
+  border-radius: 3px;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  padding: 0;
+}
+
+.hero-indicator--active {
+  width: 48px;
+  background: #84CC16;
+  box-shadow: 0 0 12px rgba(132, 204, 22, 0.6);
+}
+
+.hero-indicator:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.hero-indicator--active:hover {
+  background: #84CC16;
+}
+
+/* ── Responsive ───────────────────── */
+@media (max-width: 700px) {
+  .hero {
+    min-height: 500px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-indicators {
+    bottom: 20px;
+  }
+
+  .hero-glow--left,
+  .hero-glow--right {
+    width: 200px;
+    height: 200px;
+  }
+}
