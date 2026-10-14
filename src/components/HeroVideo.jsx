@@ -3,12 +3,12 @@ import './HeroVideo.css';
 
 /* =========================================================================
  * ⚙️ HERO VIDEO TIMING & ADJUSTMENT SETTINGS (12-Second Video)
- * Writing automatically disappears when the company logo appears at ~9.4s
+ * Writing automatically disappears when the company logo appears in the video
  * ========================================================================= */
 const SETTINGS = {
-  FADE_OUT_AT_SECOND: 0.09,
+  FADE_OUT_AT_SECOND: 9.2, // Disappears at 9.2s when the logo appears
   USE_PERCENTAGE: true,
-  FADE_OUT_PERCENTAGE: 0.0075// 0.75% through the video (~9.4s for 12s video)
+  FADE_OUT_PERCENTAGE: 0.767, // 76.7% through 12s video (~9.2s)
 };
 
 export default function HeroVideo() {
@@ -27,8 +27,10 @@ export default function HeroVideo() {
     if (!videoRef.current) return;
     const { currentTime, duration } = videoRef.current;
 
-    // Disappear at user-configured time when company logo appears
-    const fadeThreshold = SETTINGS.FADE_OUT_AT_SECOND;
+    // Disappear at ~9.2s when the company logo appears (or last 2.8s of the video)
+    const fadeThreshold = (duration && duration > 5)
+      ? Math.max(0, duration - 2.8)
+      : SETTINGS.FADE_OUT_AT_SECOND;
 
     if (currentTime < fadeThreshold) {
       setTextVisible(true);
@@ -66,7 +68,7 @@ export default function HeroVideo() {
 
       {/* Brand & Headline Content */}
       <div className={`hero__content ${textVisible ? 'hero__content--visible' : 'hero__content--faded'}`}>
-        <h1 className="hero__title">From field to fabric.</h1>
+        <h1 className="hero__title">From fiber to fabric.</h1>
 
         <p className="hero__description">
           We grow jute and cotton, spin them, weave them and sew clothes you wear every day.
