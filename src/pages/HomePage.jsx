@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import QuestSection from '../components/QuestSection';
 import TechDifferenceSection from '../components/TechDifferenceSection';
 import ImpactVisualizer from '../components/ImpactVisualizer';
+import SupplyChainSection from '../components/SupplyChainSection';
 import { ArrowUpRight } from 'lucide-react';
 
 export default function HomePage({ setActiveTab, onSelectProduct, onOpenPartnerModal }) {
@@ -15,11 +16,14 @@ export default function HomePage({ setActiveTab, onSelectProduct, onOpenPartnerM
       {/* 2. OUR MISSION (CENTERED 3-LINE MISSION STATEMENT) */}
       <QuestSection />
 
-      {/* 3. OUR DIFFERENCE IS OUR TECH (TABS: JUTE/YARNS/FABRICS + CLICKABLE STEPS) */}
+      {/* 3. OUR DIFFERENCE IS OUR TECH (4 CLICKABLE STAGES WITH PROCESS INFORMATION) */}
       <TechDifferenceSection />
 
       {/* 4. AVESA BIOTEX BY NUMBERS (COUNT-UP IMPACT METRICS) */}
       <ImpactVisualizer />
+
+      {/* 5. THROUGHOUT THE SUPPLY CHAIN (HORIZONTAL WAVE SCROLL ANIMATION: FARMER -> YARN -> MILL -> BRAND) */}
+      <SupplyChainSection />
 
       {/* 6. B2B COLLABORATION CTA */}
       <section className="py-24 bg-[#1E2D1D] text-[#FAF9F5] relative overflow-hidden">
