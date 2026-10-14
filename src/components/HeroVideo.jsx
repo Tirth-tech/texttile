@@ -2,16 +2,13 @@ import React, { useRef, useEffect, useState } from 'react';
 import './HeroVideo.css';
 
 /* =========================================================================
- * ⚙️ HERO VIDEO TIMING & ADJUSTMENT SETTINGS
- * You can change these numbers to adjust when and how the text disappears:
+ * ⚙️ HERO VIDEO TIMING & ADJUSTMENT SETTINGS (12-Second Video)
+ * Writing automatically disappears when the company logo appears at ~9.4s
  * ========================================================================= */
 const SETTINGS = {
-  // Option A: Set exact time in seconds when the text should disappear (e.g., 3.8 = 3.8 seconds into the video)
-  FADE_OUT_AT_SECOND: 11,
-
-  // Option B (alternative): Set by percentage of total video length (0.50 = 50% through video)
-  USE_PERCENTAGE: false,
-  FADE_OUT_PERCENTAGE: 78.57,
+  FADE_OUT_AT_SECOND: 9.4,
+  USE_PERCENTAGE: true,
+  FADE_OUT_PERCENTAGE: 0.783, // 78.3% through the video (~9.4s for 12s video)
 };
 
 export default function HeroVideo() {
@@ -30,9 +27,9 @@ export default function HeroVideo() {
     if (!videoRef.current) return;
     const { currentTime, duration } = videoRef.current;
 
-    // Calculate when the text will disappear based on the settings above
-    const fadeThreshold = SETTINGS.USE_PERCENTAGE && duration > 0
-      ? duration * SETTINGS.FADE_OUT_PERCENTAGE
+    // Disappear in the last ~2.5 seconds when the logo appears, or at 9.4s for 12s video
+    const fadeThreshold = (duration && duration > 0)
+      ? (duration <= 13 ? Math.max(0, duration - 2.6) : duration * SETTINGS.FADE_OUT_PERCENTAGE)
       : SETTINGS.FADE_OUT_AT_SECOND;
 
     if (currentTime < fadeThreshold) {

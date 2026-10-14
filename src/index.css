@@ -6,27 +6,31 @@
   --font-heading: 'Outfit', sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
 
-  --bg-linen: #FAF8F5;
-  --bg-card: #F3EFEA;
-  --bg-card-hover: #ECE6DD;
-  --bg-dark: #121513;
-  --bg-dark-card: #1C201D;
+  /* Soft White, Sage Green, and Deep Olive Color Palette */
+  --bg-linen: #FAF9F5;
+  --bg-soft-white: #FAF9F5;
+  --bg-card: #F4F2EC;
+  --bg-card-hover: #ECE8DF;
+  --bg-dark: #1A2819;
+  --bg-dark-card: #233522;
   
-  --text-dark: #1A1D1B;
-  --text-muted: #5C635E;
-  --text-light: #F4F6F4;
-  --text-dim: #9FA6A0;
+  --text-dark: #1C261B;
+  --text-muted: #586657;
+  --text-light: #F7F9F6;
+  --text-dim: #99A898;
 
-  --accent-forest: #1E3A2B;
-  --accent-olive: #3D5243;
-  --accent-earth: #7A5C43;
-  --accent-terracotta: #C85A32;
-  --accent-lime: #84CC16;
-  --accent-gold: #C69C6D;
-  --accent-sage: #9AB09E;
+  --accent-forest: #20331F;
+  --accent-deep-olive: #1E2D1D;
+  --accent-olive: #2D422C;
+  --accent-earth: #5C705B;
+  --accent-terracotta: #3B5239;
+  --accent-lime: #8CA18B;
+  --accent-gold: #A2B5A1;
+  --accent-sage: #8CA18B;
+  --accent-sage-light: #C5D3C4;
 
-  --border-light: rgba(28, 32, 29, 0.08);
-  --border-dark: rgba(244, 246, 244, 0.12);
+  --border-light: rgba(32, 51, 31, 0.08);
+  --border-dark: rgba(247, 249, 246, 0.12);
 }
 
 body {
