@@ -9,14 +9,14 @@ export default function AboutPage({ onOpenPartnerModal }) {
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         <span className="text-xs font-extrabold uppercase tracking-widest text-[#7A5C43] bg-[#F3EFEA] px-4 py-1.5 rounded-full border border-[var(--border-light)]">
-          About Aethel Materials
+          About Avesa Biotex
         </span>
         <h1 className="font-heading text-5xl sm:text-6xl font-extrabold text-[#1A1D1B] tracking-tight max-w-4xl mx-auto leading-tight">
           Where Agriculture Meets <br className="hidden sm:inline" />
           <span className="text-shimmer font-serif-italic font-normal">Materials Science.</span>
         </h1>
         <p className="text-base sm:text-lg text-[#5C635E] max-w-3xl mx-auto font-normal leading-relaxed">
-          Founded in Zürich and operating across Europe and Asia, Aethel Materials is a circular technology company pioneering the industrial transformation of agricultural crop waste into high-value textile fibres and bio-composites.
+          Avesa Biotex is a circular technology company pioneering the industrial transformation of agricultural jute and crop waste into high-value textile fibres, yarns, and eco-sustainable materials.
         </p>
       </section>
 

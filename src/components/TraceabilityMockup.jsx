@@ -6,9 +6,9 @@ export default function TraceabilityMockup() {
   const [searched, setSearched] = useState(true);
 
   const sampleBatches = [
-    { id: 'BATCH-2026-BANANA-042', name: 'Aethel-Banana™ Harvest Batch #42', crop: 'Banana Stem Waste', farm: 'Co-Op District 7, Karnataka', waterSaved: '94%', ecoScore: 'A+ (98/100)' },
-    { id: 'BATCH-2026-HEMP-088', name: 'Aethel-Hemp™ Alpine Fiber Batch #88', crop: 'Industrial Hemp Stalks', farm: 'Chamonix Valley Co-Op', waterSaved: '98%', ecoScore: 'A+ (99/100)' },
-    { id: 'BATCH-2026-PINE-019', name: 'Aethel-Pine™ Leaf Fiber Batch #19', crop: 'Pineapple Leaf Residue', farm: 'Luzon Agri Hub, PH', waterSaved: '91%', ecoScore: 'A+ (97/100)' }
+    { id: 'BATCH-2026-BANANA-042', name: 'Avesa-Banana™ Harvest Batch #42', crop: 'Banana Stem Waste', farm: 'Co-Op District 7, Karnataka', waterSaved: '94%', ecoScore: 'A+ (98/100)' },
+    { id: 'BATCH-2026-HEMP-088', name: 'Avesa-Hemp™ Alpine Fiber Batch #88', crop: 'Industrial Hemp Stalks', farm: 'Chamonix Valley Co-Op', waterSaved: '98%', ecoScore: 'A+ (99/100)' },
+    { id: 'BATCH-2026-PINE-019', name: 'Avesa-Pine™ Leaf Fiber Batch #19', crop: 'Pineapple Leaf Residue', farm: 'Luzon Agri Hub, PH', waterSaved: '91%', ecoScore: 'A+ (97/100)' }
   ];
 
   const currentBatch = sampleBatches.find(b => b.id === batchId) || sampleBatches[0];
@@ -26,7 +26,7 @@ export default function TraceabilityMockup() {
             Know Where Your Material Comes From.
           </h2>
           <p className="text-sm sm:text-base text-[#5C635E] font-normal leading-relaxed">
-            Every roll of Aethel material is backed by a blockchain-verifiable digital passport mapping farm origin, batch harvest metrics, and eco-refining benchmarks.
+            Every roll of Avesa material is backed by a blockchain-verifiable digital passport mapping farm origin, batch harvest metrics, and eco-refining benchmarks.
           </p>
         </div>
 
@@ -109,7 +109,7 @@ export default function TraceabilityMockup() {
               <div className="p-4 rounded-2xl bg-[#F3EFEA] border border-[var(--border-light)] space-y-1">
                 <Sparkles className="w-4 h-4 text-[#C85A32]" />
                 <span className="block text-[10px] text-[#5C635E] font-medium uppercase">Refining Protocol</span>
-                <span className="block text-xs font-bold text-[#1A1D1B]">Aethel Eco-Cavitation™</span>
+                <span className="block text-xs font-bold text-[#1A1D1B]">Avesa Eco-Cavitation™</span>
               </div>
             </div>
 

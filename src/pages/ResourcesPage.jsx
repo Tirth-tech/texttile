@@ -18,7 +18,7 @@ export default function ResourcesPage() {
           <span className="text-shimmer font-serif-italic font-normal">Materials Intelligence.</span>
         </h1>
         <p className="text-base text-[#5C635E] max-w-2xl mx-auto">
-          Explore peer-reviewed whitepapers, agricultural impact case studies, and bio-refining technical literature published by Aethel Materials research labs.
+          Explore peer-reviewed whitepapers, agricultural impact case studies, and bio-refining technical literature published by Avesa Biotex research labs.
         </p>
       </section>
 

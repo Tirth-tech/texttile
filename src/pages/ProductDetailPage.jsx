@@ -8,7 +8,7 @@ const PRODUCT_DATA = {
     badge: 'Blended Ring & Rotor Spun',
     heroImage: '/images/product_yarns.jpg',
     tagline: 'High-performing, sustainable blended yarns spun on standard commercial textile machinery with zero re-tooling.',
-    overview: 'Aethel yarns are engineered by blending our bio-refined cottonized agricultural jute fibers with organic cotton, Tencel™, and recycled fibers. They deliver the strength, drape, and softness required for modern apparel without the heavy environmental tax of virgin cotton.',
+    overview: 'Avesa Biotex yarns are engineered by blending our bio-refined cottonized agricultural jute fibers with organic cotton, Tencel™, and recycled fibers. They deliver the strength, drape, and softness required for modern apparel without the heavy environmental tax of virgin cotton.',
     highlights: [
       'Drop-in compatibility with global ring & rotor spinning equipment',
       'Naturally breathable with superior moisture-wicking properties',
@@ -66,7 +66,7 @@ const PRODUCT_DATA = {
     badge: 'Woven & Knitted Textiles',
     heroImage: '/images/product_fabric.jpg',
     tagline: 'Lustrous, durable, tactile textiles merging rich organic hand feel with exceptional circular performance.',
-    overview: 'Showcasing a versatile portfolio of woven and circular knitted fabrics crafted with Aethel blended yarns. From crisp lightweight summer shirting to rugged heavyweight denim, our fabrics bring texture, structure, and eco-credibility to modern fashion collections.',
+    overview: 'Showcasing a versatile portfolio of woven and circular knitted fabrics crafted with Avesa Biotex blended yarns. From crisp lightweight summer shirting to rugged heavyweight denim, our fabrics bring texture, structure, and eco-credibility to modern fashion collections.',
     highlights: [
       'Natural thermodynamic regulation keeping wearers cool and dry',
       'High dye uptake and color fastness with low-impact natural dyes',

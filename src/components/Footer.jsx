@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Leaf, ArrowRight, CheckCircle2, Globe, Share2, Mail, ExternalLink } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Globe, Share2, Mail, ExternalLink } from 'lucide-react';
 
 export default function Footer({ setActiveTab, onOpenPartnerModal }) {
   const [email, setEmail] = useState('');
@@ -13,7 +13,7 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
   const navLinks = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About Us' },
-    { id: 'technology', label: 'BioTransform™ Tech' },
+    { id: 'technology', label: 'Technology' },
     { id: 'product-yarns', label: 'Yarns' },
     { id: 'product-fibres', label: 'Fibres' },
     { id: 'product-fabric', label: 'Fabrics' },
@@ -63,7 +63,7 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
             ) : (
               <div className="p-4 rounded-2xl bg-[#1E3A2B] text-white text-xs font-bold flex items-center gap-2 border border-emerald-500/30">
                 <CheckCircle2 className="w-5 h-5 text-[#84CC16]" />
-                <span>Thank you! You are subscribed to Aethel Materials Journal.</span>
+                <span>Thank you! You are subscribed to Avesa Biotex Materials Journal.</span>
               </div>
             )}
           </div>
@@ -76,11 +76,13 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#1E3A2B] flex items-center justify-center text-[#84CC16]">
-                <Leaf className="w-5 h-5" />
-              </div>
+              <img 
+                src="/images/avesa_biotex_logo.jpg" 
+                alt="Avesa Biotex Logo" 
+                className="h-10 w-auto object-contain rounded-lg bg-white p-1"
+              />
               <span className="font-heading font-extrabold text-xl tracking-tight text-white">
-                AETHEL MATERIALS
+                AVESA BIOTEX
               </span>
             </div>
 
@@ -91,7 +93,7 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
             <div className="pt-2 flex items-center gap-4 text-xs font-mono text-[#84CC16]">
               <span className="flex items-center gap-1.5">
                 <Globe className="w-4 h-4" />
-                <span>Zürich • Bangalore • Boston</span>
+                <span>India</span>
               </span>
             </div>
           </div>
@@ -143,13 +145,12 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
           {/* Contact & Legal */}
           <div className="space-y-4">
             <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-gray-300">
-              Global Headquarters
+              Headquarters
             </h4>
             <div className="text-xs text-gray-400 space-y-1 font-light">
-              <p className="font-bold text-white">Aethel Materials AG</p>
-              <p>Biomaterials Park West 12</p>
-              <p>8005 Zürich, Switzerland</p>
-              <p className="pt-2 font-mono text-[11px] text-gray-300">contact@aethelmaterials.com</p>
+              <p className="font-bold text-white">Avesa Biotex</p>
+              <p>India</p>
+              <p className="pt-2 font-mono text-[11px] text-gray-300">contact@avesabiotex.com</p>
             </div>
 
             <button
@@ -165,7 +166,7 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
 
         {/* Bottom Legal Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-500 gap-4">
-          <p>© 2026 Aethel Materials AG. All rights reserved. Circular Economy & Sustainable Materials Science.</p>
+          <p>© 2026 Avesa Biotex. All rights reserved. Sustainable Textile Innovation.</p>
 
           <div className="flex items-center gap-6">
             <a href="#privacy" className="hover:text-gray-300 transition-colors">Privacy Policy</a>

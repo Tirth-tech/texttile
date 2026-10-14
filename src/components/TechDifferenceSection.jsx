@@ -1,21 +1,69 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './TechDifferenceSection.css';
-import { Flame, Wind, Droplets, Repeat, Sparkles, ArrowRight } from 'lucide-react';
+import { Flame, Wind, Droplets, Repeat, ArrowRight, ChevronRight } from 'lucide-react';
+
+const TABS = [
+  {
+    id: 'jute',
+    title: 'Jute',
+    image: '/images/avesa_jute.jpg',
+    description: 'Premium raw jute fibre — the golden foundation of our sustainable textile process. Sourced directly from farming communities.',
+  },
+  {
+    id: 'yarns',
+    title: 'Yarns',
+    image: '/images/avesa_yarn.jpg',
+    description: 'Fine, cotton-soft yarns spun from cottonized jute fibres — ready for weaving and knitting into premium textiles.',
+  },
+  {
+    id: 'fabrics',
+    title: 'Fabrics',
+    image: '/images/avesa_fabric.jpg',
+    description: 'Beautiful, durable fabrics woven from our sustainable yarns — available in a range of natural tones and textures.',
+  },
+];
+
+const STEPS = [
+  {
+    id: 1,
+    title: 'Prevents burning of agricultural waste',
+    detail: 'By sourcing jute crop residues that would otherwise be burnt in fields, we eliminate harmful smoke and carbon emissions while giving farmers additional income from their waste.',
+    icon: Flame,
+  },
+  {
+    id: 2,
+    title: 'Increases income for marginal farmers',
+    detail: 'Our fair-trade procurement model pays farmers up to 40% more than traditional jute markets, empowering rural communities and creating sustainable livelihoods.',
+    icon: Wind,
+  },
+  {
+    id: 3,
+    title: 'Uses less than 10 litres of water/kg',
+    detail: 'Compared to 10,000+ litres per kg for cotton farming, our eco-enzymatic process uses minimal water — making it one of the most water-efficient textile processes globally.',
+    icon: Droplets,
+  },
+  {
+    id: 4,
+    title: 'Low impact closed loop technology',
+    detail: 'Our proprietary closed-loop system recycles water and chemicals, produces zero toxic effluent, and ensures every by-product is repurposed — achieving true circular manufacturing.',
+    icon: Repeat,
+  },
+];
 
 export default function TechDifferenceSection() {
   const sectionRef = useRef(null);
-  const [animationStep, setAnimationStep] = useState(0); // 0: hidden, 1: jute, 2: arrow, 3: cotton, 4: details
+  const [animationStep, setAnimationStep] = useState(0);
+  const [activeTab, setActiveTab] = useState('jute');
+  const [activeStepId, setActiveStepId] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Trigger staged animation sequence on scroll
-          setAnimationStep(1); // Step 1: Jute appears
-          
-          const t1 = setTimeout(() => setAnimationStep(2), 400);  // Step 2: Arrow appears
-          const t2 = setTimeout(() => setAnimationStep(3), 850);  // Step 3: Cotton appears
-          const t3 = setTimeout(() => setAnimationStep(4), 1250); // Step 4: Full details appear
+          setAnimationStep(1);
+          const t1 = setTimeout(() => setAnimationStep(2), 400);
+          const t2 = setTimeout(() => setAnimationStep(3), 850);
+          const t3 = setTimeout(() => setAnimationStep(4), 1250);
 
           return () => {
             clearTimeout(t1);
@@ -36,6 +84,12 @@ export default function TechDifferenceSection() {
 
     return () => observer.disconnect();
   }, []);
+
+  const currentTab = TABS.find(t => t.id === activeTab);
+
+  const handleStepClick = (stepId) => {
+    setActiveStepId(activeStepId === stepId ? null : stepId);
+  };
 
   return (
     <section ref={sectionRef} className="tech-difference">
@@ -64,123 +118,100 @@ export default function TechDifferenceSection() {
       </div>
 
       <div className="tech-difference__container">
-        <div className="tech-difference__grid">
-          
-          {/* ── LEFT: Animated Visual Transformation (Jute → Cotton) ── */}
-          <div className="tech-difference__visuals">
-            <div className="tech-difference__fibers-row">
-              
-              {/* 1. Raw Jute Fiber */}
-              <div className={`fiber-card fiber-card--jute ${animationStep >= 1 ? 'fiber-card--visible' : ''}`}>
-                <div className="fiber-card__img-wrap">
-                  <img
-                    src="/images/jute_raw_sample.jpg"
-                    alt="Raw Jute Agricultural Waste Fiber"
-                    className="fiber-card__img"
-                  />
-                </div>
-                <span className="fiber-card__tag">Raw Jute Waste</span>
-              </div>
-
-              {/* 2. Hand-drawn Transformation Arrow */}
-              <div className={`transformation-arrow ${animationStep >= 2 ? 'transformation-arrow--visible' : ''}`}>
-                <svg className="transformation-arrow__svg" viewBox="0 0 120 40" fill="none">
-                  <path
-                    d="M 10,22 Q 55,8 95,20"
-                    stroke="#14281D"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                    className="transformation-arrow__path"
-                  />
-                  <path
-                    d="M 80,10 L 98,20 L 82,30"
-                    stroke="#14281D"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="transformation-arrow__head"
-                  />
-                </svg>
-              </div>
-
-              {/* 3. Cottonized Natural Fiber */}
-              <div className={`fiber-card fiber-card--cotton ${animationStep >= 3 ? 'fiber-card--visible' : ''}`}>
-                <div className="fiber-card__img-wrap fiber-card__img-wrap--cotton">
-                  <img
-                    src="/images/cottonized_fiber_sample.jpg"
-                    alt="Cottonized Superior Textile Fibre"
-                    className="fiber-card__img"
-                  />
-                  {/* Glowing Transformation Sparkle */}
-                  <div className="fiber-card__sparkle">
-                    <Sparkles className="w-5 h-5 text-emerald-200" />
-                  </div>
-                </div>
-                <span className="fiber-card__tag fiber-card__tag--cotton">Cottonized Fibre</span>
-              </div>
-
-            </div>
-          </div>
-
-          {/* ── RIGHT: Tech Details & 4 Impact Badges ── */}
-          <div className={`tech-difference__content ${animationStep >= 4 ? 'tech-difference__content--visible' : ''}`}>
-            
-            <h2 className="tech-difference__title">
-              Our difference is our tech.
-            </h2>
-
-            <p className="tech-difference__desc">
-              Aethel's proprietary technology enables us to process agricultural waste into superior textile fibres, bringing significant changes in the textile chain by creating socially inclusive, progressively viable, and adequately available materials to promote sustainability in the textile industry.
-            </p>
-
-            <h3 className="tech-difference__subtitle">
-              Our technology uplifts farmers and upheals nature
-            </h3>
-
-            {/* 4 Feature Badges Grid */}
-            <div className="tech-difference__features">
-              
-              <div className="tech-feature-item">
-                <div className="tech-feature-item__icon">
-                  <Flame className="w-6 h-6 text-[#14281D]" />
-                </div>
-                <p className="tech-feature-item__text">
-                  prevents burning of agricultural waste
-                </p>
-              </div>
-
-              <div className="tech-feature-item">
-                <div className="tech-feature-item__icon">
-                  <Wind className="w-6 h-6 text-[#14281D]" />
-                </div>
-                <p className="tech-feature-item__text">
-                  increase income for marginal farmers
-                </p>
-              </div>
-
-              <div className="tech-feature-item">
-                <div className="tech-feature-item__icon">
-                  <Droplets className="w-6 h-6 text-[#14281D]" />
-                </div>
-                <p className="tech-feature-item__text">
-                  uses less than 10 litres of water/kg
-                </p>
-              </div>
-
-              <div className="tech-feature-item">
-                <div className="tech-feature-item__icon">
-                  <Repeat className="w-6 h-6 text-[#14281D]" />
-                </div>
-                <p className="tech-feature-item__text">
-                  low impact closed loop technology
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
+        
+        {/* ── TITLE ── */}
+        <div className={`tech-difference__content ${animationStep >= 1 ? 'tech-difference__content--visible' : ''}`}>
+          <h2 className="tech-difference__title">
+            Our difference is our tech.
+          </h2>
         </div>
+
+        {/* ── 3 TABS: Jute / Yarns / Fabrics ── */}
+        <div className={`tech-tabs ${animationStep >= 2 ? 'tech-tabs--visible' : ''}`}>
+          <div className="tech-tabs__nav">
+            {TABS.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`tech-tabs__btn ${activeTab === tab.id ? 'tech-tabs__btn--active' : ''}`}
+              >
+                {tab.title}
+              </button>
+            ))}
+          </div>
+
+          <div className="tech-tabs__content">
+            <div className="tech-tabs__image-wrap">
+              <img
+                src={currentTab.image}
+                alt={currentTab.title}
+                className="tech-tabs__image"
+                key={currentTab.id}
+              />
+            </div>
+            <p className="tech-tabs__description">
+              {currentTab.description}
+            </p>
+          </div>
+        </div>
+
+        {/* ── PROPERTIES IMAGE ── */}
+        <div className={`tech-properties ${animationStep >= 3 ? 'tech-properties--visible' : ''}`}>
+          <img
+            src="/images/avesa_properties.png"
+            alt="Avesa Biotex Properties - Natural, Skin-Friendly, Durable, Breathable, Antimicrobial, UV-Protective, Biodegradable, Moisture-Wicking"
+            className="tech-properties__img"
+          />
+        </div>
+
+        {/* ── 4 CLICKABLE INTERCONNECTED STEPS ── */}
+        <div className={`tech-steps ${animationStep >= 4 ? 'tech-steps--visible' : ''}`}>
+          <h3 className="tech-steps__subtitle">
+            Our technology uplifts farmers and upheals nature
+          </h3>
+          
+          <div className="tech-steps__grid">
+            {STEPS.map((step, index) => {
+              const Icon = step.icon;
+              const isActive = activeStepId === step.id;
+              
+              return (
+                <React.Fragment key={step.id}>
+                  <div
+                    className={`tech-step-card ${isActive ? 'tech-step-card--active' : ''}`}
+                    onClick={() => handleStepClick(step.id)}
+                  >
+                    <div className="tech-step-card__header">
+                      <div className="tech-step-card__icon-wrap">
+                        <Icon className="w-6 h-6 text-[#14281D]" />
+                      </div>
+                      <div className="tech-step-card__title-wrap">
+                        <span className="tech-step-card__number">0{step.id}</span>
+                        <p className="tech-step-card__title">{step.title}</p>
+                      </div>
+                      <ChevronRight className={`tech-step-card__chevron ${isActive ? 'tech-step-card__chevron--open' : ''}`} />
+                    </div>
+                    
+                    {isActive && (
+                      <div className="tech-step-card__detail">
+                        <p>{step.detail}</p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Connector line between steps */}
+                  {index < STEPS.length - 1 && (
+                    <div className="tech-step-connector">
+                      <div className="tech-step-connector__line" />
+                      <ArrowRight className="tech-step-connector__arrow" />
+                    </div>
+                  )}
+                </React.Fragment>
+              );
+            })}
+          </div>
+        </div>
+
       </div>
 
       {/* Bottom Decorative Waves */}

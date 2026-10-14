@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './HeroVideo.css';
-import { Leaf } from 'lucide-react';
 
 /* =========================================================================
  * ⚙️ HERO VIDEO TIMING & ADJUSTMENT SETTINGS
@@ -73,8 +72,8 @@ export default function HeroVideo() {
       {/* Brand & Headline Content */}
       <div className={`hero__content ${textVisible ? 'hero__content--visible' : 'hero__content--faded'}`}>
         <div className="hero__badge">
-          <Leaf className="hero__badge-icon" />
-          <span>AETHEL LABS</span>
+          <img src="/images/avesa_biotex_logo.jpg" alt="Avesa Biotex" className="h-6 w-auto object-contain" />
+          <span>AVESA BIOTEX</span>
         </div>
 
         <h1 className="hero__title">From field to fabric.</h1>

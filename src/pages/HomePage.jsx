@@ -2,7 +2,6 @@ import React from 'react';
 import Hero from '../components/Hero';
 import QuestSection from '../components/QuestSection';
 import TechDifferenceSection from '../components/TechDifferenceSection';
-import ProductsShowcaseSection from '../components/ProductsShowcaseSection';
 import ImpactVisualizer from '../components/ImpactVisualizer';
 import TraceabilityMockup from '../components/TraceabilityMockup';
 import { ArrowUpRight } from 'lucide-react';
@@ -14,22 +13,19 @@ export default function HomePage({ setActiveTab, onSelectProduct, onOpenPartnerM
       {/* 1. HERO COMPONENT WITH FULL VIDEO BACKGROUND */}
       <Hero />
 
-      {/* 2. QUEST FOR ALTERNATIVE MATERIALS (WHAT? WHY? HOW? + FEATURED BIOMASS) */}
+      {/* 2. OUR MISSION (CENTERED 3-LINE MISSION STATEMENT) */}
       <QuestSection />
 
-      {/* 3. TECH DIFFERENCE (ANIMATED JUTE → COTTON TRANSFORMATION & IMPACT) */}
+      {/* 3. OUR DIFFERENCE IS OUR TECH (TABS: JUTE/YARNS/FABRICS + CLICKABLE STEPS) */}
       <TechDifferenceSection />
 
-      {/* 4. PRODUCTS SHOWCASE (YARNS, FIBRES, FABRIC WITH READ MORE NAVIGATION) */}
-      <ProductsShowcaseSection onSelectProduct={onSelectProduct} />
-
-      {/* 5. IMPACT VISUALIZER */}
+      {/* 4. AVESA BIOTEX BY NUMBERS (COUNT-UP IMPACT METRICS) */}
       <ImpactVisualizer />
 
-      {/* 6. TRACEABILITY MOCKUP */}
+      {/* 5. TRACEABILITY MOCKUP */}
       <TraceabilityMockup />
 
-      {/* 7. B2B COLLABORATION CTA */}
+      {/* 6. B2B COLLABORATION CTA */}
       <section className="py-24 bg-[#1E3A2B] text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
           <span className="text-xs font-extrabold uppercase tracking-widest text-[#84CC16] bg-white/10 px-4 py-1.5 rounded-full border border-white/20">

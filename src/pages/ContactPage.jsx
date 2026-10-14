@@ -177,7 +177,7 @@ export default function ContactPage() {
               <h3 className="font-heading text-2xl font-bold">Zürich R&D & Science Lab</h3>
               <div className="space-y-2 text-xs text-gray-200 font-light">
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-[#84CC16]" /> Biomaterials Park West 12, 8005 Zürich, Switzerland</p>
-                <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#84CC16]" /> switzerland@aethelmaterials.com</p>
+                <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#84CC16]" /> europe@avesabiotex.com</p>
                 <p className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#84CC16]" /> +41 44 890 1200</p>
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function ContactPage() {
               <h3 className="font-heading text-xl font-bold text-[#1A1D1B]">Bangalore Supply Hub</h3>
               <div className="space-y-2 text-xs text-[#5C635E] font-light">
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-[#1E3A2B]" /> Industrial Agri Park Phase 2, Bangalore, India</p>
-                <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#1E3A2B]" /> asia@aethelmaterials.com</p>
+                <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#1E3A2B]" /> india@avesabiotex.com</p>
               </div>
             </div>
 
@@ -196,7 +196,7 @@ export default function ContactPage() {
               <h3 className="font-heading text-xl font-bold text-[#1A1D1B]">Boston Innovation Office</h3>
               <div className="space-y-2 text-xs text-[#5C635E] font-light">
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-[#1E3A2B]" /> Seaport District, Boston, MA 02210, USA</p>
-                <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#1E3A2B]" /> americas@aethelmaterials.com</p>
+                <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#1E3A2B]" /> americas@avesabiotex.com</p>
               </div>
             </div>
 

@@ -1,7 +1,7 @@
 export const MATERIALS = [
   {
-    id: "aethel-jutecotton",
-    name: "Aethel-JuteCotton™",
+    id: "avesa-jutecotton",
+    name: "Avesa-JuteCotton™",
     subtitle: "Flagship Cottonized Jute Staple Fibre & Fabric",
     category: "Natural Fibres",
     source: "Raw Jute Crop Stalks & Agro-Residues",
@@ -13,7 +13,7 @@ export const MATERIALS = [
     image: "https://images.unsplash.com/photo-1606744888344-493238951221?auto=format&fit=crop&q=80&w=1000",
     badge: "Flagship Innovation",
     shortDesc: "Our breakthrough technology converts coarse raw jute biomass into ultra-soft, cotton-like staple fibers that blend seamlessly into premium apparel, denim, and knits.",
-    fullDesc: "Aethel-JuteCotton™ unlocks the true potential of golden jute fiber. Through proprietary eco-enzymatic cavitation and micro-fibrillation, we remove harsh lignin binder matrix from raw jute without toxic chemicals. The resulting fibre matches the softness, breathability, and spinability of premium long-staple Pima cotton while consuming 95% less water.",
+    fullDesc: "Avesa-JuteCotton™ unlocks the true potential of golden jute fiber. Through proprietary eco-enzymatic cavitation and micro-fibrillation, we remove harsh lignin binder matrix from raw jute without toxic chemicals. The resulting fibre matches the softness, breathability, and spinability of premium long-staple Pima cotton while consuming 95% less water.",
     keyProperties: [
       "Cotton-Soft Handfeel & Natural Sheen",
       "Superior Tensile Strength (1.4x Cotton)",
@@ -30,8 +30,8 @@ export const MATERIALS = [
     certifications: ["GOTS Certified Organic", "OEKO-TEX Standard 100", "Cradle to Cradle Gold", "ISO 14040 LCA Verified"]
   },
   {
-    id: "aethel-banana",
-    name: "Aethel-Banana™",
+    id: "avesa-banana",
+    name: "Avesa-Banana™",
     subtitle: "High-Tensile Agricultural Cellulosic Fibre",
     category: "Natural Fibres",
     source: "Banana Pseudo-Stem Waste",
@@ -43,7 +43,7 @@ export const MATERIALS = [
     image: "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&q=80&w=1000",
     badge: "Patent-Pending Extraction",
     shortDesc: "Engineered from discarded banana tree stems post-harvest. Delivers linen-like breathability with silk-like natural sheen and exceptional tensile strength.",
-    fullDesc: "Aethel-Banana™ converts post-harvest banana stems—traditionally burned or left to rot—into high-performance textile staple fibres. Our eco-enzymatic extraction preserves natural lignocellulosic crystalline structures while softening the fibre hand-feel for luxury apparel and industrial non-wovens.",
+    fullDesc: "Avesa-Banana™ converts post-harvest banana stems—traditionally burned or left to rot—into high-performance textile staple fibres. Our eco-enzymatic extraction preserves natural lignocellulosic crystalline structures while softening the fibre hand-feel for luxury apparel and industrial non-wovens.",
     keyProperties: [
       "Naturally Antimicrobial & Hypoallergenic",
       "High Moisture Absorbency (1.5x Cotton)",
@@ -60,8 +60,8 @@ export const MATERIALS = [
     certifications: ["OEKO-TEX Standard 100", "GOTS Certified Organic", "USDA Biobased 100%"]
   },
   {
-    id: "aethel-hemp",
-    name: "Aethel-Hemp™",
+    id: "avesa-hemp",
+    name: "Avesa-Hemp™",
     subtitle: "Micro-Fibrillated Soft Bast Fibre",
     category: "Natural Fibres",
     source: "Regenerative Industrial Hemp Stalks",
@@ -73,7 +73,7 @@ export const MATERIALS = [
     image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=1000",
     badge: "Zero-Pesticide Crop",
     shortDesc: "Next-generation cottonized hemp fibre processed through clean mechanical cavitation. Delivers cashmere softness without chemical retting.",
-    fullDesc: "By applying ultrasound-assisted mechanical decortication, Aethel-Hemp™ removes harsh pectin bonds without toxic solvents. The resulting micro-fine fibres blend seamlessly with organic cotton or recycled cellulose on existing ring-spinning machinery.",
+    fullDesc: "By applying ultrasound-assisted mechanical decortication, Avesa-Hemp™ removes harsh pectin bonds without toxic solvents. The resulting micro-fine fibres blend seamlessly with organic cotton or recycled cellulose on existing ring-spinning machinery.",
     keyProperties: [
       "Cashmere-Soft Handfeel Post-Decortication",
       "Superior Thermal Regulation & Breathability",
@@ -90,8 +90,8 @@ export const MATERIALS = [
     certifications: ["EU Organic Certification", "Cradle to Cradle Gold", "ISO 14040 LCA Verified"]
   },
   {
-    id: "aethel-pine",
-    name: "Aethel-Pine™",
+    id: "avesa-pine",
+    name: "Avesa-Pine™",
     subtitle: "Silky Leaf-Derived Filament Fibre",
     category: "Bio-Based Materials",
     source: "Pineapple Leaf Agriculture Waste",
@@ -103,7 +103,7 @@ export const MATERIALS = [
     image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=1000",
     badge: "Vegan Leather Alternative",
     shortDesc: "High-density natural leaf mesh created from pineapple harvest bi-products. Provides durable alternative to animal leather and petroleum synthetics.",
-    fullDesc: "Agricultural workers harvest pineapple fruits, leaving millions of tons of leaves behind. Aethel-Pine™ extracts fine leaf filaments, felting them into supple, breathable non-woven substrate suitable for high-end luxury leathergoods, footwear, and automotive seating.",
+    fullDesc: "Agricultural workers harvest pineapple fruits, leaving millions of tons of leaves behind. Avesa-Pine™ extracts fine leaf filaments, felting them into supple, breathable non-woven substrate suitable for high-end luxury leathergoods, footwear, and automotive seating.",
     keyProperties: [
       "Supple & Durable Pliable Texture",
       "Lightweight Structural Strength",
@@ -120,12 +120,12 @@ export const MATERIALS = [
     certifications: ["PETA-Approved Vegan", "USDA Biobased Certified", "ISO 9001 Quality Standard"]
   },
   {
-    id: "aethel-recycle",
-    name: "Aethel-ReCycle™",
+    id: "avesa-recycle",
+    name: "Avesa-ReCycle™",
     subtitle: "Closed-Loop Post-Industrial Recycled Blend",
     category: "Recycled & Circular Fibres",
     source: "Cottonized Jute Offcuts & Recycled Textiles",
-    composition: "50% Recycled Jute-Cotton Offcuts / 50% Aethel Agro-Fibre",
+    composition: "50% Recycled Jute-Cotton Offcuts / 50% Avesa Agro-Fibre",
     tensileStrength: "40 - 48 cN/tex",
     gsmRange: "150 - 350 GSM",
     moistureRegain: "9.5%",
@@ -133,7 +133,7 @@ export const MATERIALS = [
     image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&q=80&w=1000",
     badge: "Zero-Water Dyeing",
     shortDesc: "Combines garment factory cottonized jute cutting waste with virgin agricultural bio-fibres, eliminating virgin water usage and chemical dye inputs.",
-    fullDesc: "By sorting post-industrial jute-cotton waste by color and combining it with long-staple Aethel agro-fibres, Aethel-ReCycle™ achieves structural integrity impossible with standard mechanical recycling, producing vibrant heathered yarns without adding new dyes.",
+    fullDesc: "By sorting post-industrial jute-cotton waste by color and combining it with long-staple Avesa agro-fibres, Avesa-ReCycle™ achieves structural integrity impossible with standard mechanical recycling, producing vibrant heathered yarns without adding new dyes.",
     keyProperties: [
       "No Additional Chemical Dyes Required",
       "Zero Water Consumed in Color Match",
@@ -150,8 +150,8 @@ export const MATERIALS = [
     certifications: ["Global Recycled Standard (GRS)", "Recycled Claim Standard (RCS)", "Cradle to Cradle Certified"]
   },
   {
-    id: "aethel-biocomp",
-    name: "Aethel-BioComp™",
+    id: "avesa-biocomp",
+    name: "Avesa-BioComp™",
     subtitle: "Plant Fibre Reinforced Bio-Composite Pellets",
     category: "Composite Materials",
     source: "Jute Bio-Cellulose & Bio-Based Resin Matrix",
@@ -163,7 +163,7 @@ export const MATERIALS = [
     image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1000",
     badge: "Injection Moulding Ready",
     shortDesc: "Lightweight natural fibre composite pellets for injection moulding and 3D printing. Replaces glass-filled polypropylene and fossil plastics.",
-    fullDesc: "Aethel-BioComp™ integrates ultra-strong jute bio-cellulosic micro-fibres into a bio-polyester matrix. The result is a high-stiffness, low-weight moulding compound ideal for automotive trim, electronics enclosures, and structural furniture components.",
+    fullDesc: "Avesa-BioComp™ integrates ultra-strong jute bio-cellulosic micro-fibres into a bio-polyester matrix. The result is a high-stiffness, low-weight moulding compound ideal for automotive trim, electronics enclosures, and structural furniture components.",
     keyProperties: [
       "35% Lighter than Glass-Reinforced Plastics",
       "High Heat Deflection Temperature (110°C)",
@@ -247,6 +247,7 @@ export const IMPACT_METRICS = [
     subtitle: "Per 1,000 tonnes produced vs traditional irrigated cotton farming",
     comparison: "95% Less Water",
     conventional: "10,000 L/kg (Cotton)",
+    avesa: "500 L/kg (Jute-Cotton)",
     aethel: "500 L/kg (Jute-Cotton)",
     icon: "Droplets"
   },
@@ -258,6 +259,7 @@ export const IMPACT_METRICS = [
     subtitle: "Prevented by replacing petroleum synthetics & high-input cotton",
     comparison: "88% Lower Carbon",
     conventional: "8.5 kg CO₂/kg",
+    avesa: "1.0 kg CO₂/kg",
     aethel: "1.0 kg CO₂/kg",
     icon: "Wind"
   },
@@ -269,6 +271,7 @@ export const IMPACT_METRICS = [
     subtitle: "Coarse jute biomass transformed into cotton-soft apparel fabric",
     comparison: "100% Upcycled",
     conventional: "Low Value Coarse Sack Use",
+    avesa: "High-Value Fashion Fabric",
     aethel: "High-Value Fashion Fabric",
     icon: "Recycle"
   },
@@ -280,6 +283,7 @@ export const IMPACT_METRICS = [
     subtitle: "Direct financial payouts to jute farming families for crop harvest",
     comparison: "Fair Trade Certified",
     conventional: "$180/Tonne Raw Jute",
+    avesa: "$310/Tonne Cottonized Jute",
     aethel: "$310/Tonne Cottonized Jute",
     icon: "Users"
   }
@@ -291,7 +295,7 @@ export const APPLICATIONS = [
     title: "Luxury & Everyday Garments",
     subtitle: "Soft denims, T-shirts, knitwear & crisp shirting.",
     description: "Our cottonized jute fabric feels like premium organic cotton—offering high breathability, soft hand-feel, and rich natural drape for everyday clothes and luxury apparel.",
-    materialUsed: "Aethel-JuteCotton™ & Aethel-Hemp™",
+    materialUsed: "Avesa-JuteCotton™ & Avesa-Hemp™",
     image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -299,7 +303,7 @@ export const APPLICATIONS = [
     title: "Sustainable Footwear",
     subtitle: "Durable woven uppers & bio-composite soles.",
     description: "Replacing petroleum polyester mesh and animal leather with high-abrasion cottonized jute canvas and breathable natural leaf filaments.",
-    materialUsed: "Aethel-JuteCotton™ & Aethel-Pine™",
+    materialUsed: "Avesa-JuteCotton™ & Avesa-Pine™",
     image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -307,7 +311,7 @@ export const APPLICATIONS = [
     title: "Interior & Architectural Textiles",
     subtitle: "Upholstery, drapery & acoustical felt panels.",
     description: "Naturally flame-retardant, high-martindale upholstery fabrics that bring organic warmth and scientific sustainability to modern home interiors.",
-    materialUsed: "Aethel-JuteCotton™ & Aethel-AgriFibre™",
+    materialUsed: "Avesa-JuteCotton™ & Avesa-AgriFibre™",
     image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -315,7 +319,7 @@ export const APPLICATIONS = [
     title: "Automotive & Mobility",
     subtitle: "Lightweight door trims, seats & bio-panels.",
     description: "Reducing vehicle weight while upgrading interior luxury. Injection-mouldable bio-composites replace glass-filled plastic components.",
-    materialUsed: "Aethel-BioComp™ & Aethel-Pine™",
+    materialUsed: "Avesa-BioComp™ & Avesa-Pine™",
     image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -323,7 +327,7 @@ export const APPLICATIONS = [
     title: "Rigid & Flexible Eco-Packaging",
     subtitle: "Compostable molded pulp & luxury boxes.",
     description: "Replaces Styrofoam and plastic film with 100% home-compostable bio-cellulose packaging solutions for fashion and electronics.",
-    materialUsed: "Aethel-AgriFibre™ Molded Pulp",
+    materialUsed: "Avesa-AgriFibre™ Molded Pulp",
     image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -331,7 +335,7 @@ export const APPLICATIONS = [
     title: "Bags & Accessories",
     subtitle: "Plant-leather totes, wallets & travel luggage.",
     description: "Richly textured plant-based alternatives to animal hides engineered for tear resistance and smooth craftsmanship.",
-    materialUsed: "Aethel-JuteCotton™ & Aethel-Pine™",
+    materialUsed: "Avesa-JuteCotton™ & Avesa-Pine™",
     image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=800"
   }
 ];
@@ -397,7 +401,7 @@ export const ARTICLES = [
   },
   {
     id: "art-3",
-    title: "Lifecycle Assessment: Aethel-JuteCotton™ vs Traditional Irrigated Organic Cotton",
+    title: "Lifecycle Assessment: Avesa-JuteCotton™ vs Traditional Irrigated Organic Cotton",
     category: "Sustainability Report",
     date: "August 2026",
     readTime: "12 min read",

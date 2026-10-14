@@ -43,7 +43,7 @@ export default function ContactModal({ isOpen, onClose, initialMaterial = null }
                 Let's Build the Next Material Together.
               </h2>
               <p className="text-xs sm:text-sm text-[#5C635E] mt-1">
-                Partner with Aethel Materials to integrate bio-based cellulosic fibers, circular yarns, and high-performance sustainable fabrics into your production line.
+                Partner with Avesa Biotex to integrate bio-based cellulosic fibers, circular yarns, and high-performance sustainable fabrics into your production line.
               </p>
             </div>
 
