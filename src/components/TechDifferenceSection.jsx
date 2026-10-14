@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './TechDifferenceSection.css';
-import { Flame, Wind, Droplets, Repeat, Sparkles, ArrowRight, ChevronRight } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 /* ── Custom SVGs matching the 8 Natural Properties Reference ── */
 const NaturalIcon = () => (
@@ -105,37 +105,9 @@ const PROPERTIES = [
   { id: 'moisture-wicking', title: 'Moisture-Wicking', Icon: MoistureWickingIcon },
 ];
 
-const STEPS = [
-  {
-    id: 1,
-    title: 'Prevents burning of agricultural waste',
-    detail: 'By sourcing jute crop residues that would otherwise be burnt in open fields, we eliminate toxic smoke and carbon emissions while generating additional revenue for farming communities.',
-    icon: Flame,
-  },
-  {
-    id: 2,
-    title: 'Increases income for marginal farmers',
-    detail: 'Our direct-procurement model pays farmers significantly above traditional wholesale rates, empowering rural smallholders and fostering regional economic stability.',
-    icon: Wind,
-  },
-  {
-    id: 3,
-    title: 'Uses less than 10 litres of water/kg',
-    detail: 'Compared to 10,000+ litres per kg required for conventional cotton irrigation, our eco-enzymatic cavitation uses less than 10 litres, conserving precious freshwater resources.',
-    icon: Droplets,
-  },
-  {
-    id: 4,
-    title: 'Low impact closed loop technology',
-    detail: 'Our closed-loop bio-refining system recycles process water and eco-enzymes, eliminates toxic effluents, and ensures zero chemical waste enters natural waterways.',
-    icon: Repeat,
-  },
-];
-
 export default function TechDifferenceSection() {
   const sectionRef = useRef(null);
   const [animationStep, setAnimationStep] = useState(0);
-  const [activeStepId, setActiveStepId] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -149,7 +121,7 @@ export default function TechDifferenceSection() {
           const t4 = setTimeout(() => setAnimationStep(5), 1000); // Stage 3: Spun Yarn
           const t5 = setTimeout(() => setAnimationStep(6), 1250); // Arrow 3
           const t6 = setTimeout(() => setAnimationStep(7), 1500); // Stage 4: Finished Fabric
-          const t7 = setTimeout(() => setAnimationStep(8), 1750); // Properties & 4 Steps
+          const t7 = setTimeout(() => setAnimationStep(8), 1750); // Properties
 
           return () => {
             [t1, t2, t3, t4, t5, t6, t7].forEach(clearTimeout);
@@ -168,10 +140,6 @@ export default function TechDifferenceSection() {
 
     return () => observer.disconnect();
   }, []);
-
-  const handleStepClick = (stepId) => {
-    setActiveStepId(activeStepId === stepId ? null : stepId);
-  };
 
   return (
     <section ref={sectionRef} className="tech-difference">
@@ -342,50 +310,6 @@ export default function TechDifferenceSection() {
                   </div>
                   {idx < PROPERTIES.length - 1 && (
                     <div className="property-badge__divider" />
-                  )}
-                </React.Fragment>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* ── 4 CLICKABLE INTERCONNECTED STEPS ── */}
-        <div className={`tech-steps-section ${animationStep >= 8 ? 'tech-steps-section--visible' : ''}`}>
-          <div className="tech-steps__grid">
-            {STEPS.map((step, index) => {
-              const Icon = step.icon;
-              const isActive = activeStepId === step.id;
-              
-              return (
-                <React.Fragment key={step.id}>
-                  <div
-                    className={`tech-step-card ${isActive ? 'tech-step-card--active' : ''}`}
-                    onClick={() => handleStepClick(step.id)}
-                  >
-                    <div className="tech-step-card__header">
-                      <div className="tech-step-card__icon-wrap">
-                        <Icon className="w-5 h-5 text-[#14281D]" />
-                      </div>
-                      <div className="tech-step-card__title-wrap">
-                        <span className="tech-step-card__number">0{step.id}</span>
-                        <p className="tech-step-card__title">{step.title}</p>
-                      </div>
-                      <ChevronRight className={`tech-step-card__chevron ${isActive ? 'tech-step-card__chevron--open' : ''}`} />
-                    </div>
-                    
-                    {isActive && (
-                      <div className="tech-step-card__detail">
-                        <p>{step.detail}</p>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Connector between steps */}
-                  {index < STEPS.length - 1 && (
-                    <div className="tech-step-connector">
-                      <div className="tech-step-connector__line" />
-                      <ArrowRight className="tech-step-connector__arrow" />
-                    </div>
                   )}
                 </React.Fragment>
               );
