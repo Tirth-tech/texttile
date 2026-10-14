@@ -6,9 +6,9 @@ import './HeroVideo.css';
  * Writing automatically disappears when the company logo appears at ~9.4s
  * ========================================================================= */
 const SETTINGS = {
-  FADE_OUT_AT_SECOND: 0.05,
+  FADE_OUT_AT_SECOND: 0.09,
   USE_PERCENTAGE: true,
-  FADE_OUT_PERCENTAGE: 0.004167 // 0.4167% through the video (~9.4s for 12s video)
+  FADE_OUT_PERCENTAGE: 0.0075// 0.75% through the video (~9.4s for 12s video)
 };
 
 export default function HeroVideo() {
