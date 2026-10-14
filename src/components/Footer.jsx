@@ -77,11 +77,11 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <img 
-                src="/images/avesa_biotex_logo.jpg" 
+                src="/images/avesa_logo_mark.png" 
                 alt="Avesa Biotex Logo" 
-                className="h-10 w-auto object-contain rounded-lg bg-white p-1"
+                className="h-10 w-10 object-contain"
               />
-              <span className="font-heading font-extrabold text-xl tracking-tight text-white">
+              <span className="font-heading font-extrabold text-xl tracking-wider text-white">
                 AVESA BIOTEX
               </span>
             </div>

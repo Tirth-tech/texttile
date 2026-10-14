@@ -46,12 +46,15 @@ export default function Navbar({ activeTab, setActiveTab, onOpenPartnerModal }) 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
 
           {/* ── Logo ───────────────────────────────────────────────────── */}
-          <button onClick={() => go('home')} className="flex items-center gap-2 focus:outline-none group shrink-0">
+          <button onClick={() => go('home')} className="flex items-center gap-2.5 focus:outline-none group shrink-0">
             <img 
-              src="/images/avesa_biotex_logo.jpg" 
+              src="/images/avesa_logo_mark.png" 
               alt="Avesa Biotex Logo" 
-              className="h-9 w-auto object-contain group-hover:scale-105 transition-transform"
+              className="h-9 w-9 object-contain group-hover:scale-105 transition-transform"
             />
+            <span className="font-heading font-extrabold text-lg sm:text-xl tracking-wider text-[#14281D]">
+              AVESA BIOTEX
+            </span>
           </button>
 
           {/* ── Center: Dock bar (desktop) ─────────────────────────────── */}

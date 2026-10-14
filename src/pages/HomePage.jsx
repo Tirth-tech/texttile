@@ -3,7 +3,6 @@ import Hero from '../components/Hero';
 import QuestSection from '../components/QuestSection';
 import TechDifferenceSection from '../components/TechDifferenceSection';
 import ImpactVisualizer from '../components/ImpactVisualizer';
-import TraceabilityMockup from '../components/TraceabilityMockup';
 import { ArrowUpRight } from 'lucide-react';
 
 export default function HomePage({ setActiveTab, onSelectProduct, onOpenPartnerModal }) {
@@ -21,9 +20,6 @@ export default function HomePage({ setActiveTab, onSelectProduct, onOpenPartnerM
 
       {/* 4. AVESA BIOTEX BY NUMBERS (COUNT-UP IMPACT METRICS) */}
       <ImpactVisualizer />
-
-      {/* 5. TRACEABILITY MOCKUP */}
-      <TraceabilityMockup />
 
       {/* 6. B2B COLLABORATION CTA */}
       <section className="py-24 bg-[#1E3A2B] text-white relative overflow-hidden">

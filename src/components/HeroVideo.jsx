@@ -72,7 +72,7 @@ export default function HeroVideo() {
       {/* Brand & Headline Content */}
       <div className={`hero__content ${textVisible ? 'hero__content--visible' : 'hero__content--faded'}`}>
         <div className="hero__badge">
-          <img src="/images/avesa_biotex_logo.jpg" alt="Avesa Biotex" className="h-6 w-auto object-contain" />
+          <img src="/images/avesa_logo_mark.png" alt="Avesa Biotex" className="h-5 w-5 object-contain" />
           <span>AVESA BIOTEX</span>
         </div>
 

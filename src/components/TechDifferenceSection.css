@@ -1,5 +1,5 @@
 /* =========================================================================
-   TECH DIFFERENCE SECTION - TABS, PROPERTIES, CLICKABLE STEPS
+   TECH DIFFERENCE (4-STAGE TRANSFORMATION + PROPERTIES + STEPS)
    ========================================================================= */
 
 .tech-difference {
@@ -7,7 +7,7 @@
   background: #10B981;
   background: linear-gradient(135deg, #05A064 0%, #10B981 50%, #059669 100%);
   color: #14281D;
-  padding: 5rem 1.5rem 6rem;
+  padding: 5rem 1.5rem 6.5rem;
   overflow: hidden;
   font-family: var(--font-body, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
 }
@@ -56,25 +56,24 @@
   z-index: 5;
 }
 
-/* ── CONTENT (TITLE) ───────────────────────────────────────────────── */
-.tech-difference__content {
+/* ── HEADER (TITLE) ─────────────────────────────────────────────────── */
+.tech-difference__header {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
-.tech-difference__content--visible {
+.tech-difference__header--visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Headline */
 .tech-difference__title {
   font-family: var(--font-heading, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -82,156 +81,311 @@
   margin: 0;
 }
 
-/* ── 3 TABS: Jute / Yarns / Fabrics ──────────────────────────────── */
-.tech-tabs {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-bottom: 3rem;
-}
-
-.tech-tabs--visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.tech-tabs__nav {
+/* ── 4-STAGE TRANSFORMATION PIPELINE ────────────────────────────────── */
+.tech-transformation-pipeline {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
+  gap: 0.65rem;
+  margin-bottom: 4rem;
+  overflow-x: auto;
+  padding: 1rem 0.5rem 1.5rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
-.tech-tabs__btn {
-  padding: 0.65rem 2rem;
-  border-radius: 9999px;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(6px);
-  color: #0b2216;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.tech-transformation-pipeline::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
-.tech-tabs__btn:hover {
-  background: rgba(255, 255, 255, 0.35);
-  border-color: rgba(255, 255, 255, 0.7);
-  transform: translateY(-2px);
+@media (min-width: 640px) {
+  .tech-transformation-pipeline {
+    gap: 1.25rem;
+  }
 }
 
-.tech-tabs__btn--active {
-  background: #ffffff;
-  border-color: #ffffff;
-  color: #047857;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
+@media (min-width: 1024px) {
+  .tech-transformation-pipeline {
+    gap: 1.5rem;
+    overflow-x: visible;
+  }
 }
 
-.tech-tabs__content {
+/* Individual Stage Card */
+.fiber-stage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  opacity: 0;
+  transform: translateY(24px) scale(0.92);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
 }
 
-.tech-tabs__image-wrap {
-  width: 100%;
-  max-width: 420px;
-  aspect-ratio: 1 / 1;
-  border-radius: 28px;
-  overflow: hidden;
+.fiber-stage--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Fiber Image Wrap */
+.fiber-stage__img-wrap {
+  width: 130px;
+  height: 130px;
+  border-radius: 26px;
   background: rgba(255, 255, 255, 0.95);
-  padding: 1rem;
-  box-shadow: 0 20px 50px rgba(4, 76, 47, 0.25),
-              0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.4s ease;
+  padding: 0.7rem;
+  box-shadow: 0 16px 36px rgba(4, 76, 47, 0.22),
+              0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.tech-tabs__image-wrap:hover {
-  transform: scale(1.02);
+@media (min-width: 640px) {
+  .fiber-stage__img-wrap {
+    width: 160px;
+    height: 160px;
+    border-radius: 30px;
+    padding: 0.85rem;
+  }
 }
 
-.tech-tabs__image {
+@media (min-width: 1024px) {
+  .fiber-stage__img-wrap {
+    width: 180px;
+    height: 180px;
+    border-radius: 34px;
+    padding: 0.95rem;
+  }
+}
+
+.fiber-stage__img-wrap:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 22px 45px rgba(4, 76, 47, 0.32);
+}
+
+.fiber-stage__img-wrap--cotton {
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(255, 255, 255, 0.38),
+              0 16px 36px rgba(4, 76, 47, 0.22);
+}
+
+.fiber-stage__img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   border-radius: 20px;
   display: block;
-  animation: tabImageFadeIn 0.5s ease-out;
 }
 
-@keyframes tabImageFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+/* Stage Tag */
+.fiber-stage__tag {
+  margin-top: 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #0d281a;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+}
+
+.fiber-stage__tag--cotton {
+  background: #ffffff;
+  color: #05683e;
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(4, 76, 47, 0.12);
+}
+
+/* Glowing Sparkle on Cottonized */
+.fiber-stage__sparkle {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #047857;
+  border: 2px solid #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: pulseSparkle 2s ease-in-out infinite;
+}
+
+@keyframes pulseSparkle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* Transformation Arrow Between Stages */
+.transformation-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  opacity: 0;
+  transform: scale(0.7) translateX(-6px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .transformation-arrow {
+    width: 65px;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+}
+
+@media (min-width: 1024px) {
+  .transformation-arrow {
+    width: 80px;
   }
 }
 
-.tech-tabs__description {
-  font-size: 1rem;
-  line-height: 1.65;
-  color: #0e2e1e;
-  text-align: center;
-  max-width: 560px;
-  margin: 0;
-  font-weight: 400;
+.transformation-arrow--visible {
+  opacity: 1;
+  transform: scale(1) translateX(0);
 }
 
-/* ── PROPERTIES IMAGE ──────────────────────────────────────────────── */
-.tech-properties {
+.transformation-arrow__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ── 8 MATERIAL PROPERTIES STRIP (FROM REFERENCE IMAGE) ─────────────── */
+.tech-properties-card {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-bottom: 3rem;
-  text-align: center;
+  margin-bottom: 3.5rem;
 }
 
-.tech-properties--visible {
+.tech-properties-card--visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.tech-properties__img {
-  max-width: 100%;
-  width: 900px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  display: block;
+.tech-properties-card__inner {
+  background: #FCFAF7;
+  border-radius: 28px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 16px 45px rgba(4, 76, 47, 0.15),
+              0 2px 10px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tech-properties-card__inner::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .tech-properties-card__inner {
+    padding: 1.75rem 2rem;
+  }
+}
+
+/* Individual Property Badge */
+.property-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  flex: 1 1 0;
+  min-width: 88px;
+  padding: 0 0.5rem;
+  cursor: default;
+  transition: transform 0.3s ease;
+}
+
+.property-badge:hover {
+  transform: translateY(-3px);
+}
+
+/* Circular icon matching reference image */
+.property-badge__circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1.8px solid #1E3A2B;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1E3A2B;
+  box-shadow: 0 3px 10px rgba(30, 58, 43, 0.08);
+  transition: all 0.3s ease;
+}
+
+.property-badge:hover .property-badge__circle {
+  background: #1E3A2B;
+  color: #FFFFFF;
+  box-shadow: 0 6px 16px rgba(30, 58, 43, 0.22);
+}
+
+.property-badge__icon {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease;
+}
+
+.property-badge:hover .property-badge__icon {
+  transform: scale(1.08);
+}
+
+/* Typography matching reference image */
+.property-badge__title {
+  font-family: var(--font-heading, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1E3A2B;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+@media (min-width: 960px) {
+  .property-badge__title {
+    font-size: 0.88rem;
+  }
+}
+
+/* Thin vertical separator line between badges */
+.property-badge__divider {
+  width: 1px;
+  height: 48px;
+  background-color: #E2DAD0;
+  flex-shrink: 0;
 }
 
 /* ── 4 CLICKABLE INTERCONNECTED STEPS ──────────────────────────────── */
-.tech-steps {
+.tech-steps-section {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.tech-steps--visible {
+.tech-steps-section--visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.tech-steps__subtitle {
-  font-family: var(--font-heading, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #082114;
-  margin: 0 0 2rem 0;
-  line-height: 1.35;
-  text-align: center;
 }
 
 .tech-steps__grid {
@@ -239,11 +393,11 @@
   flex-direction: column;
   align-items: center;
   gap: 0;
-  max-width: 680px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1024px) {
   .tech-steps__grid {
     flex-direction: row;
     flex-wrap: wrap;
@@ -266,23 +420,23 @@
   max-width: 320px;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1024px) {
   .tech-step-card {
     width: auto;
-    max-width: 260px;
+    max-width: 250px;
     flex: 0 0 auto;
   }
 }
 
 .tech-step-card:hover {
   transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.45);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
 .tech-step-card--active {
-  background: rgba(255, 255, 255, 0.55);
-  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(255, 255, 255, 0.85);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
@@ -293,8 +447,8 @@
 }
 
 .tech-step-card__icon-wrap {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.85);
   display: flex;
@@ -358,7 +512,7 @@
   from {
     opacity: 0;
     max-height: 0;
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
   to {
     opacity: 1;
@@ -367,7 +521,7 @@
   }
 }
 
-/* Connector between steps */
+/* Step Connector Line & Arrow */
 .tech-step-connector {
   display: flex;
   align-items: center;
@@ -375,36 +529,26 @@
   padding: 0.5rem 0;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1024px) {
   .tech-step-connector {
-    padding: 0 0.3rem;
-    flex-direction: row;
+    padding: 0 0.5rem;
   }
 }
 
 .tech-step-connector__line {
-  width: 2px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 2px;
-}
-
-@media (min-width: 960px) {
-  .tech-step-connector__line {
-    width: 20px;
-    height: 2px;
-  }
+  display: none;
 }
 
 .tech-step-connector__arrow {
   width: 16px;
   height: 16px;
-  color: rgba(255, 255, 255, 0.7);
-  transform: rotate(90deg);
+  color: #0b2216;
+  opacity: 0.6;
+  transform: rotate(90deg); /* points down on mobile */
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1024px) {
   .tech-step-connector__arrow {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* points right on desktop */
   }
 }
