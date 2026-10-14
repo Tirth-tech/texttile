@@ -13,7 +13,7 @@ export default function MaterialModal({ material, onClose, onRequestSample }) {
         {/* Header Bar */}
         <div className="sticky top-0 z-20 px-6 py-4 bg-[#F3EFEA]/90 backdrop-blur-md border-b border-[var(--border-light)] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="bg-[#1E3A2B] text-white text-xs font-bold px-3 py-1 rounded-full">
+            <span className="bg-[#1E2D1D] text-white text-xs font-bold px-3 py-1 rounded-full">
               {material.category}
             </span>
             <span className="text-xs text-[#5C635E] font-medium hidden sm:inline">
@@ -52,7 +52,7 @@ export default function MaterialModal({ material, onClose, onRequestSample }) {
                 <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-[#1A1D1B] tracking-tight mt-1">
                   {material.name}
                 </h2>
-                <p className="text-sm font-semibold text-[#1E3A2B] mt-1">
+                <p className="text-sm font-semibold text-[#1E2D1D] mt-1">
                   {material.subtitle}
                 </p>
               </div>
@@ -68,10 +68,10 @@ export default function MaterialModal({ material, onClose, onRequestSample }) {
                     onClose();
                     onRequestSample(material);
                   }}
-                  className="bg-[#1E3A2B] hover:bg-[#2A4B37] text-white px-6 py-3 rounded-full text-xs font-bold flex items-center gap-2 shadow-md hover:scale-[1.02] transition-transform"
+                  className="bg-[#1E2D1D] hover:bg-[#253924] text-white px-6 py-3 rounded-full text-xs font-bold flex items-center gap-2 shadow-md hover:scale-[1.02] transition-transform"
                 >
                   <span>Request Material Swatch Kit</span>
-                  <ArrowRight className="w-4 h-4 text-[#84CC16]" />
+                  <ArrowRight className="w-4 h-4 text-[#8CA18B]" />
                 </button>
               </div>
             </div>
@@ -80,7 +80,7 @@ export default function MaterialModal({ material, onClose, onRequestSample }) {
           {/* Technical Specifications Grid */}
           <div className="space-y-4 pt-6 border-t border-[var(--border-light)]">
             <h3 className="font-heading text-lg font-bold text-[#1A1D1B] flex items-center gap-2">
-              <Layers className="w-5 h-5 text-[#1E3A2B]" />
+              <Layers className="w-5 h-5 text-[#1E2D1D]" />
               <span>Technical & Mechanical Specifications</span>
             </h3>
 
@@ -99,42 +99,42 @@ export default function MaterialModal({ material, onClose, onRequestSample }) {
               </div>
               <div className="p-4 rounded-2xl bg-[#F3EFEA] border border-[var(--border-light)]">
                 <span className="block text-[11px] font-medium text-[#5C635E]">Biodegradability</span>
-                <span className="block text-xs font-bold text-[#1E3A2B] mt-1">{material.biodegradability}</span>
+                <span className="block text-xs font-bold text-[#1E2D1D] mt-1">{material.biodegradability}</span>
               </div>
             </div>
           </div>
 
           {/* Environmental Impact Breakdown */}
-          <div className="p-6 rounded-3xl bg-[#1E3A2B] text-white space-y-4 shadow-lg">
+          <div className="p-6 rounded-3xl bg-[#1E2D1D] text-white space-y-4 shadow-lg">
             <div className="flex items-center justify-between">
               <h3 className="font-heading text-lg font-bold text-white flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-[#84CC16]" />
+                <ShieldCheck className="w-5 h-5 text-[#8CA18B]" />
                 <span>Verified Sustainability Savings</span>
               </h3>
-              <span className="text-[10px] text-emerald-200 uppercase tracking-widest bg-emerald-900/60 px-3 py-1 rounded-full">
+              <span className="text-[10px] text-[#C5D3C4] uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">
                 ISO 14040 LCA Verified
               </span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
               <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-                <Droplet className="w-5 h-5 text-[#84CC16] mb-1" />
-                <span className="block text-[11px] text-emerald-200">Water Reduction</span>
+                <Droplet className="w-5 h-5 text-[#8CA18B] mb-1" />
+                <span className="block text-[11px] text-[#C5D3C4]">Water Reduction</span>
                 <span className="block text-xl font-extrabold text-white mt-1">{material.sustainabilityImpact.waterSaved}</span>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-                <Wind className="w-5 h-5 text-[#84CC16] mb-1" />
-                <span className="block text-[11px] text-emerald-200">Carbon Prevented</span>
+                <Wind className="w-5 h-5 text-[#8CA18B] mb-1" />
+                <span className="block text-[11px] text-[#C5D3C4]">Carbon Prevented</span>
                 <span className="block text-xl font-extrabold text-white mt-1">{material.sustainabilityImpact.carbonAvoided}</span>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-                <Recycle className="w-5 h-5 text-[#84CC16] mb-1" />
-                <span className="block text-[11px] text-emerald-200">Agri Waste Diverted</span>
+                <Recycle className="w-5 h-5 text-[#8CA18B] mb-1" />
+                <span className="block text-[11px] text-[#C5D3C4]">Agri Waste Diverted</span>
                 <span className="block text-xl font-extrabold text-white mt-1">{material.sustainabilityImpact.wasteDiverted}</span>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-                <CheckCircle2 className="w-5 h-5 text-[#84CC16] mb-1" />
-                <span className="block text-[11px] text-emerald-200">Farmer Bonus</span>
+                <CheckCircle2 className="w-5 h-5 text-[#8CA18B] mb-1" />
+                <span className="block text-[11px] text-[#C5D3C4]">Farmer Bonus</span>
                 <span className="block text-xl font-extrabold text-white mt-1">{material.sustainabilityImpact.farmerIncomeBoost}</span>
               </div>
             </div>
@@ -150,8 +150,8 @@ export default function MaterialModal({ material, onClose, onRequestSample }) {
               </h4>
               <div className="space-y-2">
                 {material.applications.map((app, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-[#1A1D1B]">
-                    <div className="w-2 h-2 rounded-full bg-[#C85A32]" />
+                  <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-[#1E2D1D]">
+                    <div className="w-2 h-2 rounded-full bg-[#8CA18B]" />
                     <span>{app}</span>
                   </div>
                 ))}
@@ -165,8 +165,8 @@ export default function MaterialModal({ material, onClose, onRequestSample }) {
               </h4>
               <div className="space-y-2">
                 {material.certifications.map((cert, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-[#1E3A2B]">
-                    <CheckCircle2 className="w-4 h-4 text-[#84CC16]" />
+                  <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-[#1E2D1D]">
+                    <CheckCircle2 className="w-4 h-4 text-[#8CA18B]" />
                     <span>{cert}</span>
                   </div>
                 ))}

@@ -4,8 +4,8 @@
 
 .quest-section {
   position: relative;
-  background: #ffffff;
-  color: #111827;
+  background: #FAF9F5;
+  color: #1E2D1D;
   padding: 5.5rem 1.5rem 6rem;
   font-family: var(--font-body, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
   overflow: hidden;
@@ -36,10 +36,10 @@
 .quest-section__title {
   font-family: var(--font-mono, "SF Mono", Menlo, Consolas, monospace);
   font-size: clamp(1.2rem, 2.2vw, 1.65rem);
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   line-height: 1.35;
-  color: #111827;
+  color: #1E2D1D;
   margin: 0;
   text-transform: uppercase;
 }
@@ -51,15 +51,15 @@
 .quest-section__triangle {
   font-size: 0.85em;
   margin-right: 0.35rem;
-  color: #111827;
+  color: #8CA18B;
   display: inline-block;
   vertical-align: middle;
 }
 
 .quest-section__divider {
   width: 130px;
-  height: 1.5px;
-  background-color: #D1D5DB;
+  height: 2px;
+  background-color: #8CA18B;
   margin-top: 1rem;
 }
 
@@ -80,19 +80,20 @@
 .quest-mission__line {
   font-size: 1.05rem;
   line-height: 1.72;
-  color: #374151;
+  color: #243522;
   margin: 0;
   font-weight: 400;
   text-align: center;
   padding: 1.25rem 2rem;
-  background: #f9fafb;
+  background: #FFFFFF;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(140, 161, 139, 0.25);
+  box-shadow: 0 2px 10px rgba(30, 45, 29, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .quest-mission__line:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border-color: #8CA18B;
+  box-shadow: 0 8px 24px rgba(30, 45, 29, 0.08);
 }

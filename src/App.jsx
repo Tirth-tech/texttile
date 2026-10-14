@@ -78,7 +78,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#FAF8F5] text-[#1A1D1B] selection:bg-[#84CC16] selection:text-[#121513]">
+    <div className="min-h-screen flex flex-col justify-between bg-[#FAF9F5] text-[#1E2D1D] selection:bg-[#8CA18B] selection:text-[#1E2D1D]">
 
       {/* Navigation Header */}
       <Navbar

@@ -19,7 +19,7 @@ export default function TraceabilityMockup() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#1E3A2B] bg-[#FAF8F5] px-4 py-1.5 rounded-full border border-[var(--border-light)] inline-block shadow-sm">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#1E2D1D] bg-[#FAF8F5] px-4 py-1.5 rounded-full border border-[var(--border-light)] inline-block shadow-sm">
             Digital Material Passport (DPP Ready)
           </span>
           <h2 className="font-heading text-4xl sm:text-5xl font-extrabold text-[#1A1D1B] tracking-tight">
@@ -43,7 +43,7 @@ export default function TraceabilityMockup() {
             />
             <button 
               onClick={() => setSearched(true)}
-              className="bg-[#1E3A2B] hover:bg-[#2A4B37] text-white px-5 py-2.5 rounded-xl text-xs font-bold transition-colors shrink-0"
+              className="bg-[#1E2D1D] hover:bg-[#253924] text-white px-5 py-2.5 rounded-xl text-xs font-bold transition-colors shrink-0"
             >
               Verify Passport
             </button>
@@ -59,7 +59,7 @@ export default function TraceabilityMockup() {
                   setBatchId(b.id);
                   setSearched(true);
                 }}
-                className={`font-mono text-[11px] underline ${batchId === b.id ? 'font-bold text-[#1E3A2B]' : 'hover:text-[#1E3A2B]'}`}
+                className={`font-mono text-[11px] underline ${batchId === b.id ? 'font-bold text-[#1E2D1D]' : 'hover:text-[#1E2D1D]'}`}
               >
                 {b.id}
               </button>
@@ -80,11 +80,11 @@ export default function TraceabilityMockup() {
                   {currentBatch.name}
                 </h3>
               </div>
-              <div className="flex items-center gap-3 bg-[#1E3A2B] text-white p-3 rounded-2xl">
-                <QrCode className="w-8 h-8 text-[#84CC16]" />
+              <div className="flex items-center gap-3 bg-[#1E2D1D] text-white p-3 rounded-2xl">
+                <QrCode className="w-8 h-8 text-[#8CA18B]" />
                 <div>
-                  <span className="block text-[10px] text-emerald-200 uppercase font-mono">ECO SCORE</span>
-                  <span className="block text-base font-extrabold text-[#84CC16]">{currentBatch.ecoScore}</span>
+                  <span className="block text-[10px] text-[#C5D3C4] uppercase font-mono">ECO SCORE</span>
+                  <span className="block text-base font-extrabold text-[#8CA18B]">{currentBatch.ecoScore}</span>
                 </div>
               </div>
             </div>
@@ -92,22 +92,22 @@ export default function TraceabilityMockup() {
             {/* Traceability Timeline */}
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
               <div className="p-4 rounded-2xl bg-[#F3EFEA] border border-[var(--border-light)] space-y-1">
-                <MapPin className="w-4 h-4 text-[#1E3A2B]" />
+                <MapPin className="w-4 h-4 text-[#1E2D1D]" />
                 <span className="block text-[10px] text-[#5C635E] font-medium uppercase">Farm Origin</span>
                 <span className="block text-xs font-bold text-[#1A1D1B]">{currentBatch.farm}</span>
               </div>
               <div className="p-4 rounded-2xl bg-[#F3EFEA] border border-[var(--border-light)] space-y-1">
-                <ShieldCheck className="w-4 h-4 text-[#1E3A2B]" />
+                <ShieldCheck className="w-4 h-4 text-[#1E2D1D]" />
                 <span className="block text-[10px] text-[#5C635E] font-medium uppercase">Residue Stream</span>
                 <span className="block text-xs font-bold text-[#1A1D1B]">{currentBatch.crop}</span>
               </div>
               <div className="p-4 rounded-2xl bg-[#F3EFEA] border border-[var(--border-light)] space-y-1">
-                <CheckCircle2 className="w-4 h-4 text-[#84CC16]" />
+                <CheckCircle2 className="w-4 h-4 text-[#8CA18B]" />
                 <span className="block text-[10px] text-[#5C635E] font-medium uppercase">Water Savings</span>
-                <span className="block text-xs font-bold text-[#1E3A2B]">{currentBatch.waterSaved}</span>
+                <span className="block text-xs font-bold text-[#1E2D1D]">{currentBatch.waterSaved}</span>
               </div>
               <div className="p-4 rounded-2xl bg-[#F3EFEA] border border-[var(--border-light)] space-y-1">
-                <Sparkles className="w-4 h-4 text-[#C85A32]" />
+                <Sparkles className="w-4 h-4 text-[#8CA18B]" />
                 <span className="block text-[10px] text-[#5C635E] font-medium uppercase">Refining Protocol</span>
                 <span className="block text-xs font-bold text-[#1A1D1B]">Avesa Eco-Cavitation™</span>
               </div>
@@ -116,7 +116,7 @@ export default function TraceabilityMockup() {
             {/* Verification Footer */}
             <div className="flex items-center justify-between text-xs text-[#5C635E] pt-4 border-t border-[var(--border-light)]">
               <span>Verified Hash: <code className="font-mono text-[11px] text-[#1A1D1B]">0x8f4b...39a1</code></span>
-              <a href="#partner" className="text-[#1E3A2B] font-bold flex items-center gap-1 hover:underline">
+              <a href="#partner" className="text-[#1E2D1D] font-bold flex items-center gap-1 hover:underline">
                 <span>Request API Access</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>

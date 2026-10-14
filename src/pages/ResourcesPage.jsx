@@ -33,18 +33,18 @@ export default function ResourcesPage() {
             >
               <div className="relative h-56 bg-[#E8DFD3] overflow-hidden">
                 <img src={article.image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute top-4 left-4 bg-[#1E3A2B] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                <div className="absolute top-4 left-4 bg-[#1E2D1D] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
                   {article.category}
                 </div>
               </div>
 
               <div className="p-6 space-y-4">
                 <div className="flex items-center gap-4 text-[11px] text-[#5C635E]">
-                  <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5 text-[#1E3A2B]" /> {article.date}</span>
+                  <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5 text-[#1E2D1D]" /> {article.date}</span>
                   <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-[#7A5C43]" /> {article.readTime}</span>
                 </div>
 
-                <h3 className="font-heading text-xl font-bold text-[#1A1D1B] group-hover:text-[#1E3A2B] transition-colors">
+                <h3 className="font-heading text-xl font-bold text-[#1A1D1B] group-hover:text-[#1E2D1D] transition-colors">
                   {article.title}
                 </h3>
 
@@ -52,9 +52,9 @@ export default function ResourcesPage() {
                   {article.summary}
                 </p>
 
-                <div className="pt-2 text-xs font-bold text-[#1E3A2B] flex items-center justify-between">
+                <div className="pt-2 text-xs font-bold text-[#1E2D1D] flex items-center justify-between">
                   <span>Read Article</span>
-                  <ArrowRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#8CA18B] group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@ export default function ResourcesPage() {
               <X className="w-5 h-5" />
             </button>
 
-            <span className="text-xs font-bold text-[#1E3A2B] uppercase tracking-widest bg-[#F3EFEA] px-3 py-1 rounded-full">
+            <span className="text-xs font-bold text-[#1E2D1D] uppercase tracking-widest bg-[#F3EFEA] px-3 py-1 rounded-full">
               {selectedArticle.category}
             </span>
 
@@ -96,7 +96,7 @@ export default function ResourcesPage() {
             <div className="pt-4 border-t border-[var(--border-light)] flex justify-end">
               <button 
                 onClick={() => setSelectedArticle(null)}
-                className="px-6 py-2.5 rounded-full bg-[#1E3A2B] text-white text-xs font-bold"
+                className="px-6 py-2.5 rounded-full bg-[#1E2D1D] text-white text-xs font-bold"
               >
                 Close Article Reader
               </button>

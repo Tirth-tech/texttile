@@ -18,7 +18,7 @@ export default function MaterialCard({ material, onSelect }) {
 
         {/* Top Badges */}
         <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-          <span className="bg-[#1E3A2B]/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-emerald-500/20 shadow-xs">
+          <span className="bg-[#1E2D1D]/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-[#8CA18B]/30 shadow-xs">
             {material.category}
           </span>
           <span className="bg-[#FAF8F5]/90 backdrop-blur-md text-[#7A5C43] text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border border-[var(--border-light)] shadow-xs">
@@ -27,7 +27,7 @@ export default function MaterialCard({ material, onSelect }) {
         </div>
 
         {/* Hover Arrow Button */}
-        <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-[#FAF8F5] text-[#1E3A2B] flex items-center justify-center group-hover:bg-[#1E3A2B] group-hover:text-white transition-colors duration-300 shadow-md">
+        <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-[#FAF8F5] text-[#1E2D1D] flex items-center justify-center group-hover:bg-[#1E2D1D] group-hover:text-white transition-colors duration-300 shadow-md">
           <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </div>
 
@@ -36,7 +36,7 @@ export default function MaterialCard({ material, onSelect }) {
           <h3 className="font-heading text-2xl font-bold text-white tracking-tight leading-none drop-shadow-sm">
             {material.name}
           </h3>
-          <p className="text-xs font-medium text-emerald-200 mt-1 line-clamp-1">
+          <p className="text-xs font-medium text-[#C5D3C4] mt-1 line-clamp-1">
             {material.source}
           </p>
         </div>
@@ -56,7 +56,7 @@ export default function MaterialCard({ material, onSelect }) {
           </div>
           <div className="flex items-center justify-between text-xs">
             <span className="text-[#5C635E] font-medium">Water Saved:</span>
-            <span className="font-bold text-[#1E3A2B] bg-emerald-100/60 px-2 py-0.5 rounded text-[11px]">
+            <span className="font-bold text-[#1E2D1D] bg-[#8CA18B]/20 px-2 py-0.5 rounded text-[11px]">
               {material.sustainabilityImpact.waterSaved}
             </span>
           </div>
@@ -67,16 +67,16 @@ export default function MaterialCard({ material, onSelect }) {
           {material.keyProperties.slice(0, 2).map((prop, idx) => (
             <span 
               key={idx} 
-              className="text-[10px] font-medium bg-[#FAF8F5] text-[#1A1D1B] px-2.5 py-1 rounded-lg border border-[var(--border-light)] flex items-center gap-1"
+              className="text-[10px] font-medium bg-[#FAF9F5] text-[#1E2D1D] px-2.5 py-1 rounded-lg border border-[#8CA18B]/25 flex items-center gap-1"
             >
-              <CheckCircle2 className="w-3 h-3 text-[#84CC16]" />
+              <CheckCircle2 className="w-3 h-3 text-[#8CA18B]" />
               {prop}
             </span>
           ))}
         </div>
 
         {/* Action Link */}
-        <div className="pt-2 text-xs font-bold text-[#1E3A2B] group-hover:text-[#C85A32] flex items-center justify-between transition-colors">
+        <div className="pt-2 text-xs font-bold text-[#1E2D1D] group-hover:text-[#8CA18B] flex items-center justify-between transition-colors">
           <span>Explore Specifications</span>
           <span className="text-[11px] underline underline-offset-4 font-semibold">View Detail →</span>
         </div>

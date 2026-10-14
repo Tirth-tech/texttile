@@ -21,7 +21,7 @@ export default function CircularDiagram() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#84CC16] bg-[#1E3A2B] px-4 py-1.5 rounded-full border border-emerald-500/30 inline-block shadow-sm">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#8CA18B] bg-[#1E2D1D] px-4 py-1.5 rounded-full border border-[#8CA18B]/30 inline-block shadow-sm">
             Zero-Waste Circular Architecture
           </span>
           <h2 className="font-heading text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
@@ -39,10 +39,10 @@ export default function CircularDiagram() {
           <div className="lg:col-span-6 flex flex-col items-center justify-center p-6 bg-[#1C201D] rounded-3xl border border-white/10 shadow-xl relative min-h-[420px]">
             
             {/* Center Hub */}
-            <div className="w-32 h-32 rounded-full bg-[#1E3A2B] border-2 border-[#84CC16] flex flex-col items-center justify-center text-center p-2 z-10 shadow-2xl">
-              <RefreshCw className="w-8 h-8 text-[#84CC16] animate-spin-slow mb-1" />
+            <div className="w-32 h-32 rounded-full bg-[#1E2D1D] border-2 border-[#8CA18B] flex flex-col items-center justify-center text-center p-2 z-10 shadow-2xl">
+              <RefreshCw className="w-8 h-8 text-[#8CA18B] animate-spin-slow mb-1" />
               <span className="text-[10px] font-bold text-white uppercase tracking-widest">100% Circular</span>
-              <span className="text-[9px] text-emerald-200">Zero Microplastics</span>
+              <span className="text-[9px] text-[#C5D3C4]">Zero Microplastics</span>
             </div>
 
             {/* Orbit Ring Buttons */}
@@ -55,19 +55,19 @@ export default function CircularDiagram() {
                     onClick={() => setActiveNode(idx)}
                     className={`w-full text-left p-3 rounded-2xl text-xs font-bold transition-all flex items-center justify-between border ${
                       isActive 
-                        ? 'bg-[#1E3A2B] text-white border-[#84CC16] shadow-md translate-x-2' 
+                        ? 'bg-[#1E2D1D] text-white border-[#8CA18B] shadow-md translate-x-2' 
                         : 'bg-[#121513] text-gray-400 border-white/5 hover:bg-white/5'
                     }`}
                   >
                     <div className="flex items-center gap-3">
                       <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] ${
-                        isActive ? 'bg-[#84CC16] text-[#121513]' : 'bg-white/10 text-gray-400'
+                        isActive ? 'bg-[#8CA18B] text-[#121513]' : 'bg-white/10 text-gray-400'
                       }`}>
                         {node.step}
                       </span>
                       <span>{node.title}</span>
                     </div>
-                    {isActive && <CheckCircle2 className="w-4 h-4 text-[#84CC16]" />}
+                    {isActive && <CheckCircle2 className="w-4 h-4 text-[#8CA18B]" />}
                   </button>
                 );
               })}
@@ -79,7 +79,7 @@ export default function CircularDiagram() {
           <div className="lg:col-span-6 p-8 sm:p-12 rounded-3xl bg-[#1C201D] border border-white/10 shadow-2xl space-y-6 flex flex-col justify-between h-full min-h-[420px]">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <span className="text-xs font-mono text-[#84CC16] uppercase tracking-widest bg-[#1E3A2B] px-3 py-1 rounded-full">
+                <span className="text-xs font-mono text-[#8CA18B] uppercase tracking-widest bg-[#1E2D1D] px-3 py-1 rounded-full">
                   STAGE {selected.step} OF 07
                 </span>
                 <span className="text-xs text-gray-400">Biological Loop Node</span>
@@ -96,16 +96,16 @@ export default function CircularDiagram() {
 
             {/* Circular Value Proposition Box */}
             <div className="p-6 rounded-2xl bg-[#121513] border border-white/10 space-y-3">
-              <span className="text-xs font-bold text-[#84CC16] uppercase tracking-wider block">
+              <span className="text-xs font-bold text-[#8CA18B] uppercase tracking-wider block">
                 Environmental & Economic Value
               </span>
               <ul className="space-y-2 text-xs text-gray-300">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#84CC16]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#8CA18B]" />
                   <span>Eliminating toxic chemical sludge & synthetic polymers</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#84CC16]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#8CA18B]" />
                   <span>Full traceability from farm batch ID to finished fabric</span>
                 </li>
               </ul>
@@ -116,10 +116,10 @@ export default function CircularDiagram() {
               <span className="text-xs text-gray-400">Click any stage above to inspect loop details</span>
               <button
                 onClick={() => setActiveNode((prev) => (prev + 1) % NODES.length)}
-                className="px-4 py-2 rounded-full bg-[#1E3A2B] hover:bg-[#2A4B37] text-white text-xs font-bold flex items-center gap-2"
+                className="px-4 py-2 rounded-full bg-[#1E2D1D] hover:bg-[#253924] text-white text-xs font-bold flex items-center gap-2"
               >
                 <span>Advance Loop</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#84CC16]" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#8CA18B]" />
               </button>
             </div>
           </div>

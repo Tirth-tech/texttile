@@ -29,18 +29,18 @@ export default function ImpactPage({ onOpenPartnerModal }) {
 
       {/* Download Impact Report Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-10 rounded-3xl bg-[#1E3A2B] text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+        <div className="p-10 rounded-3xl bg-[#1E2D1D] text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
           <div className="space-y-2 max-w-xl">
-            <span className="text-xs font-mono text-[#84CC16] uppercase tracking-widest">ANNUAL SUSTAINABILITY AUDIT</span>
+            <span className="text-xs font-mono text-[#8CA18B] uppercase tracking-widest">ANNUAL SUSTAINABILITY AUDIT</span>
             <h3 className="font-heading text-2xl font-bold">Download the 2026 ISO 14040 Verified LCA Report</h3>
             <p className="text-xs text-gray-200">Detailed methodology, water footprint benchmarks, atmospheric stubble burning prevention data, and farm income audit metrics.</p>
           </div>
 
           <button
             onClick={onOpenPartnerModal}
-            className="bg-[#84CC16] text-[#121513] px-8 py-3.5 rounded-full text-xs font-extrabold uppercase tracking-wider hover:bg-lime-400 transition-colors shrink-0 flex items-center gap-2 shadow-lg"
+            className="bg-[#FAF9F5] text-[#1E2D1D] px-8 py-3.5 rounded-full text-xs font-extrabold uppercase tracking-wider hover:bg-white transition-colors shrink-0 flex items-center gap-2 shadow-lg"
           >
-            <Download className="w-4 h-4" />
+            <Download className="w-4 h-4 text-[#8CA18B]" />
             <span>Download Full Report PDF</span>
           </button>
         </div>

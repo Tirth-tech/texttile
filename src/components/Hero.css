@@ -102,7 +102,7 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #84CC16;
+  color: #8CA18B;
   margin-bottom: 20px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
 }
@@ -110,7 +110,7 @@
 .hero-badge__icon {
   width: 14px;
   height: 14px;
-  color: #84CC16;
+  color: #8CA18B;
 }
 
 /* Title */
@@ -160,8 +160,8 @@
 
 .hero-indicator--active {
   width: 48px;
-  background: #84CC16;
-  box-shadow: 0 0 12px rgba(132, 204, 22, 0.6);
+  background: #8CA18B;
+  box-shadow: 0 0 12px rgba(140, 161, 139, 0.6);
 }
 
 .hero-indicator:hover {
@@ -169,7 +169,7 @@
 }
 
 .hero-indicator--active:hover {
-  background: #84CC16;
+  background: #8CA18B;
 }
 
 /* ── Responsive ───────────────────── */

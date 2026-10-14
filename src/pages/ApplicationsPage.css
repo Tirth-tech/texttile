@@ -85,7 +85,7 @@
   font-family: var(--font-mono, monospace);
   font-size: 0.9rem;
   font-weight: 600;
-  color: #10B981;
+  color: #8CA18B;
   opacity: 0;
   transform: translateX(-8px);
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -101,7 +101,7 @@
 /* Hover & Active states */
 .applications-index__row:hover .applications-index__text,
 .applications-index__row--active .applications-index__text {
-  color: #059669;
+  color: #1E2D1D;
   transform: translateX(6px);
 }
 
@@ -113,7 +113,7 @@
 
 .applications-index__row:hover .applications-index__line,
 .applications-index__row--active .applications-index__line {
-  background-color: #059669;
+  background-color: #8CA18B;
   height: 1.5px;
 }
 
@@ -204,7 +204,7 @@
 }
 
 .application-block__number {
-  color: #10B981;
+  color: #8CA18B;
   font-weight: 600;
 }
 
@@ -234,7 +234,7 @@
   background: none;
   border: none;
   padding: 0.25rem 0;
-  color: #059669;
+  color: #8CA18B;
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: underline;

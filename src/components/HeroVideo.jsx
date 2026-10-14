@@ -6,9 +6,9 @@ import './HeroVideo.css';
  * Writing automatically disappears when the company logo appears at ~9.4s
  * ========================================================================= */
 const SETTINGS = {
-  FADE_OUT_AT_SECOND: 9.4,
+  FADE_OUT_AT_SECOND: 0.05,
   USE_PERCENTAGE: true,
-  FADE_OUT_PERCENTAGE: 0.783, // 78.3% through the video (~9.4s for 12s video)
+  FADE_OUT_PERCENTAGE: 0.004167 // 0.4167% through the video (~9.4s for 12s video)
 };
 
 export default function HeroVideo() {
@@ -27,10 +27,8 @@ export default function HeroVideo() {
     if (!videoRef.current) return;
     const { currentTime, duration } = videoRef.current;
 
-    // Disappear in the last ~2.5 seconds when the logo appears, or at 9.4s for 12s video
-    const fadeThreshold = (duration && duration > 0)
-      ? (duration <= 13 ? Math.max(0, duration - 2.6) : duration * SETTINGS.FADE_OUT_PERCENTAGE)
-      : SETTINGS.FADE_OUT_AT_SECOND;
+    // Disappear at user-configured time when company logo appears
+    const fadeThreshold = SETTINGS.FADE_OUT_AT_SECOND;
 
     if (currentTime < fadeThreshold) {
       setTextVisible(true);
@@ -68,11 +66,6 @@ export default function HeroVideo() {
 
       {/* Brand & Headline Content */}
       <div className={`hero__content ${textVisible ? 'hero__content--visible' : 'hero__content--faded'}`}>
-        <div className="hero__badge">
-          <img src="/images/avesa_logo_mark.png" alt="Avesa Biotex" className="h-5 w-5 object-contain" />
-          <span>AVESA BIOTEX</span>
-        </div>
-
         <h1 className="hero__title">From field to fabric.</h1>
 
         <p className="hero__description">

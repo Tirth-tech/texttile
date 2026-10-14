@@ -29,10 +29,10 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
         <div className="p-8 sm:p-12 rounded-3xl bg-[#1C201D] border border-white/10 shadow-2xl mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <div className="lg:col-span-7 space-y-3">
-            <span className="text-[10px] font-mono text-[#84CC16] uppercase tracking-widest bg-[#1E3A2B] px-3 py-1 rounded-full">
+            <span className="text-[10px] font-mono text-[#8CA18B] uppercase tracking-widest bg-[#1E2D1D] px-3 py-1 rounded-full">
               MATERIALS INNOVATION JOURNAL
             </span>
-            <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
+            <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#FAF9F5]">
               Get updates on materials, innovation & circularity.
             </h3>
             <p className="text-xs sm:text-sm text-gray-300 font-light">
@@ -54,15 +54,15 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
                 />
                 <button 
                   type="submit"
-                  className="bg-[#1E3A2B] hover:bg-[#2A4B37] text-white px-5 py-2.5 rounded-xl text-xs font-bold transition-colors shrink-0 flex items-center gap-1.5"
+                  className="bg-[#1E2D1D] hover:bg-[#253924] text-white px-5 py-2.5 rounded-xl text-xs font-bold transition-colors shrink-0 flex items-center gap-1.5"
                 >
                   <span>Subscribe</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#84CC16]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#8CA18B]" />
                 </button>
               </form>
             ) : (
-              <div className="p-4 rounded-2xl bg-[#1E3A2B] text-white text-xs font-bold flex items-center gap-2 border border-emerald-500/30">
-                <CheckCircle2 className="w-5 h-5 text-[#84CC16]" />
+              <div className="p-4 rounded-2xl bg-[#1E2D1D] text-white text-xs font-bold flex items-center gap-2 border border-[#8CA18B]/30">
+                <CheckCircle2 className="w-5 h-5 text-[#8CA18B]" />
                 <span>Thank you! You are subscribed to Avesa Biotex Materials Journal.</span>
               </div>
             )}
@@ -90,7 +90,7 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
               Turning what was once waste into the materials of tomorrow. Connecting agriculture, materials science, textile innovation, and circular economy technology to scale sustainable solutions globally.
             </p>
 
-            <div className="pt-2 flex items-center gap-4 text-xs font-mono text-[#84CC16]">
+            <div className="pt-2 flex items-center gap-4 text-xs font-mono text-[#8CA18B]">
               <span className="flex items-center gap-1.5">
                 <Globe className="w-4 h-4" />
                 <span>India</span>
@@ -120,7 +120,7 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
             </ul>
           </div>
 
-          {/* Solutions & Tech */}
+          {/* Solutions & Impact */}
           <div>
             <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-gray-300 mb-4">
               Solutions & Impact
@@ -155,10 +155,10 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
 
             <button
               onClick={onOpenPartnerModal}
-              className="mt-2 w-full bg-[#1E3A2B] hover:bg-[#2A4B37] text-white py-2.5 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-2 border border-emerald-500/20"
+              className="mt-2 w-full bg-[#1E2D1D] hover:bg-[#253924] text-white py-2.5 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-2 border border-[#8CA18B]/20"
             >
               <span>Partner Request</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#84CC16]" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#8CA18B]" />
             </button>
           </div>
 

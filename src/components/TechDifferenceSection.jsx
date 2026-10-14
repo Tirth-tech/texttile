@@ -196,14 +196,14 @@ export default function TechDifferenceSection() {
             <svg className="transformation-arrow__svg" viewBox="0 0 100 40" fill="none">
               <path
                 d="M 10,22 Q 50,8 82,20"
-                stroke="#14281D"
+                stroke="#8CA18B"
                 strokeWidth="3.5"
                 strokeLinecap="round"
                 className="transformation-arrow__path"
               />
               <path
                 d="M 68,10 L 85,20 L 70,30"
-                stroke="#14281D"
+                stroke="#8CA18B"
                 strokeWidth="3.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -221,7 +221,7 @@ export default function TechDifferenceSection() {
                 className="fiber-stage__img"
               />
               <div className="fiber-stage__sparkle">
-                <Sparkles className="w-5 h-5 text-emerald-200" />
+                <Sparkles className="w-5 h-5 text-[#8CA18B]" />
               </div>
             </div>
             <span className="fiber-stage__tag fiber-stage__tag--cotton">Cottonized Fibre</span>
@@ -232,14 +232,14 @@ export default function TechDifferenceSection() {
             <svg className="transformation-arrow__svg" viewBox="0 0 100 40" fill="none">
               <path
                 d="M 10,22 Q 50,8 82,20"
-                stroke="#14281D"
+                stroke="#8CA18B"
                 strokeWidth="3.5"
                 strokeLinecap="round"
                 className="transformation-arrow__path"
               />
               <path
                 d="M 68,10 L 85,20 L 70,30"
-                stroke="#14281D"
+                stroke="#8CA18B"
                 strokeWidth="3.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -265,14 +265,14 @@ export default function TechDifferenceSection() {
             <svg className="transformation-arrow__svg" viewBox="0 0 100 40" fill="none">
               <path
                 d="M 10,22 Q 50,8 82,20"
-                stroke="#14281D"
+                stroke="#8CA18B"
                 strokeWidth="3.5"
                 strokeLinecap="round"
                 className="transformation-arrow__path"
               />
               <path
                 d="M 68,10 L 85,20 L 70,30"
-                stroke="#14281D"
+                stroke="#8CA18B"
                 strokeWidth="3.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"

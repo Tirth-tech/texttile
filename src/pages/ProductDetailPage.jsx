@@ -110,7 +110,7 @@ export default function ProductDetailPage({ initialProduct = 'yarns', onBack, on
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1E3A2B] bg-white border border-[#1E3A2B]/15 px-4 py-2 rounded-full hover:bg-[#1E3A2B] hover:text-white transition-all shadow-sm"
+          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1E2D1D] bg-white border border-[#1E2D1D]/15 px-4 py-2 rounded-full hover:bg-[#1E2D1D] hover:text-white transition-all shadow-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Home</span>
@@ -119,7 +119,7 @@ export default function ProductDetailPage({ initialProduct = 'yarns', onBack, on
 
       {/* ── 3-Product Tab Switcher ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex items-center justify-center gap-3 p-2 bg-white/80 backdrop-blur rounded-2xl border border-[#1E3A2B]/10 max-w-2xl mx-auto shadow-sm">
+        <div className="flex items-center justify-center gap-3 p-2 bg-white/80 backdrop-blur rounded-2xl border border-[#1E2D1D]/10 max-w-2xl mx-auto shadow-sm">
           {Object.keys(PRODUCT_DATA).map((key) => {
             const prod = PRODUCT_DATA[key];
             const isActive = currentTab === key;
@@ -129,8 +129,8 @@ export default function ProductDetailPage({ initialProduct = 'yarns', onBack, on
                 onClick={() => setCurrentTab(key)}
                 className={`flex-1 py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all text-center ${
                   isActive
-                    ? 'bg-[#1E3A2B] text-white shadow-md'
-                    : 'text-[#4A5550] hover:text-[#1E3A2B] hover:bg-gray-100'
+                    ? 'bg-[#1E2D1D] text-white shadow-md'
+                    : 'text-[#4A5550] hover:text-[#1E2D1D] hover:bg-gray-100'
                 }`}
               >
                 {key}
@@ -142,28 +142,28 @@ export default function ProductDetailPage({ initialProduct = 'yarns', onBack, on
 
       {/* ── Main Product Showcase Hero ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#1E3A2B]/10 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="bg-[#FAF9F5] rounded-3xl p-8 sm:p-12 border border-[#8CA18B]/20 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           {/* Left Column: Image with Hex Accent */}
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-[340px] aspect-square flex items-center justify-center">
-              <div className="absolute inset-0 bg-[#84CC16]/15 rounded-3xl rotate-3" />
+              <div className="absolute inset-0 bg-[#8CA18B]/20 rounded-3xl rotate-3" />
               <img
                 src={product.heroImage}
                 alt={product.title}
-                className="relative z-10 w-full h-full object-contain rounded-2xl p-4 bg-white shadow-md border border-[#84CC16]/20"
+                className="relative z-10 w-full h-full object-contain rounded-2xl p-4 bg-white shadow-md border border-[#8CA18B]/30"
               />
             </div>
           </div>
 
           {/* Right Column: Title, Tagline, Highlights & CTAs */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E3A2B]/10 text-[#1E3A2B] text-xs font-bold uppercase tracking-wider border border-[#1E3A2B]/20">
-              <Sparkles className="w-3.5 h-3.5 text-[#84CC16]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E2D1D]/10 text-[#1E2D1D] text-xs font-bold uppercase tracking-wider border border-[#8CA18B]/30">
+              <Sparkles className="w-3.5 h-3.5 text-[#8CA18B]" />
               <span>{product.badge}</span>
             </div>
 
-            <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-[#121815] tracking-tight">
+            <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-[#1E2D1D] tracking-tight">
               {product.title}
             </h1>
 
@@ -178,8 +178,8 @@ export default function ProductDetailPage({ initialProduct = 'yarns', onBack, on
             {/* Highlights list */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               {product.highlights.map((highlight, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 text-xs text-[#1E3A2B] font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#84CC16] shrink-0 mt-0.5" />
+                <div key={idx} className="flex items-start gap-2.5 text-xs text-[#1E2D1D] font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-[#8CA18B] shrink-0 mt-0.5" />
                   <span>{highlight}</span>
                 </div>
               ))}
@@ -189,17 +189,17 @@ export default function ProductDetailPage({ initialProduct = 'yarns', onBack, on
             <div className="flex flex-wrap items-center gap-4 pt-4">
               <button
                 onClick={onOpenPartnerModal}
-                className="bg-[#1E3A2B] hover:bg-[#2A4B37] text-white px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-lg inline-flex items-center gap-2 hover:scale-105"
+                className="bg-[#1E2D1D] hover:bg-[#253924] text-white px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-lg inline-flex items-center gap-2 hover:scale-105"
               >
                 <span>Request Sample Swatch</span>
-                <ArrowUpRight className="w-4 h-4 text-[#84CC16]" />
+                <ArrowUpRight className="w-4 h-4 text-[#8CA18B]" />
               </button>
 
               <button
                 onClick={() => alert(`Technical data sheet for ${product.title} downloaded.`)}
-                className="bg-white hover:bg-gray-50 text-[#1E3A2B] border border-[#1E3A2B]/20 px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2"
+                className="bg-white hover:bg-gray-50 text-[#1E2D1D] border border-[#8CA18B]/30 px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2"
               >
-                <Download className="w-4 h-4 text-[#1E3A2B]" />
+                <Download className="w-4 h-4 text-[#1E2D1D]" />
                 <span>Technical Data Sheet (.PDF)</span>
               </button>
             </div>
@@ -213,28 +213,28 @@ export default function ProductDetailPage({ initialProduct = 'yarns', onBack, on
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         {/* Technical Specs Table */}
-        <div className="lg:col-span-7 bg-white rounded-3xl p-8 border border-[#1E3A2B]/10 shadow-lg space-y-6">
+        <div className="lg:col-span-7 bg-[#FAF9F5] rounded-3xl p-8 border border-[#8CA18B]/20 shadow-lg space-y-6">
           <div className="flex items-center gap-3">
-            <Layers className="w-5 h-5 text-[#84CC16]" />
-            <h2 className="font-heading text-xl font-bold text-[#121815]">
+            <Layers className="w-5 h-5 text-[#8CA18B]" />
+            <h2 className="font-heading text-xl font-bold text-[#1E2D1D]">
               Technical Specifications
             </h2>
           </div>
 
-          <div className="divide-y divide-gray-100">
+          <div className="divide-y divide-gray-200">
             {product.specs.map((spec, idx) => (
               <div key={idx} className="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
                 <span className="font-semibold text-gray-500 uppercase tracking-wider">{spec.label}</span>
-                <span className="font-bold text-[#121815]">{spec.value}</span>
+                <span className="font-bold text-[#1E2D1D]">{spec.value}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Impact & Sustainability Metrics */}
-        <div className="lg:col-span-5 bg-[#1E3A2B] text-white rounded-3xl p-8 shadow-lg space-y-6 flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-[#1E2D1D] text-white rounded-3xl p-8 shadow-lg space-y-6 flex flex-col justify-between">
           <div className="space-y-2">
-            <div className="flex items-center gap-2 text-[#84CC16] text-xs font-bold uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-[#8CA18B] text-xs font-bold uppercase tracking-widest">
               <ShieldCheck className="w-4 h-4" />
               <span>Verified Eco Impact</span>
             </div>
@@ -246,17 +246,17 @@ export default function ProductDetailPage({ initialProduct = 'yarns', onBack, on
           <div className="grid grid-cols-2 gap-4">
             {product.ecoMetrics.map((eco, idx) => (
               <div key={idx} className="bg-white/10 p-4 rounded-2xl border border-white/10">
-                <div className="font-heading text-2xl sm:text-3xl font-extrabold text-[#84CC16]">
+                <div className="font-heading text-2xl sm:text-3xl font-extrabold text-[#8CA18B]">
                   {eco.number}
                 </div>
-                <div className="text-[11px] text-emerald-100 font-light mt-1">
+                <div className="text-[11px] text-[#C5D3C4] font-light mt-1">
                   {eco.label}
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="pt-2 text-xs text-emerald-200/80">
+          <div className="pt-2 text-xs text-[#C5D3C4]/80">
             Tested in certified textile laboratories under ASTM, ISO, and OEKO-TEX compliance standards.
           </div>
         </div>

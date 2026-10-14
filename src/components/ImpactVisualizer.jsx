@@ -89,11 +89,11 @@ function StatCard({ stat, startCounting }) {
   }, [startCounting, stat.target]);
 
   return (
-    <div className="bg-[#1C303E] border border-[#2D4A5E] rounded-2xl sm:rounded-3xl p-8 sm:p-10 flex flex-col items-center justify-center text-center min-h-[220px] sm:min-h-[250px] shadow-lg transition-transform duration-300 hover:scale-[1.02] hover:border-[#3D637E]">
-      <div className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-4">
+    <div className="bg-[#1E2D1D] border border-[#8CA18B]/25 rounded-2xl sm:rounded-3xl p-8 sm:p-10 flex flex-col items-center justify-center text-center min-h-[220px] sm:min-h-[250px] shadow-xl transition-all duration-300 hover:scale-[1.02] hover:border-[#8CA18B]/60 hover:shadow-2xl">
+      <div className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#FAF9F5] tracking-tight mb-4">
         {formatCommas(currentVal)}
       </div>
-      <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed max-w-xs">
+      <p className="text-xs sm:text-sm text-[#C5D3C4] font-normal leading-relaxed max-w-xs">
         {stat.description}
       </p>
     </div>
@@ -125,18 +125,18 @@ export default function ImpactVisualizer() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-[#FAF8F5] relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-[#FAF9F5] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#7A5C43] bg-[#F3EFEA] px-4 py-1.5 rounded-full border border-[var(--border-light)] inline-block">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#1E2D1D] bg-[#8CA18B]/20 px-4 py-1.5 rounded-full border border-[#8CA18B]/35 inline-block">
             Impact You Can Measure
           </span>
-          <h2 className="font-heading text-4xl sm:text-5xl font-extrabold text-[#1A1D1B] tracking-tight">
+          <h2 className="font-heading text-4xl sm:text-5xl font-extrabold text-[#1E2D1D] tracking-tight">
             Avesa Biotex by Numbers
           </h2>
-          <p className="text-sm sm:text-base text-[#5C635E] font-normal leading-relaxed">
+          <p className="text-sm sm:text-base text-[#586657] font-normal leading-relaxed">
             Quantifiable metrics from harvest processing to zero-waste bio-refining.
           </p>
         </div>

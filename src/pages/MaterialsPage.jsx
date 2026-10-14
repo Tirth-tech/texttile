@@ -58,7 +58,7 @@ export default function MaterialsPage({ onSelectMaterial, onOpenPartnerModal }) 
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${
                   selectedCategory === cat 
-                    ? 'bg-[#1E3A2B] text-white shadow-xs' 
+                    ? 'bg-[#1E2D1D] text-white shadow-xs' 
                     : 'bg-[#FAF8F5] text-[#5C635E] hover:text-[#1A1D1B] border border-[var(--border-light)]'
                 }`}
               >
@@ -91,7 +91,7 @@ export default function MaterialsPage({ onSelectMaterial, onOpenPartnerModal }) 
                 setSearchQuery('');
                 setSelectedCategory('All');
               }}
-              className="text-xs text-[#1E3A2B] font-bold underline"
+              className="text-xs text-[#1E2D1D] font-bold underline"
             >
               Reset filters
             </button>
@@ -101,19 +101,19 @@ export default function MaterialsPage({ onSelectMaterial, onOpenPartnerModal }) 
 
       {/* Custom Material Development Request */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-10 rounded-3xl bg-[#1E3A2B] text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+        <div className="p-10 rounded-3xl bg-[#1E2D1D] text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
           <div className="space-y-2 max-w-xl">
-            <span className="text-xs font-mono text-[#84CC16] uppercase tracking-widest">CUSTOM SPECIFICATION DEVELOPMENT</span>
+            <span className="text-xs font-mono text-[#8CA18B] uppercase tracking-widest">CUSTOM SPECIFICATION DEVELOPMENT</span>
             <h3 className="font-heading text-2xl font-bold">Need a Custom Agro-Fibre Blend or Specific Staple Length?</h3>
             <p className="text-xs text-gray-200">Our materials science team formulates tailored fiber specifications for specific spinning and weaving machinery.</p>
           </div>
 
           <button
             onClick={onOpenPartnerModal}
-            className="bg-[#FAF8F5] text-[#1E3A2B] px-8 py-3.5 rounded-full text-xs font-extrabold uppercase tracking-wider hover:bg-white transition-colors shrink-0 flex items-center gap-2"
+            className="bg-[#FAF9F5] text-[#1E2D1D] px-8 py-3.5 rounded-full text-xs font-extrabold uppercase tracking-wider hover:bg-white transition-colors shrink-0 flex items-center gap-2"
           >
             <span>Request Custom Formulation</span>
-            <ArrowRight className="w-4 h-4 text-[#C85A32]" />
+            <ArrowRight className="w-4 h-4 text-[#8CA18B]" />
           </button>
         </div>
       </section>

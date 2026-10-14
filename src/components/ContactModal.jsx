@@ -57,7 +57,7 @@ export default function ContactModal({ isOpen, onClose, initialMaterial = null }
                     placeholder="e.g. Dr. Sarah Jenkins"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F3EFEA] border border-[var(--border-light)] text-xs font-medium text-[#1A1D1B] focus:outline-none focus:ring-2 focus:ring-[#1E3A2B]"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F3EFEA] border border-[var(--border-light)] text-xs font-medium text-[#1A1D1B] focus:outline-none focus:ring-2 focus:ring-[#8CA18B]"
                   />
                 </div>
 
@@ -69,7 +69,7 @@ export default function ContactModal({ isOpen, onClose, initialMaterial = null }
                     placeholder="e.g. Atelier Sustainable"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F3EFEA] border border-[var(--border-light)] text-xs font-medium text-[#1A1D1B] focus:outline-none focus:ring-2 focus:ring-[#1E3A2B]"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F3EFEA] border border-[var(--border-light)] text-xs font-medium text-[#1A1D1B] focus:outline-none focus:ring-2 focus:ring-[#8CA18B]"
                   />
                 </div>
               </div>
@@ -83,7 +83,7 @@ export default function ContactModal({ isOpen, onClose, initialMaterial = null }
                     placeholder="s.jenkins@atelier.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F3EFEA] border border-[var(--border-light)] text-xs font-medium text-[#1A1D1B] focus:outline-none focus:ring-2 focus:ring-[#1E3A2B]"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F3EFEA] border border-[var(--border-light)] text-xs font-medium text-[#1A1D1B] focus:outline-none focus:ring-2 focus:ring-[#8CA18B]"
                   />
                 </div>
 
@@ -94,7 +94,7 @@ export default function ContactModal({ isOpen, onClose, initialMaterial = null }
                     placeholder="e.g. Switzerland / USA"
                     value={formData.country}
                     onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F3EFEA] border border-[var(--border-light)] text-xs font-medium text-[#1A1D1B] focus:outline-none focus:ring-2 focus:ring-[#1E3A2B]"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F3EFEA] border border-[var(--border-light)] text-xs font-medium text-[#1A1D1B] focus:outline-none focus:ring-2 focus:ring-[#8CA18B]"
                   />
                 </div>
               </div>
@@ -104,7 +104,7 @@ export default function ContactModal({ isOpen, onClose, initialMaterial = null }
                 <select 
                   value={formData.interest}
                   onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#F3EFEA] border border-[var(--border-light)] text-xs font-bold text-[#1A1D1B] focus:outline-none focus:ring-2 focus:ring-[#1E3A2B]"
+                  className="w-full px-4 py-3 rounded-xl bg-[#F3EFEA] border border-[var(--border-light)] text-xs font-bold text-[#1A1D1B] focus:outline-none focus:ring-2 focus:ring-[#8CA18B]"
                 >
                   <option value="Fibres">Natural & Circular Fibres (Banana, Hemp, Pine)</option>
                   <option value="Yarns">Spun Sustainable Yarns</option>
@@ -122,36 +122,36 @@ export default function ContactModal({ isOpen, onClose, initialMaterial = null }
                   placeholder="Tell us about your target application, volume requirements, or technical specs..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#F3EFEA] border border-[var(--border-light)] text-xs font-medium text-[#1A1D1B] focus:outline-none focus:ring-2 focus:ring-[#1E3A2B]"
+                  className="w-full px-4 py-3 rounded-xl bg-[#F3EFEA] border border-[var(--border-light)] text-xs font-medium text-[#1A1D1B] focus:outline-none focus:ring-2 focus:ring-[#8CA18B]"
                 />
               </div>
 
-              <button
+                <button
                 type="submit"
-                className="w-full bg-[#1E3A2B] hover:bg-[#2A4B37] text-white py-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-lg hover:scale-[1.01] transition-all"
+                className="w-full bg-[#1E2D1D] hover:bg-[#253924] text-white py-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-lg hover:scale-[1.01] transition-all"
               >
                 <span>Submit Collaboration Inquiry</span>
-                <Send className="w-4 h-4 text-[#84CC16]" />
+                <Send className="w-4 h-4 text-[#8CA18B]" />
               </button>
             </form>
           </div>
         ) : (
           <div className="text-center py-12 space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#1E3A2B] flex items-center justify-center mx-auto shadow-inner">
-              <CheckCircle2 className="w-10 h-10 text-[#84CC16]" />
+            <div className="w-16 h-16 rounded-full bg-[#8CA18B]/20 text-[#1E2D1D] flex items-center justify-center mx-auto shadow-inner">
+              <CheckCircle2 className="w-10 h-10 text-[#8CA18B]" />
             </div>
-            <h3 className="font-heading text-2xl font-bold text-[#1A1D1B]">
+            <h3 className="font-heading text-2xl font-bold text-[#1E2D1D]">
               Inquiry Received!
             </h3>
             <p className="text-xs sm:text-sm text-[#5C635E] max-w-md mx-auto">
-              Thank you, <strong className="text-[#1A1D1B]">{formData.name}</strong>. Our Materials Science Partnerships team will review your project specs for <strong className="text-[#1E3A2B]">{formData.company}</strong> and contact you within 24 hours.
+              Thank you, <strong className="text-[#1E2D1D]">{formData.name}</strong>. Our Materials Science Partnerships team will review your project specs for <strong className="text-[#1E2D1D]">{formData.company}</strong> and contact you within 24 hours.
             </p>
             <button
               onClick={() => {
                 setSubmitted(false);
                 onClose();
               }}
-              className="mt-4 px-6 py-2.5 rounded-full bg-[#1E3A2B] text-white text-xs font-bold"
+              className="mt-4 px-6 py-2.5 rounded-full bg-[#1E2D1D] text-white text-xs font-bold"
             >
               Close Window
             </button>

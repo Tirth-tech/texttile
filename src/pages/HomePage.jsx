@@ -22,24 +22,24 @@ export default function HomePage({ setActiveTab, onSelectProduct, onOpenPartnerM
       <ImpactVisualizer />
 
       {/* 6. B2B COLLABORATION CTA */}
-      <section className="py-24 bg-[#1E3A2B] text-white relative overflow-hidden">
+      <section className="py-24 bg-[#1E2D1D] text-[#FAF9F5] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#84CC16] bg-white/10 px-4 py-1.5 rounded-full border border-white/20">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#8CA18B] bg-white/10 px-4 py-1.5 rounded-full border border-white/20">
             Open for B2B Commercial Pilots
           </span>
-          <h2 className="font-heading text-4xl sm:text-6xl font-extrabold text-[#FAF8F5] max-w-4xl mx-auto leading-tight">
+          <h2 className="font-heading text-4xl sm:text-6xl font-extrabold text-[#FAF9F5] max-w-4xl mx-auto leading-tight">
             Let's Build the Next Material Together.
           </h2>
-          <p className="text-sm sm:text-lg text-emerald-100 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-sm sm:text-lg text-[#C5D3C4] max-w-2xl mx-auto font-light leading-relaxed">
             We partner with forward-thinking fashion houses, apparel brands, textile spinners, and agricultural cooperatives to turn raw jute into cottonized clothes.
           </p>
           <div className="pt-4">
             <button
               onClick={onOpenPartnerModal}
-              className="bg-[#FAF8F5] hover:bg-white text-[#1E3A2B] px-9 py-4 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-2xl hover:scale-105 transition-all inline-flex items-center gap-3"
+              className="bg-[#FAF9F5] hover:bg-white text-[#1E2D1D] px-9 py-4 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-2xl hover:scale-105 transition-all inline-flex items-center gap-3"
             >
               <span>Start a Collaboration</span>
-              <ArrowUpRight className="w-4 h-4 text-[#C85A32]" />
+              <ArrowUpRight className="w-4 h-4 text-[#8CA18B]" />
             </button>
           </div>
         </div>

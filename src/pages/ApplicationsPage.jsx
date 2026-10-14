@@ -150,7 +150,7 @@ export default function ApplicationsPage({ onOpenPartnerModal }) {
                   className="application-block__cta"
                 >
                   <span>{item.ctaText}</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#84CC16]" />
+                  <ArrowUpRight className="w-4 h-4 text-[#8CA18B]" />
                 </button>
               </div>
 

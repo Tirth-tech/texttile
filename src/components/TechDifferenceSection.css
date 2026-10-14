@@ -4,9 +4,9 @@
 
 .tech-difference {
   position: relative;
-  background: #10B981;
-  background: linear-gradient(135deg, #05A064 0%, #10B981 50%, #059669 100%);
-  color: #14281D;
+  background: #182618;
+  background: linear-gradient(135deg, #182618 0%, #243522 50%, #1A2819 100%);
+  color: #FAF9F5;
   padding: 5rem 1.5rem 6.5rem;
   overflow: hidden;
   font-family: var(--font-body, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
@@ -77,7 +77,7 @@
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.025em;
-  color: #0b2216;
+  color: #FAF9F5;
   margin: 0;
 }
 
@@ -133,15 +133,16 @@
   width: 130px;
   height: 130px;
   border-radius: 26px;
-  background: rgba(255, 255, 255, 0.95);
+  background: #FAF9F5;
   padding: 0.7rem;
-  box-shadow: 0 16px 36px rgba(4, 76, 47, 0.22),
-              0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35),
+              0 2px 8px rgba(0, 0, 0, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(140, 161, 139, 0.3);
 }
 
 @media (min-width: 640px) {
@@ -164,13 +165,14 @@
 
 .fiber-stage__img-wrap:hover {
   transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 22px 45px rgba(4, 76, 47, 0.32);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
 }
 
 .fiber-stage__img-wrap--cotton {
-  background: #ffffff;
-  box-shadow: 0 16px 40px rgba(255, 255, 255, 0.38),
-              0 16px 36px rgba(4, 76, 47, 0.22);
+  background: #FAF9F5;
+  border-color: #8CA18B;
+  box-shadow: 0 16px 40px rgba(140, 161, 139, 0.25),
+              0 16px 36px rgba(0, 0, 0, 0.35);
 }
 
 .fiber-stage__img {
@@ -188,20 +190,20 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #0d281a;
-  background: rgba(255, 255, 255, 0.6);
+  color: #1E2D1D;
+  background: #FAF9F5;
   backdrop-filter: blur(6px);
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(140, 161, 139, 0.4);
   white-space: nowrap;
 }
 
 .fiber-stage__tag--cotton {
-  background: #ffffff;
-  color: #05683e;
-  border-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 12px rgba(4, 76, 47, 0.12);
+  background: #FAF9F5;
+  color: #1E2D1D;
+  border-color: #8CA18B;
+  box-shadow: 0 4px 12px rgba(140, 161, 139, 0.2);
 }
 
 /* Glowing Sparkle on Cottonized */
@@ -209,15 +211,15 @@
   position: absolute;
   top: -6px;
   right: -6px;
-  background: #047857;
-  border: 2px solid #ffffff;
+  background: #243522;
+  border: 2px solid #8CA18B;
   width: 32px;
   height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   animation: pulseSparkle 2s ease-in-out infinite;
 }
 
@@ -277,12 +279,12 @@
 }
 
 .tech-properties-card__inner {
-  background: #FCFAF7;
+  background: #FAF9F5;
   border-radius: 28px;
   padding: 1.5rem 1rem;
-  box-shadow: 0 16px 45px rgba(4, 76, 47, 0.15),
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25),
               0 2px 10px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(140, 161, 139, 0.3);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -323,20 +325,21 @@
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  border: 1.8px solid #1E3A2B;
-  background: #FFFFFF;
+  border: 1.8px solid #1E2D1D;
+  background: #FAF9F5;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1E3A2B;
-  box-shadow: 0 3px 10px rgba(30, 58, 43, 0.08);
+  color: #1E2D1D;
+  box-shadow: 0 3px 10px rgba(30, 45, 29, 0.08);
   transition: all 0.3s ease;
 }
 
 .property-badge:hover .property-badge__circle {
-  background: #1E3A2B;
-  color: #FFFFFF;
-  box-shadow: 0 6px 16px rgba(30, 58, 43, 0.22);
+  background: #1E2D1D;
+  color: #FAF9F5;
+  border-color: #8CA18B;
+  box-shadow: 0 6px 16px rgba(30, 45, 29, 0.25);
 }
 
 .property-badge__icon {
@@ -354,7 +357,7 @@
   font-family: var(--font-heading, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: 0.8rem;
   font-weight: 600;
-  color: #1E3A2B;
+  color: #1E2D1D;
   text-align: center;
   white-space: nowrap;
   letter-spacing: -0.01em;
@@ -371,6 +374,6 @@
 .property-badge__divider {
   width: 1px;
   height: 48px;
-  background-color: #E2DAD0;
+  background-color: rgba(140, 161, 139, 0.35);
   flex-shrink: 0;
 }
