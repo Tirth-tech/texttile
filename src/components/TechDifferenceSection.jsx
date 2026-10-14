@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './TechDifferenceSection.css';
-import { Sparkles, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 /* ── Custom SVGs matching the 8 Natural Properties Reference ── */
 const NaturalIcon = () => (
@@ -105,46 +105,9 @@ const PROPERTIES = [
   { id: 'moisture-wicking', title: 'Moisture-Wicking', Icon: MoistureWickingIcon },
 ];
 
-/* ── 4 Stages Information Data with Hover Summaries ── */
-const STAGES_DATA = [
-  {
-    index: 0,
-    tag: 'Raw Jute',
-    badge: 'Stage 01',
-    image: '/images/avesa_jute.jpg',
-    hoverTitle: 'Stage 01: Raw Jute Biomass',
-    hoverDesc: '100% rainfed natural bast fibers sourced directly from regenerative farming cooperatives.',
-  },
-  {
-    index: 1,
-    tag: 'Cottonized Fibre',
-    badge: 'Stage 02',
-    image: '/images/cottonized_fiber_sample.jpg',
-    hoverTitle: 'Stage 02: Cottonized Fibre',
-    hoverDesc: 'Patented enzymatic bio-softening transforming rigid jute into ultra-soft 1.8D cotton-like staples.',
-  },
-  {
-    index: 2,
-    tag: 'Spun Yarns',
-    badge: 'Stage 03',
-    image: '/images/avesa_yarn.jpg',
-    hoverTitle: 'Stage 03: Spun Yarns',
-    hoverDesc: 'High-tenacity circular spun yarns (Ne 10s–40s) running seamlessly on standard mill ring frames.',
-  },
-  {
-    index: 3,
-    tag: 'Finished Fabrics',
-    badge: 'Stage 04',
-    image: '/images/avesa_fabric.jpg',
-    hoverTitle: 'Stage 04: Finished Fabrics',
-    hoverDesc: 'Luxurious woven & knitted textiles that are naturally breathable, anti-odor, and 100% soil compostable.',
-  }
-];
-
 export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
   const sectionRef = useRef(null);
   const [animationStep, setAnimationStep] = useState(0);
-  const [hoveredStageIndex, setHoveredStageIndex] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -219,21 +182,17 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
           <h2 className="tech-difference__title">
             Our difference is our tech.
           </h2>
-          <p className="tech-difference__hint">
-            Hover over any stage for quick insights, or click to explore the complete technology page.
-          </p>
         </div>
 
-        {/* ── 4-STAGE TRANSFORMATION FLOW (WITH BOTTOM HOVER INFO & PAGE CLICK) ── */}
+        {/* ── 4-STAGE TRANSFORMATION FLOW (WITH IN-FRAME HOVER ANIMATION) ── */}
         <div className="tech-transformation-pipeline">
           
           {/* Stage 1: Raw Jute */}
           <div
             onClick={() => handleStageClick(0)}
-            onMouseEnter={() => setHoveredStageIndex(0)}
-            onMouseLeave={() => setHoveredStageIndex(null)}
             role="button"
             tabIndex={0}
+            aria-label="Raw Jute - Natural, Strong, Eco-Friendly"
             className={`fiber-stage ${animationStep >= 1 ? 'fiber-stage--visible' : ''}`}
           >
             <div className="fiber-stage__img-wrap">
@@ -243,12 +202,9 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
                 className="fiber-stage__img"
               />
 
-              {/* Small Info Tooltip at the Bottom of this Image on Hover */}
-              <div className={`fiber-stage__hover-info ${hoveredStageIndex === 0 ? 'fiber-stage__hover-info--visible' : ''}`}>
-                <div className="fiber-stage__hover-arrow" />
-                <strong className="fiber-stage__hover-title">{STAGES_DATA[0].hoverTitle}</strong>
-                <p className="fiber-stage__hover-desc">{STAGES_DATA[0].hoverDesc}</p>
-                <span className="fiber-stage__hover-cta">Click for full page →</span>
+              {/* Short 4-5 word product description inside the image frame at bottom */}
+              <div className="fiber-stage__caption-wrap" aria-hidden="true">
+                <span className="fiber-stage__caption-text">Natural • Strong • Eco-Friendly</span>
               </div>
             </div>
             <span className="fiber-stage__tag">Raw Jute</span>
@@ -278,10 +234,9 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
           {/* Stage 2: Cottonized Fibre (with Sparkle) */}
           <div
             onClick={() => handleStageClick(1)}
-            onMouseEnter={() => setHoveredStageIndex(1)}
-            onMouseLeave={() => setHoveredStageIndex(null)}
             role="button"
             tabIndex={0}
+            aria-label="Cottonized Fibre - Soft, Breathable, Pure Cellulose"
             className={`fiber-stage fiber-stage--cotton ${animationStep >= 3 ? 'fiber-stage--visible' : ''}`}
           >
             <div className="fiber-stage__img-wrap fiber-stage__img-wrap--cotton">
@@ -291,15 +246,12 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
                 className="fiber-stage__img"
               />
               <div className="fiber-stage__sparkle">
-                <Sparkles className="w-5 h-5 text-[#8CA18B]" />
+                <Sparkles className="w-4 h-4 text-[#8CA18B]" />
               </div>
 
-              {/* Small Info Tooltip at the Bottom of this Image on Hover */}
-              <div className={`fiber-stage__hover-info ${hoveredStageIndex === 1 ? 'fiber-stage__hover-info--visible' : ''}`}>
-                <div className="fiber-stage__hover-arrow" />
-                <strong className="fiber-stage__hover-title">{STAGES_DATA[1].hoverTitle}</strong>
-                <p className="fiber-stage__hover-desc">{STAGES_DATA[1].hoverDesc}</p>
-                <span className="fiber-stage__hover-cta">Click for full page →</span>
+              {/* Short 4-5 word product description inside the image frame at bottom */}
+              <div className="fiber-stage__caption-wrap" aria-hidden="true">
+                <span className="fiber-stage__caption-text">Soft • Breathable • Pure Cellulose</span>
               </div>
             </div>
             <span className="fiber-stage__tag fiber-stage__tag--cotton">Cottonized Fibre</span>
@@ -329,10 +281,9 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
           {/* Stage 3: Yarns */}
           <div
             onClick={() => handleStageClick(2)}
-            onMouseEnter={() => setHoveredStageIndex(2)}
-            onMouseLeave={() => setHoveredStageIndex(null)}
             role="button"
             tabIndex={0}
+            aria-label="Spun Yarns - Durable, Versatile, High Tenacity"
             className={`fiber-stage ${animationStep >= 5 ? 'fiber-stage--visible' : ''}`}
           >
             <div className="fiber-stage__img-wrap">
@@ -342,12 +293,9 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
                 className="fiber-stage__img"
               />
 
-              {/* Small Info Tooltip at the Bottom of this Image on Hover */}
-              <div className={`fiber-stage__hover-info ${hoveredStageIndex === 2 ? 'fiber-stage__hover-info--visible' : ''}`}>
-                <div className="fiber-stage__hover-arrow" />
-                <strong className="fiber-stage__hover-title">{STAGES_DATA[2].hoverTitle}</strong>
-                <p className="fiber-stage__hover-desc">{STAGES_DATA[2].hoverDesc}</p>
-                <span className="fiber-stage__hover-cta">Click for full page →</span>
+              {/* Short 4-5 word product description inside the image frame at bottom */}
+              <div className="fiber-stage__caption-wrap" aria-hidden="true">
+                <span className="fiber-stage__caption-text">Durable • Versatile • High Tenacity</span>
               </div>
             </div>
             <span className="fiber-stage__tag">Spun Yarns</span>
@@ -377,10 +325,9 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
           {/* Stage 4: Fabrics */}
           <div
             onClick={() => handleStageClick(3)}
-            onMouseEnter={() => setHoveredStageIndex(3)}
-            onMouseLeave={() => setHoveredStageIndex(null)}
             role="button"
             tabIndex={0}
+            aria-label="Finished Fabrics - Silky, Biodegradable, Circular Textile"
             className={`fiber-stage ${animationStep >= 7 ? 'fiber-stage--visible' : ''}`}
           >
             <div className="fiber-stage__img-wrap">
@@ -390,12 +337,9 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
                 className="fiber-stage__img"
               />
 
-              {/* Small Info Tooltip at the Bottom of this Image on Hover */}
-              <div className={`fiber-stage__hover-info ${hoveredStageIndex === 3 ? 'fiber-stage__hover-info--visible' : ''}`}>
-                <div className="fiber-stage__hover-arrow" />
-                <strong className="fiber-stage__hover-title">{STAGES_DATA[3].hoverTitle}</strong>
-                <p className="fiber-stage__hover-desc">{STAGES_DATA[3].hoverDesc}</p>
-                <span className="fiber-stage__hover-cta">Click for full page →</span>
+              {/* Short 4-5 word product description inside the image frame at bottom */}
+              <div className="fiber-stage__caption-wrap" aria-hidden="true">
+                <span className="fiber-stage__caption-text">Silky • Biodegradable • Circular Textile</span>
               </div>
             </div>
             <span className="fiber-stage__tag">Finished Fabrics</span>
