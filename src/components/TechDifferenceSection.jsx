@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './TechDifferenceSection.css';
-import { Sparkles, X, ChevronRight, CheckCircle2, Cpu, Flame, Droplets } from 'lucide-react';
+import { Sparkles, ArrowRight, ArrowUpRight } from 'lucide-react';
 
 /* ── Custom SVGs matching the 8 Natural Properties Reference ── */
 const NaturalIcon = () => (
@@ -105,75 +105,46 @@ const PROPERTIES = [
   { id: 'moisture-wicking', title: 'Moisture-Wicking', Icon: MoistureWickingIcon },
 ];
 
-/* ── 4 Stages Information Data for Interactive Click ── */
+/* ── 4 Stages Information Data with Hover Summaries ── */
 const STAGES_DATA = [
   {
     index: 0,
     tag: 'Raw Jute',
     badge: 'Stage 01',
     image: '/images/avesa_jute.jpg',
-    headline: 'Agricultural Biomass & Raw Jute Bast',
-    description: 'Cultivated in regenerative floodplains relying exclusively on monsoon rainfall without synthetic fertilizers or chemical irrigation. Rich in natural cellulose and durable plant lignins, raw harvested stalks provide the foundation for eco-conscious textile creation.',
-    specs: [
-      { label: 'Cellulose Content', value: '65% – 70%' },
-      { label: 'Water Requirement', value: '100% Rainfed' },
-      { label: 'Harvest Cycle', value: '120 Days Rapid Renewal' },
-      { label: 'Carbon Sequestration', value: 'High Biomass Absorption' }
-    ],
-    advantage: 'Eliminates agricultural crop burning while providing marginal farmers with guaranteed fair-trade off-take.'
+    hoverTitle: 'Stage 01: Raw Jute Biomass',
+    hoverDesc: '100% rainfed natural bast fibers sourced directly from regenerative farming cooperatives.',
   },
   {
     index: 1,
     tag: 'Cottonized Fibre',
-    badge: 'Stage 02 (Core Breakthrough)',
+    badge: 'Stage 02',
     image: '/images/cottonized_fiber_sample.jpg',
-    headline: 'Proprietary Mechanical-Enzymatic Cottonization',
-    description: 'Our patented technology breaks down coarse lignin bonds and separates fibers into ultra-fine, soft cotton-like staples. This closed-loop process delivers the gentleness and softness of high-grade cotton while retaining the natural strength and antimicrobial power of bast fibers.',
-    specs: [
-      { label: 'Fiber Fineness', value: '1.8 – 2.4 Denier' },
-      { label: 'Staple Length', value: '34 mm – 38 mm' },
-      { label: 'Energy Savings', value: '60% vs Synthetic Fibres' },
-      { label: 'Chemical Treatment', value: 'Zero Harsh Alkalis' }
-    ],
-    advantage: 'Directly mimics cotton handfeel and drape, ready for commercial spinning without changing mill infrastructure.'
+    hoverTitle: 'Stage 02: Cottonized Fibre',
+    hoverDesc: 'Patented enzymatic bio-softening transforming rigid jute into ultra-soft 1.8D cotton-like staples.',
   },
   {
     index: 2,
     tag: 'Spun Yarns',
     badge: 'Stage 03',
     image: '/images/avesa_yarn.jpg',
-    headline: 'High-Tenacity Cottonized Spun Yarns',
-    description: 'Our cottonized fibers are spun on standard rotor and ring spinning equipment without modifications. Spinners can create 100% pure circular yarns or smooth blends with organic cotton, lyocell, or recycled fibers, achieving exceptional yarn uniformity and low pilling.',
-    specs: [
-      { label: 'Yarn Count Range', value: 'Ne 10s to Ne 40s' },
-      { label: 'Tenacity', value: 'High Tensile Strength' },
-      { label: 'Mill Retooling', value: 'Zero Capex Required' },
-      { label: 'Evenness (CVm)', value: '< 12% Consistent Run' }
-    ],
-    advantage: 'Plug-and-play drop-in solution for existing yarn mills worldwide, slashing transition costs to zero.'
+    hoverTitle: 'Stage 03: Spun Yarns',
+    hoverDesc: 'High-tenacity circular spun yarns (Ne 10s–40s) running seamlessly on standard mill ring frames.',
   },
   {
     index: 3,
     tag: 'Finished Fabrics',
     badge: 'Stage 04',
     image: '/images/avesa_fabric.jpg',
-    headline: 'Circular, High-Performance Woven & Knitted Fabrics',
-    description: 'Engineered into premium textiles for fashion, denim, luxury apparel, and home interiors. Inherently breathable, thermoregulating, and naturally odor-resistant, our finished fabrics are completely biodegradable in soil without leaving synthetic microplastics behind.',
-    specs: [
-      { label: 'Biodegradability', value: '100% Soil Compostable' },
-      { label: 'Finishing Water', value: '< 10L per Kilogram' },
-      { label: 'Handfeel', value: 'Silky, Breathable, Soft' },
-      { label: 'Microplastics', value: 'Zero Shedding' }
-    ],
-    advantage: 'Complete circularity from soil back to soil, empowering global brands to meet ambitious zero-waste commitments.'
+    hoverTitle: 'Stage 04: Finished Fabrics',
+    hoverDesc: 'Luxurious woven & knitted textiles that are naturally breathable, anti-odor, and 100% soil compostable.',
   }
 ];
 
-export default function TechDifferenceSection() {
+export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
   const sectionRef = useRef(null);
-  const detailPanelRef = useRef(null);
   const [animationStep, setAnimationStep] = useState(0);
-  const [selectedStageIndex, setSelectedStageIndex] = useState(null);
+  const [hoveredStageIndex, setHoveredStageIndex] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -208,21 +179,12 @@ export default function TechDifferenceSection() {
   }, []);
 
   const handleStageClick = (idx) => {
-    if (selectedStageIndex === idx) {
-      // Toggle off if clicking the same stage
-      setSelectedStageIndex(null);
-    } else {
-      setSelectedStageIndex(idx);
-      // Smooth scroll into detail view if on small screens
-      setTimeout(() => {
-        if (detailPanelRef.current) {
-          detailPanelRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      }, 50);
+    if (onSelectStage) {
+      onSelectStage(idx);
+    } else if (setActiveTab) {
+      setActiveTab('technology');
     }
   };
-
-  const selectedStage = selectedStageIndex !== null ? STAGES_DATA[selectedStageIndex] : null;
 
   return (
     <section ref={sectionRef} className="tech-difference" id="technology">
@@ -258,19 +220,21 @@ export default function TechDifferenceSection() {
             Our difference is our tech.
           </h2>
           <p className="tech-difference__hint">
-            Click any of the 4 stages below to discover the science and process behind our material transformation.
+            Hover over any stage for quick insights, or click to explore the complete technology page.
           </p>
         </div>
 
-        {/* ── 4-STAGE TRANSFORMATION FLOW (CLICKABLE STAGES) ── */}
+        {/* ── 4-STAGE TRANSFORMATION FLOW (WITH BOTTOM HOVER INFO & PAGE CLICK) ── */}
         <div className="tech-transformation-pipeline">
           
           {/* Stage 1: Raw Jute */}
           <div
             onClick={() => handleStageClick(0)}
+            onMouseEnter={() => setHoveredStageIndex(0)}
+            onMouseLeave={() => setHoveredStageIndex(null)}
             role="button"
             tabIndex={0}
-            className={`fiber-stage ${animationStep >= 1 ? 'fiber-stage--visible' : ''} ${selectedStageIndex === 0 ? 'fiber-stage--selected' : ''}`}
+            className={`fiber-stage ${animationStep >= 1 ? 'fiber-stage--visible' : ''}`}
           >
             <div className="fiber-stage__img-wrap">
               <img
@@ -278,9 +242,14 @@ export default function TechDifferenceSection() {
                 alt="Raw Jute Agricultural Biomass"
                 className="fiber-stage__img"
               />
-              <span className="fiber-stage__click-badge">
-                {selectedStageIndex === 0 ? 'Viewing' : 'Click to View'}
-              </span>
+
+              {/* Small Info Tooltip at the Bottom of this Image on Hover */}
+              <div className={`fiber-stage__hover-info ${hoveredStageIndex === 0 ? 'fiber-stage__hover-info--visible' : ''}`}>
+                <div className="fiber-stage__hover-arrow" />
+                <strong className="fiber-stage__hover-title">{STAGES_DATA[0].hoverTitle}</strong>
+                <p className="fiber-stage__hover-desc">{STAGES_DATA[0].hoverDesc}</p>
+                <span className="fiber-stage__hover-cta">Click for full page →</span>
+              </div>
             </div>
             <span className="fiber-stage__tag">Raw Jute</span>
           </div>
@@ -309,9 +278,11 @@ export default function TechDifferenceSection() {
           {/* Stage 2: Cottonized Fibre (with Sparkle) */}
           <div
             onClick={() => handleStageClick(1)}
+            onMouseEnter={() => setHoveredStageIndex(1)}
+            onMouseLeave={() => setHoveredStageIndex(null)}
             role="button"
             tabIndex={0}
-            className={`fiber-stage fiber-stage--cotton ${animationStep >= 3 ? 'fiber-stage--visible' : ''} ${selectedStageIndex === 1 ? 'fiber-stage--selected' : ''}`}
+            className={`fiber-stage fiber-stage--cotton ${animationStep >= 3 ? 'fiber-stage--visible' : ''}`}
           >
             <div className="fiber-stage__img-wrap fiber-stage__img-wrap--cotton">
               <img
@@ -322,9 +293,14 @@ export default function TechDifferenceSection() {
               <div className="fiber-stage__sparkle">
                 <Sparkles className="w-5 h-5 text-[#8CA18B]" />
               </div>
-              <span className="fiber-stage__click-badge">
-                {selectedStageIndex === 1 ? 'Viewing' : 'Click to View'}
-              </span>
+
+              {/* Small Info Tooltip at the Bottom of this Image on Hover */}
+              <div className={`fiber-stage__hover-info ${hoveredStageIndex === 1 ? 'fiber-stage__hover-info--visible' : ''}`}>
+                <div className="fiber-stage__hover-arrow" />
+                <strong className="fiber-stage__hover-title">{STAGES_DATA[1].hoverTitle}</strong>
+                <p className="fiber-stage__hover-desc">{STAGES_DATA[1].hoverDesc}</p>
+                <span className="fiber-stage__hover-cta">Click for full page →</span>
+              </div>
             </div>
             <span className="fiber-stage__tag fiber-stage__tag--cotton">Cottonized Fibre</span>
           </div>
@@ -353,9 +329,11 @@ export default function TechDifferenceSection() {
           {/* Stage 3: Yarns */}
           <div
             onClick={() => handleStageClick(2)}
+            onMouseEnter={() => setHoveredStageIndex(2)}
+            onMouseLeave={() => setHoveredStageIndex(null)}
             role="button"
             tabIndex={0}
-            className={`fiber-stage ${animationStep >= 5 ? 'fiber-stage--visible' : ''} ${selectedStageIndex === 2 ? 'fiber-stage--selected' : ''}`}
+            className={`fiber-stage ${animationStep >= 5 ? 'fiber-stage--visible' : ''}`}
           >
             <div className="fiber-stage__img-wrap">
               <img
@@ -363,9 +341,14 @@ export default function TechDifferenceSection() {
                 alt="Spun Cottonized Yarns"
                 className="fiber-stage__img"
               />
-              <span className="fiber-stage__click-badge">
-                {selectedStageIndex === 2 ? 'Viewing' : 'Click to View'}
-              </span>
+
+              {/* Small Info Tooltip at the Bottom of this Image on Hover */}
+              <div className={`fiber-stage__hover-info ${hoveredStageIndex === 2 ? 'fiber-stage__hover-info--visible' : ''}`}>
+                <div className="fiber-stage__hover-arrow" />
+                <strong className="fiber-stage__hover-title">{STAGES_DATA[2].hoverTitle}</strong>
+                <p className="fiber-stage__hover-desc">{STAGES_DATA[2].hoverDesc}</p>
+                <span className="fiber-stage__hover-cta">Click for full page →</span>
+              </div>
             </div>
             <span className="fiber-stage__tag">Spun Yarns</span>
           </div>
@@ -394,9 +377,11 @@ export default function TechDifferenceSection() {
           {/* Stage 4: Fabrics */}
           <div
             onClick={() => handleStageClick(3)}
+            onMouseEnter={() => setHoveredStageIndex(3)}
+            onMouseLeave={() => setHoveredStageIndex(null)}
             role="button"
             tabIndex={0}
-            className={`fiber-stage ${animationStep >= 7 ? 'fiber-stage--visible' : ''} ${selectedStageIndex === 3 ? 'fiber-stage--selected' : ''}`}
+            className={`fiber-stage ${animationStep >= 7 ? 'fiber-stage--visible' : ''}`}
           >
             <div className="fiber-stage__img-wrap">
               <img
@@ -404,79 +389,19 @@ export default function TechDifferenceSection() {
                 alt="Sustainable Woven & Knitted Fabrics"
                 className="fiber-stage__img"
               />
-              <span className="fiber-stage__click-badge">
-                {selectedStageIndex === 3 ? 'Viewing' : 'Click to View'}
-              </span>
+
+              {/* Small Info Tooltip at the Bottom of this Image on Hover */}
+              <div className={`fiber-stage__hover-info ${hoveredStageIndex === 3 ? 'fiber-stage__hover-info--visible' : ''}`}>
+                <div className="fiber-stage__hover-arrow" />
+                <strong className="fiber-stage__hover-title">{STAGES_DATA[3].hoverTitle}</strong>
+                <p className="fiber-stage__hover-desc">{STAGES_DATA[3].hoverDesc}</p>
+                <span className="fiber-stage__hover-cta">Click for full page →</span>
+              </div>
             </div>
             <span className="fiber-stage__tag">Finished Fabrics</span>
           </div>
 
         </div>
-
-        {/* ── INTERACTIVE EXPANDED INFORMATION PANEL FOR CLICKED STAGE ── */}
-        {selectedStage && (
-          <div ref={detailPanelRef} className="tech-stage-detail-panel">
-            <div className="tech-stage-detail-panel__header">
-              <div className="tech-stage-detail-panel__tag-group">
-                <span className="tech-stage-detail-panel__badge">{selectedStage.badge}</span>
-                <h3 className="tech-stage-detail-panel__title">{selectedStage.headline}</h3>
-              </div>
-
-              <div className="tech-stage-detail-panel__actions">
-                {/* Switcher pills */}
-                <div className="tech-stage-detail-panel__pills">
-                  {STAGES_DATA.map((stg, i) => (
-                    <button
-                      key={stg.index}
-                      onClick={() => setSelectedStageIndex(i)}
-                      className={`tech-stage-pill ${selectedStageIndex === i ? 'tech-stage-pill--active' : ''}`}
-                    >
-                      {stg.tag}
-                    </button>
-                  ))}
-                </div>
-
-                <button
-                  onClick={() => setSelectedStageIndex(null)}
-                  className="tech-stage-detail-panel__close-btn"
-                  aria-label="Close information"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-
-            <div className="tech-stage-detail-panel__body">
-              <div className="tech-stage-detail-panel__left">
-                <div className="tech-stage-detail-panel__img-preview">
-                  <img src={selectedStage.image} alt={selectedStage.tag} />
-                </div>
-                <div className="tech-stage-detail-panel__text-wrap">
-                  <p className="tech-stage-detail-panel__desc">{selectedStage.description}</p>
-                  <div className="tech-stage-detail-panel__advantage">
-                    <span className="tech-stage-detail-panel__adv-label">Ecological Advantage:</span>
-                    <p className="tech-stage-detail-panel__adv-text">{selectedStage.advantage}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="tech-stage-detail-panel__right">
-                <h4 className="tech-stage-detail-panel__specs-heading">Technical Specifications</h4>
-                <div className="tech-stage-detail-panel__specs-grid">
-                  {selectedStage.specs.map((item, i) => (
-                    <div key={i} className="tech-spec-card">
-                      <CheckCircle2 className="w-4 h-4 text-[#8CA18B] shrink-0" />
-                      <div>
-                        <span className="tech-spec-card__label">{item.label}</span>
-                        <strong className="tech-spec-card__val">{item.value}</strong>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* ── 8 MATERIAL PROPERTIES STRIP (Coded from Reference Image) ── */}
         <div className={`tech-properties-card ${animationStep >= 8 ? 'tech-properties-card--visible' : ''}`}>

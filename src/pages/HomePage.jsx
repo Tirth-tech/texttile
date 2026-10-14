@@ -6,7 +6,7 @@ import ImpactVisualizer from '../components/ImpactVisualizer';
 import SupplyChainSection from '../components/SupplyChainSection';
 import { ArrowUpRight } from 'lucide-react';
 
-export default function HomePage({ setActiveTab, onSelectProduct, onOpenPartnerModal }) {
+export default function HomePage({ setActiveTab, onSelectProduct, onSelectTechStage, onOpenPartnerModal }) {
   return (
     <div className="space-y-0">
 
@@ -16,8 +16,8 @@ export default function HomePage({ setActiveTab, onSelectProduct, onOpenPartnerM
       {/* 2. OUR MISSION (CENTERED 3-LINE MISSION STATEMENT) */}
       <QuestSection />
 
-      {/* 3. OUR DIFFERENCE IS OUR TECH (4 CLICKABLE STAGES WITH PROCESS INFORMATION) */}
-      <TechDifferenceSection />
+      {/* 3. OUR DIFFERENCE IS OUR TECH (4 STAGES: HOVER FOR SMALL INFO, CLICK OPENS NEW PAGE) */}
+      <TechDifferenceSection onSelectStage={onSelectTechStage} setActiveTab={setActiveTab} />
 
       {/* 4. AVESA BIOTEX BY NUMBERS (COUNT-UP IMPACT METRICS) */}
       <ImpactVisualizer />

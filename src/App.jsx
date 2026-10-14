@@ -13,6 +13,7 @@ import ProductDetailPage from './pages/ProductDetailPage';
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [selectedProduct, setSelectedProduct] = useState('yarns');
+  const [selectedTechStage, setSelectedTechStage] = useState(0);
   const [partnerModalOpen, setPartnerModalOpen] = useState(false);
 
   // Auto scroll to top on tab change
@@ -25,6 +26,11 @@ export default function App() {
     setActiveTab('product-detail');
   };
 
+  const handleSelectTechStage = (stageIdx) => {
+    setSelectedTechStage(stageIdx);
+    setActiveTab('technology');
+  };
+
   const renderActivePage = () => {
     switch (activeTab) {
       case 'home':
@@ -32,6 +38,7 @@ export default function App() {
           <HomePage
             setActiveTab={setActiveTab}
             onSelectProduct={handleSelectProduct}
+            onSelectTechStage={handleSelectTechStage}
             onOpenPartnerModal={() => setPartnerModalOpen(true)}
           />
         );
@@ -44,6 +51,8 @@ export default function App() {
       case 'technology':
         return (
           <TechnologyPage
+            initialStage={selectedTechStage}
+            onBack={() => setActiveTab('home')}
             onOpenPartnerModal={() => setPartnerModalOpen(true)}
           />
         );

@@ -1,5 +1,5 @@
 /* =========================================================================
-   TECH DIFFERENCE (4-STAGE TRANSFORMATION + PROPERTIES + INTERACTIVE CLICK)
+   TECH DIFFERENCE (4-STAGE TRANSFORMATION + PROPERTIES + HOVER INFO AT BOTTOM)
    Palette: Soft White (#FAF9F5), Sage Green (#8CA18B), Deep Olive (#1E2D1D)
    ========================================================================= */
 
@@ -8,7 +8,7 @@
   background: #1E2D1D;
   color: #FAF9F5;
   padding: 6rem 1.5rem 7.5rem;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* Decorative Organic Waves - Top */
@@ -99,15 +99,9 @@
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  margin-bottom: 2.5rem;
-  overflow-x: auto;
+  margin-bottom: 5.5rem;
+  overflow: visible;
   padding: 1rem 0.5rem 1.5rem;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.tech-transformation-pipeline::-webkit-scrollbar {
-  display: none;
 }
 
 @media (min-width: 640px) {
@@ -119,7 +113,6 @@
 @media (min-width: 1024px) {
   .tech-transformation-pipeline {
     gap: 1.5rem;
-    overflow-x: visible;
   }
 }
 
@@ -134,7 +127,12 @@
               transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   flex-shrink: 0;
   cursor: pointer;
+  position: relative;
   outline: none;
+}
+
+.fiber-stage:hover {
+  z-index: 40;
 }
 
 .fiber-stage:focus-visible {
@@ -188,12 +186,6 @@
   border-color: #8CA18B;
 }
 
-.fiber-stage--selected .fiber-stage__img-wrap {
-  transform: translateY(-6px) scale(1.05);
-  border-color: #8CA18B;
-  box-shadow: 0 0 0 3px #8CA18B, 0 24px 48px rgba(0, 0, 0, 0.5);
-}
-
 .fiber-stage__img-wrap--cotton {
   background: #FAF9F5;
   border-color: #8CA18B;
@@ -207,36 +199,75 @@
   display: block;
 }
 
-/* Click to View Badge on Hover / Active */
-.fiber-stage__click-badge {
+/* ── SMALL INFO TOOLTIP AT BOTTOM OF THE HOVERED IMAGE ───────────────── */
+.fiber-stage__hover-info {
   position: absolute;
-  bottom: 8px;
+  top: calc(100% + 14px);
   left: 50%;
-  transform: translateX(-50%);
-  background: rgba(30, 45, 29, 0.88);
-  color: #FAF9F5;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.6rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(140, 161, 139, 0.4);
-  white-space: nowrap;
+  transform: translateX(-50%) translateY(8px);
+  width: 230px;
+  background: #FAF9F5;
+  color: #1E2D1D;
+  border: 1.5px solid #8CA18B;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: left;
+  opacity: 0;
   pointer-events: none;
-  opacity: 0.85;
-  transition: all 0.2s ease;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 60;
 }
 
-.fiber-stage:hover .fiber-stage__click-badge,
-.fiber-stage--selected .fiber-stage__click-badge {
-  background: #1E2D1D;
-  border-color: #8CA18B;
+/* Pointing Arrow at top of tooltip */
+.fiber-stage__hover-arrow {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: #FAF9F5;
+  border-left: 1.5px solid #8CA18B;
+  border-top: 1.5px solid #8CA18B;
+}
+
+.fiber-stage__hover-info--visible,
+.fiber-stage:hover .fiber-stage__hover-info {
   opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
 }
 
-.fiber-stage--selected .fiber-stage__click-badge {
+.fiber-stage__hover-title {
+  font-family: var(--font-mono, "SF Mono", Menlo, Consolas, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1E2D1D;
+  display: block;
+  letter-spacing: -0.01em;
+}
+
+.fiber-stage__hover-desc {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #354734;
+  margin: 0;
+}
+
+.fiber-stage__hover-cta {
+  font-size: 0.7rem;
+  font-weight: 700;
   color: #8CA18B;
+  margin-top: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 /* Stage Tag */
@@ -255,10 +286,9 @@
   transition: all 0.2s ease;
 }
 
-.fiber-stage--selected .fiber-stage__tag {
-  background: #8CA18B;
+.fiber-stage:hover .fiber-stage__tag {
+  border-color: #8CA18B;
   color: #1E2D1D;
-  border-color: #FAF9F5;
 }
 
 .fiber-stage__tag--cotton {
@@ -343,236 +373,6 @@
   to {
     stroke-dashoffset: 0;
   }
-}
-
-/* ── INTERACTIVE EXPANDED INFORMATION PANEL ───────────────────────────── */
-.tech-stage-detail-panel {
-  background: #FAF9F5;
-  color: #1E2D1D;
-  border: 1px solid rgba(140, 161, 139, 0.4);
-  border-radius: 28px;
-  padding: 2.5rem 2.5rem 2.25rem;
-  margin-bottom: 3.5rem;
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
-  animation: slideDownPanel 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes slideDownPanel {
-  from {
-    opacity: 0;
-    transform: translateY(-16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.tech-stage-detail-panel__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(140, 161, 139, 0.25);
-  margin-bottom: 1.75rem;
-}
-
-.tech-stage-detail-panel__tag-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.tech-stage-detail-panel__badge {
-  font-family: var(--font-mono, "SF Mono", Menlo, Consolas, monospace);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #8CA18B;
-  background: rgba(140, 161, 139, 0.15);
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  display: inline-block;
-  width: fit-content;
-}
-
-.tech-stage-detail-panel__title {
-  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
-  font-weight: 800;
-  color: #1E2D1D;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.tech-stage-detail-panel__actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.tech-stage-detail-panel__pills {
-  display: flex;
-  gap: 0.35rem;
-  background: #FFFFFF;
-  padding: 0.3rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(140, 161, 139, 0.3);
-}
-
-.tech-stage-pill {
-  background: transparent;
-  border: none;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #354734;
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.tech-stage-pill:hover {
-  color: #1E2D1D;
-}
-
-.tech-stage-pill--active {
-  background: #1E2D1D;
-  color: #FAF9F5;
-}
-
-.tech-stage-detail-panel__close-btn {
-  background: #FFFFFF;
-  border: 1px solid rgba(140, 161, 139, 0.3);
-  color: #1E2D1D;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.tech-stage-detail-panel__close-btn:hover {
-  background: #1E2D1D;
-  color: #FAF9F5;
-  border-color: #1E2D1D;
-}
-
-.tech-stage-detail-panel__body {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 2.25rem;
-}
-
-.tech-stage-detail-panel__left {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
-}
-
-.tech-stage-detail-panel__img-preview {
-  width: 120px;
-  height: 120px;
-  border-radius: 20px;
-  background: #FFFFFF;
-  padding: 0.65rem;
-  border: 1px solid rgba(140, 161, 139, 0.3);
-  box-shadow: 0 8px 20px rgba(30, 45, 29, 0.08);
-  flex-shrink: 0;
-}
-
-.tech-stage-detail-panel__img-preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 14px;
-}
-
-.tech-stage-detail-panel__text-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.tech-stage-detail-panel__desc {
-  font-size: 0.98rem;
-  line-height: 1.68;
-  color: #2D3D2C;
-  margin: 0;
-}
-
-.tech-stage-detail-panel__advantage {
-  background: #FFFFFF;
-  border-left: 3px solid #8CA18B;
-  padding: 0.85rem 1rem;
-  border-radius: 0 12px 12px 0;
-}
-
-.tech-stage-detail-panel__adv-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #8CA18B;
-  letter-spacing: 0.08em;
-  display: block;
-  margin-bottom: 0.2rem;
-}
-
-.tech-stage-detail-panel__adv-text {
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: #1E2D1D;
-  margin: 0;
-  font-weight: 500;
-}
-
-.tech-stage-detail-panel__right {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.tech-stage-detail-panel__specs-heading {
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #1E2D1D;
-  margin: 0;
-}
-
-.tech-stage-detail-panel__specs-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.65rem;
-}
-
-.tech-spec-card {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: #FFFFFF;
-  border: 1px solid rgba(140, 161, 139, 0.25);
-  border-radius: 12px;
-  padding: 0.65rem 1rem;
-}
-
-.tech-spec-card__label {
-  font-size: 0.78rem;
-  color: #4A5D49;
-  display: block;
-}
-
-.tech-spec-card__val {
-  font-size: 0.9rem;
-  color: #1E2D1D;
-  font-weight: 700;
-  display: block;
 }
 
 /* ── 8 MATERIAL PROPERTIES STRIP ─────────────────────────────────────── */
@@ -686,29 +486,26 @@
 }
 
 /* ── RESPONSIVE ───────────────────────────────────────────────────────── */
-@media (max-width: 960px) {
-  .tech-stage-detail-panel__body {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .tech-stage-detail-panel__pills {
-    display: none;
-  }
-}
-
 @media (max-width: 640px) {
   .tech-difference {
     padding: 4.5rem 1rem 5.5rem;
   }
 
-  .tech-stage-detail-panel {
-    padding: 1.5rem 1.25rem;
+  .tech-transformation-pipeline {
+    gap: 0.4rem;
+    margin-bottom: 6rem;
   }
 
-  .tech-stage-detail-panel__left {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .fiber-stage__hover-info {
+    width: 180px;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .fiber-stage__hover-title {
+    font-size: 0.72rem;
+  }
+
+  .fiber-stage__hover-desc {
+    font-size: 0.75rem;
   }
 }
