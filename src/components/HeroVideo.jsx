@@ -6,9 +6,9 @@ import './HeroVideo.css';
  * Writing automatically disappears when the company logo appears in the video
  * ========================================================================= */
 const SETTINGS = {
-  FADE_OUT_AT_SECOND: 9.2, // Disappears at 9.2s when the logo appears
+  FADE_OUT_AT_SECOND: 5, // Disappears at 9.2s when the logo appears
   USE_PERCENTAGE: true,
-  FADE_OUT_PERCENTAGE: 0.767, // 76.7% through 12s video (~9.2s)
+  FADE_OUT_PERCENTAGE: 0.4167, // 76.7% through 12s video (~9.2s)
 };
 
 export default function HeroVideo() {
@@ -27,9 +27,9 @@ export default function HeroVideo() {
     if (!videoRef.current) return;
     const { currentTime, duration } = videoRef.current;
 
-    // Disappear at ~9.2s when the company logo appears (or last 2.8s of the video)
-    const fadeThreshold = (duration && duration > 5)
-      ? Math.max(0, duration - 2.8)
+    // Disappear at configured threshold
+    const fadeThreshold = SETTINGS.USE_PERCENTAGE && duration > 0
+      ? duration * SETTINGS.FADE_OUT_PERCENTAGE
       : SETTINGS.FADE_OUT_AT_SECOND;
 
     if (currentTime < fadeThreshold) {
