@@ -75,6 +75,22 @@ export default function HeroVideo() {
         </p>
       </div>
 
+      {/* Floating Animated Scroll Down Indicator */}
+      <a
+        href="#mission"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('mission')?.scrollIntoView({ behavior: 'smooth' });
+        }}
+        className="hero__scroll-indicator"
+        aria-label="Scroll down to mission section"
+      >
+        <span className="hero__scroll-label">SCROLL TO DISCOVER</span>
+        <div className="hero__scroll-mouse">
+          <div className="hero__scroll-wheel" />
+        </div>
+      </a>
+
       {/* Subtle bottom fade to blend with subsequent section */}
       <div className="hero__bottom-fade" />
     </section>

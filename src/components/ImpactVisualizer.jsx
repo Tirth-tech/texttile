@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import './ImpactVisualizer.css';
 
 const STATS_DATA = [
   {
@@ -44,8 +45,8 @@ function formatCommas(num) {
   return Number(num).toLocaleString('en-US');
 }
 
-/* ── SINGLE STAT CARD WITH COUNT-UP ANIMATION ── */
-function StatCard({ stat, startCounting }) {
+/* ── SINGLE STAT CARD WITH ORGANIC WAVE SHAPE ── */
+function StatCard({ stat, index, startCounting }) {
   const [currentVal, setCurrentVal] = useState(0);
 
   useEffect(() => {
@@ -89,11 +90,11 @@ function StatCard({ stat, startCounting }) {
   }, [startCounting, stat.target]);
 
   return (
-    <div className="bg-[#1E2D1D] border border-[#8CA18B]/25 rounded-2xl sm:rounded-3xl p-8 sm:p-10 flex flex-col items-center justify-center text-center min-h-[220px] sm:min-h-[250px] shadow-xl transition-all duration-300 hover:scale-[1.02] hover:border-[#8CA18B]/60 hover:shadow-2xl">
-      <div className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#FAF9F5] tracking-tight mb-4">
+    <div className={`impact-stat-card impact-stat-card--${index % 6}`}>
+      <div className="impact-stat-card__number">
         {formatCommas(currentVal)}
       </div>
-      <p className="text-xs sm:text-sm text-[#C5D3C4] font-normal leading-relaxed max-w-xs">
+      <p className="impact-stat-card__desc">
         {stat.description}
       </p>
     </div>
@@ -125,28 +126,29 @@ export default function ImpactVisualizer() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-[#FAF9F5] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="impact-visualizer-section" id="impact">
+      <div className="impact-visualizer__container">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#1E2D1D] bg-[#8CA18B]/20 px-4 py-1.5 rounded-full border border-[#8CA18B]/35 inline-block">
-            Impact You Can Measure
-          </span>
-          <h2 className="font-heading text-4xl sm:text-5xl font-extrabold text-[#1E2D1D] tracking-tight">
+        <div className="impact-visualizer__header">
+          <div className="impact-visualizer__badge">
+            <span>IMPACT YOU CAN MEASURE</span>
+          </div>
+          <h2 className="impact-visualizer__title">
             Avesa Biotex by Numbers
           </h2>
-          <p className="text-sm sm:text-base text-[#586657] font-normal leading-relaxed">
+          <p className="impact-visualizer__subtitle">
             Quantifiable metrics from harvest processing to zero-waste bio-refining.
           </p>
         </div>
 
-        {/* 3x2 Grid Matching User Reference Image */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {STATS_DATA.map((stat) => (
+        {/* 6 Sculptural Organic Stat Cards Grid */}
+        <div className="impact-visualizer__grid">
+          {STATS_DATA.map((stat, idx) => (
             <StatCard
               key={stat.id}
               stat={stat}
+              index={idx}
               startCounting={startCounting}
             />
           ))}

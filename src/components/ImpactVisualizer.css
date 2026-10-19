@@ -1,0 +1,179 @@
+/* =========================================================================
+   IMPACT VISUALIZER - ORGANIC SCULPTURAL STATS CARDS
+   ========================================================================= */
+
+.impact-visualizer-section {
+  position: relative;
+  background: #FAF9F5;
+  padding: 6.5rem 1.5rem 7.5rem;
+  overflow: hidden;
+}
+
+.impact-visualizer__container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.impact-visualizer__header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 4rem;
+}
+
+.impact-visualizer__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  background: rgba(140, 161, 139, 0.16);
+  border: 1px solid rgba(140, 161, 139, 0.35);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #1E2D1D;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.impact-visualizer__title {
+  font-family: var(--font-heading, sans-serif);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: #1E2D1D;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+}
+
+.impact-visualizer__subtitle {
+  font-size: 1.05rem;
+  color: #556B54;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* 6 Organic Stat Cards Grid */
+.impact-visualizer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 640px) {
+  .impact-visualizer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .impact-visualizer__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Base Organic Stat Card */
+.impact-stat-card {
+  position: relative;
+  background: #1E2D1D;
+  border: 2px solid rgba(140, 161, 139, 0.4);
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 250px;
+  box-shadow: 0 16px 40px rgba(30, 45, 29, 0.14);
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: visible;
+}
+
+/* Orbiting Dashed Wave Outline around each card */
+.impact-stat-card::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  border: 1.5px dashed rgba(140, 161, 139, 0.45);
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 0;
+}
+
+.impact-stat-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: #8CA18B;
+  box-shadow: 0 24px 50px rgba(30, 45, 29, 0.22);
+}
+
+.impact-stat-card:hover::before {
+  border-color: #8CA18B;
+  inset: -8px;
+}
+
+/* 6 Unique Asymmetric Organic Shapes */
+.impact-stat-card--0 {
+  border-radius: 46px 28px 52px 24px / 28px 50px 24px 48px;
+}
+.impact-stat-card--0:hover {
+  border-radius: 28px 50px 24px 48px / 46px 28px 52px 24px;
+}
+
+.impact-stat-card--1 {
+  border-radius: 28px 52px 24px 48px / 48px 24px 50px 28px;
+}
+.impact-stat-card--1:hover {
+  border-radius: 50px 28px 48px 24px / 28px 52px 24px 48px;
+}
+
+.impact-stat-card--2 {
+  border-radius: 44px 48px 30px 54px / 48px 32px 52px 40px;
+}
+.impact-stat-card--2:hover {
+  border-radius: 32px 52px 42px 30px / 44px 48px 30px 54px;
+}
+
+.impact-stat-card--3 {
+  border-radius: 32px 50px 44px 28px / 50px 28px 46px 36px;
+}
+.impact-stat-card--3:hover {
+  border-radius: 48px 32px 30px 50px / 32px 50px 44px 28px;
+}
+
+.impact-stat-card--4 {
+  border-radius: 50px 32px 46px 36px / 30px 48px 34px 50px;
+}
+.impact-stat-card--4:hover {
+  border-radius: 34px 50px 32px 46px / 50px 32px 46px 36px;
+}
+
+.impact-stat-card--5 {
+  border-radius: 36px 54px 32px 50px / 48px 34px 50px 32px;
+}
+.impact-stat-card--5:hover {
+  border-radius: 52px 34px 48px 32px / 36px 54px 32px 50px;
+}
+
+.impact-stat-card__number {
+  font-family: var(--font-heading, sans-serif);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 800;
+  color: #FAF9F5;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+  position: relative;
+  z-index: 1;
+}
+
+.impact-stat-card__desc {
+  font-size: 0.88rem;
+  color: #C5D3C4;
+  font-weight: 400;
+  line-height: 1.55;
+  max-width: 260px;
+  position: relative;
+  z-index: 1;
+}

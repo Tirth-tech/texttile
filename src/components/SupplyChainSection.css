@@ -351,17 +351,36 @@
   overflow-wrap: break-word;
 }
 
-/* ── SELECTED STAGE EXPANDED DETAIL BOX (ORGANIC SHAPE) ───────────────── */
+/* ── SELECTED STAGE EXPANDED DETAIL BOX (ORGANIC WAVE SHAPE) ─────────── */
 .supply-chain__detail-box {
   background: #FFFFFF;
-  border: 2px solid rgba(140, 161, 139, 0.3);
-  /* Subtle organic wave shape */
-  border-radius: 32px 48px 36px 44px / 40px 36px 44px 40px;
-  padding: 2.5rem 2.75rem;
+  border: 2px solid rgba(140, 161, 139, 0.35);
+  /* Attractive fluid organic wave shape */
+  border-radius: 44px 68px 38px 62px / 58px 40px 62px 42px;
+  padding: 2.75rem 2.75rem;
   box-shadow: 0 20px 50px -10px rgba(30, 45, 29, 0.08);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  overflow: hidden;
+}
+
+.supply-chain__detail-box:hover {
+  border-radius: 62px 42px 66px 38px / 42px 62px 40px 64px;
+}
+
+/* Orbiting dashed wave outline contour */
+.supply-chain__detail-box::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  border: 1.5px dashed rgba(140, 161, 139, 0.45);
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.supply-chain__detail-box:hover::after {
+  border-color: #8CA18B;
+  inset: -8px;
 }
 
 /* Decorative wave overlay at bottom of detail box */

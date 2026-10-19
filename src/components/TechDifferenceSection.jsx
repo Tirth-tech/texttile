@@ -410,13 +410,17 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
 
       </div>
 
-      {/* Bottom Decorative Waves */}
-      <div className="tech-difference__waves-bottom">
-        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none">
+      {/* Bottom Flowing Wave Border Shape */}
+      <div className="tech-difference__bottom-wave-border" aria-hidden="true">
+        <svg viewBox="0 0 1440 110" fill="none" preserveAspectRatio="none">
           <path
-            d="M0,30 C300,5 600,55 900,20 C1200,-15 1380,45 1440,30"
-            stroke="rgba(255, 255, 255, 0.6)"
-            strokeWidth="3"
+            d="M0,45 C280,110 560,10 840,70 C1120,125 1320,30 1440,65 L1440,110 L0,110 Z"
+            fill="#FAF9F5"
+          />
+          <path
+            d="M0,45 C280,110 560,10 840,70 C1120,125 1320,30 1440,65"
+            stroke="#8CA18B"
+            strokeWidth="3.5"
             fill="none"
           />
         </svg>
