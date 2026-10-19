@@ -9,6 +9,7 @@ import TechnologyPage from './pages/TechnologyPage';
 import ApplicationsPage from './pages/ApplicationsPage';
 import ContactPage from './pages/ContactPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import StageDetailPage from './pages/StageDetailPage';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -28,7 +29,7 @@ export default function App() {
 
   const handleSelectTechStage = (stageIdx) => {
     setSelectedTechStage(stageIdx);
-    setActiveTab('technology');
+    setActiveTab('stage-detail');
   };
 
   const renderActivePage = () => {
@@ -71,6 +72,15 @@ export default function App() {
         return (
           <ProductDetailPage
             initialProduct={selectedProduct}
+            onBack={() => setActiveTab('home')}
+            onOpenPartnerModal={() => setPartnerModalOpen(true)}
+          />
+        );
+      case 'stage-detail':
+        return (
+          <StageDetailPage
+            stageIndex={selectedTechStage}
+            onSelectStage={(idx) => setSelectedTechStage(idx)}
             onBack={() => setActiveTab('home')}
             onOpenPartnerModal={() => setPartnerModalOpen(true)}
           />

@@ -108,6 +108,7 @@ const PROPERTIES = [
 export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
   const sectionRef = useRef(null);
   const [animationStep, setAnimationStep] = useState(0);
+  const [hoveredIdx, setHoveredIdx] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -142,10 +143,13 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
   }, []);
 
   const handleStageClick = (idx) => {
+    // Always navigate to the standalone stage-detail page
     if (onSelectStage) {
       onSelectStage(idx);
-    } else if (setActiveTab) {
-      setActiveTab('technology');
+    }
+    // Guarantee we go to stage-detail (not technology)
+    if (setActiveTab) {
+      setActiveTab('stage-detail');
     }
   };
 
@@ -184,16 +188,18 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
           </h2>
         </div>
 
-        {/* ── 4-STAGE TRANSFORMATION FLOW (WITH IN-FRAME HOVER ANIMATION) ── */}
+        {/* ── 4-STAGE TRANSFORMATION FLOW (WITH HIGH-CONTRAST IN-FRAME HOVER TEXT) ── */}
         <div className="tech-transformation-pipeline">
           
           {/* Stage 1: Raw Jute */}
           <div
             onClick={() => handleStageClick(0)}
+            onMouseEnter={() => setHoveredIdx(0)}
+            onMouseLeave={() => setHoveredIdx(null)}
             role="button"
             tabIndex={0}
             aria-label="Raw Jute - Natural, Strong, Eco-Friendly"
-            className={`fiber-stage ${animationStep >= 1 ? 'fiber-stage--visible' : ''}`}
+            className={`fiber-stage ${animationStep >= 1 ? 'fiber-stage--visible' : ''} ${hoveredIdx === 0 ? 'fiber-stage--hovered' : ''}`}
           >
             <div className="fiber-stage__img-wrap">
               <img
@@ -202,7 +208,7 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
                 className="fiber-stage__img"
               />
 
-              {/* Short 4-5 word product description inside the image frame at bottom */}
+              {/* High-visibility in-frame text at bottom on hover */}
               <div className="fiber-stage__caption-wrap" aria-hidden="true">
                 <span className="fiber-stage__caption-text">Natural • Strong • Eco-Friendly</span>
               </div>
@@ -234,10 +240,12 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
           {/* Stage 2: Cottonized Fibre (with Sparkle) */}
           <div
             onClick={() => handleStageClick(1)}
+            onMouseEnter={() => setHoveredIdx(1)}
+            onMouseLeave={() => setHoveredIdx(null)}
             role="button"
             tabIndex={0}
             aria-label="Cottonized Fibre - Soft, Breathable, Pure Cellulose"
-            className={`fiber-stage fiber-stage--cotton ${animationStep >= 3 ? 'fiber-stage--visible' : ''}`}
+            className={`fiber-stage fiber-stage--cotton ${animationStep >= 3 ? 'fiber-stage--visible' : ''} ${hoveredIdx === 1 ? 'fiber-stage--hovered' : ''}`}
           >
             <div className="fiber-stage__img-wrap fiber-stage__img-wrap--cotton">
               <img
@@ -249,7 +257,7 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
                 <Sparkles className="w-4 h-4 text-[#8CA18B]" />
               </div>
 
-              {/* Short 4-5 word product description inside the image frame at bottom */}
+              {/* High-visibility in-frame text at bottom on hover */}
               <div className="fiber-stage__caption-wrap" aria-hidden="true">
                 <span className="fiber-stage__caption-text">Soft • Breathable • Pure Cellulose</span>
               </div>
@@ -281,10 +289,12 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
           {/* Stage 3: Yarns */}
           <div
             onClick={() => handleStageClick(2)}
+            onMouseEnter={() => setHoveredIdx(2)}
+            onMouseLeave={() => setHoveredIdx(null)}
             role="button"
             tabIndex={0}
             aria-label="Spun Yarns - Durable, Versatile, High Tenacity"
-            className={`fiber-stage ${animationStep >= 5 ? 'fiber-stage--visible' : ''}`}
+            className={`fiber-stage ${animationStep >= 5 ? 'fiber-stage--visible' : ''} ${hoveredIdx === 2 ? 'fiber-stage--hovered' : ''}`}
           >
             <div className="fiber-stage__img-wrap">
               <img
@@ -293,7 +303,7 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
                 className="fiber-stage__img"
               />
 
-              {/* Short 4-5 word product description inside the image frame at bottom */}
+              {/* High-visibility in-frame text at bottom on hover */}
               <div className="fiber-stage__caption-wrap" aria-hidden="true">
                 <span className="fiber-stage__caption-text">Durable • Versatile • High Tenacity</span>
               </div>
@@ -325,10 +335,12 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
           {/* Stage 4: Fabrics */}
           <div
             onClick={() => handleStageClick(3)}
+            onMouseEnter={() => setHoveredIdx(3)}
+            onMouseLeave={() => setHoveredIdx(null)}
             role="button"
             tabIndex={0}
             aria-label="Finished Fabrics - Silky, Biodegradable, Circular Textile"
-            className={`fiber-stage ${animationStep >= 7 ? 'fiber-stage--visible' : ''}`}
+            className={`fiber-stage ${animationStep >= 7 ? 'fiber-stage--visible' : ''} ${hoveredIdx === 3 ? 'fiber-stage--hovered' : ''}`}
           >
             <div className="fiber-stage__img-wrap">
               <img
@@ -337,7 +349,7 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
                 className="fiber-stage__img"
               />
 
-              {/* Short 4-5 word product description inside the image frame at bottom */}
+              {/* High-visibility in-frame text at bottom on hover */}
               <div className="fiber-stage__caption-wrap" aria-hidden="true">
                 <span className="fiber-stage__caption-text">Silky • Biodegradable • Circular Textile</span>
               </div>
@@ -347,8 +359,22 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
 
         </div>
 
-        {/* ── 8 MATERIAL PROPERTIES STRIP (Coded from Reference Image) ── */}
+        {/* ── 8 MATERIAL PROPERTIES STRIP (ORGANIC WAVE WITH OUTLINE OF WAVES) ── */}
         <div className={`tech-properties-card ${animationStep >= 8 ? 'tech-properties-card--visible' : ''}`}>
+          
+          {/* Top Decorative Wave Outline */}
+          <div className="tech-properties-card__wave-track tech-properties-card__wave-track--top" aria-hidden="true">
+            <svg viewBox="0 0 1200 24" fill="none" preserveAspectRatio="none">
+              <path
+                d="M0,12 C100,22 200,2 300,12 C400,22 500,2 600,12 C700,22 800,2 900,12 C1000,22 1100,2 1200,12"
+                stroke="#8CA18B"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                fill="none"
+              />
+            </svg>
+          </div>
+
           <div className="tech-properties-card__inner">
             {PROPERTIES.map((prop, idx) => {
               const Icon = prop.Icon;
@@ -366,6 +392,19 @@ export default function TechDifferenceSection({ onSelectStage, setActiveTab }) {
                 </React.Fragment>
               );
             })}
+          </div>
+
+          {/* Bottom Decorative Wave Outline */}
+          <div className="tech-properties-card__wave-track tech-properties-card__wave-track--bottom" aria-hidden="true">
+            <svg viewBox="0 0 1200 24" fill="none" preserveAspectRatio="none">
+              <path
+                d="M0,12 C100,2 200,22 300,12 C400,2 500,22 600,12 C700,2 800,22 900,12 C1000,2 1100,22 1200,12"
+                stroke="#8CA18B"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                fill="none"
+              />
+            </svg>
           </div>
         </div>
 
