@@ -36,17 +36,16 @@ export default function Navbar({ activeTab, setActiveTab, onOpenPartnerModal }) 
     <header className={`navbar-fullwidth ${scrolled ? 'navbar-fullwidth--scrolled' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between gap-6">
         
-        {/* ── Brand Logo & Text (Green Leaf Emblem matching Shared Photo) ── */}
+        {/* ── Brand Logo & Text (Avesa Biotex Circular Woven Emblem) ── */}
         <button
           onClick={() => go('home')}
           className="flex items-center gap-3 focus:outline-none group shrink-0 text-left"
         >
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[#1E2D1D]/90 border border-[#8CA18B]/60 flex items-center justify-center text-[#8CA18B] shadow-md group-hover:scale-105 transition-transform">
-            <svg viewBox="0 0 24 24" className="w-6 h-6 stroke-[#84CC16] fill-none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
-              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-            </svg>
-          </div>
+          <img
+            src="/images/avesa_logo_mark.png"
+            alt="Avesa Biotex"
+            className="w-10 h-10 sm:w-11 sm:h-11 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] group-hover:scale-105 transition-transform"
+          />
           <div className="flex flex-col">
             <span className="font-heading font-extrabold text-lg sm:text-xl tracking-wider text-white leading-tight drop-shadow-sm">
               Avesa Biotex
