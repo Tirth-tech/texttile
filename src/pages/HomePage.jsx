@@ -31,8 +31,12 @@ export default function HomePage({ setActiveTab, onSelectProduct, onSelectTechSt
         </svg>
       </div>
 
-      {/* 2. OUR MISSION (CENTERED 3-LINE MISSION STATEMENT IN SCULPTURAL ORGANIC SHAPE) */}
-      <QuestSection />
+      {/* 2. A WORLD OF SUSTAINABLE TEXTILE (3 HORIZONTAL FLIP CARDS) */}
+      <QuestSection
+        onSelectProduct={onSelectProduct}
+        onOpenPartnerModal={onOpenPartnerModal}
+        setActiveTab={setActiveTab}
+      />
 
       {/* Wave Transition 2: Quest to Tech Difference */}
       <div className="section-wave-divider section-wave-divider--quest-to-tech" aria-hidden="true">

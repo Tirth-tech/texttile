@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X, Play } from 'lucide-react';
 
 const NAV_ITEMS = [
   { id: 'home', label: 'Home' },
@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { id: 'about', label: 'About Us' },
 ];
 
-export default function Navbar({ activeTab, setActiveTab, onOpenPartnerModal }) {
+export default function Navbar({ activeTab, setActiveTab, onOpenPartnerModal, onReplayIntro }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -73,8 +73,19 @@ export default function Navbar({ activeTab, setActiveTab, onOpenPartnerModal }) 
           })}
         </nav>
 
-        {/* ── Desktop CTA Button (Partner With Us) ── */}
-        <div className="hidden md:flex items-center">
+        {/* ── Desktop CTA Buttons ── */}
+        <div className="hidden md:flex items-center gap-3">
+          {onReplayIntro && (
+            <button
+              onClick={onReplayIntro}
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 text-white/90 hover:text-white text-xs font-semibold tracking-wider transition-all shadow-sm"
+              title="Watch Opening Video"
+            >
+              <Play className="w-3 h-3 text-[#8CA18B] fill-current" />
+              <span>Intro</span>
+            </button>
+          )}
+
           <button
             onClick={onOpenPartnerModal}
             className="bg-white/10 hover:bg-white text-white hover:text-[#162D1D] border border-white/40 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg flex items-center gap-2 group shrink-0"
@@ -115,6 +126,18 @@ export default function Navbar({ activeTab, setActiveTab, onOpenPartnerModal }) 
               </button>
             );
           })}
+          {onReplayIntro && (
+            <button
+              onClick={() => {
+                setMobileOpen(false);
+                onReplayIntro();
+              }}
+              className="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 text-white/90 hover:bg-white/10 hover:text-white"
+            >
+              <Play className="w-3.5 h-3.5 text-[#8CA18B] fill-current" />
+              <span>Watch Opening Intro</span>
+            </button>
+          )}
           <div className="pt-3 border-t border-white/15">
             <button
               onClick={() => {

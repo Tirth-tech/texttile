@@ -1,0 +1,79 @@
+/* =========================================================================
+   Pure Intro Video Splash - High Quality, Fullscreen, Zero Controls
+   Blink-Free Cinematic Dissolve
+   ========================================================================= */
+
+.pure-intro-splash {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: all;
+  opacity: 1;
+  transform: translateZ(0);
+  will-change: opacity, transform;
+  transition: opacity 1000ms cubic-bezier(0.25, 1, 0.5, 1),
+              transform 1000ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Cinematic Viewport Container */
+.pure-intro-splash__viewport {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+/* Enhanced Video Display - Crisp, High-Contrast & Vibrant */
+.pure-intro-splash__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background-color: #000000;
+  
+  /* Visual enhancement: rich contrast, deep blacks, vivid colors */
+  filter: contrast(1.08) brightness(1.02) saturate(1.12);
+  -webkit-filter: contrast(1.08) brightness(1.02) saturate(1.12);
+  
+  /* Hardware acceleration & anti-aliasing to preserve crispness */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Subtle corner gradient vignette for cinema look without lowering video sharpness */
+.pure-intro-splash__viewport::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 65%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+/* FADE-OUT REVEAL: Butter-smooth 1000ms cross-dissolve to the website */
+.pure-intro-splash--fade-out {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: scale(1.02) translateZ(0);
+}
+
+/* Ensure body scrollbar doesn't jump */
+html, body {
+  background-color: #FAF9F5;
+}

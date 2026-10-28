@@ -1,318 +1,499 @@
 /* =========================================================================
-   QUEST SECTION - 3 HORIZONTAL BROWSER-STYLE CARDS
-   Clean, Elegant, Ultra-Attractive Design (No Commercial Logos)
+   A WORLD OF SUSTAINABLE TEXTILE - SCREEN-COVERING VERTICAL BOXES
+   Clean Modern Grotesque Typography, Full-Width Immersive Canvas
    ========================================================================= */
 
-.quest-section {
+:root {
+  --font-clean-modern: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.screen-cover-section {
   position: relative;
-  background: #FAF9F5;
-  color: #1E2D1D;
+  background-color: #FAF9F5;
+  color: #1A1D1B;
   padding: 5rem 1.5rem 6.5rem;
   overflow: hidden;
+  font-family: var(--font-clean-modern);
 }
 
-.quest-section__container {
-  max-width: 1240px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-/* ── HEADER ── */
-.quest-mission__header {
+/* ── Section Header ── */
+.screen-cover-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 3.5rem;
+}
+
+.screen-cover-title {
+  font-family: var(--font-clean-modern);
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #1A1D1B;
+  margin-bottom: 0.85rem;
+}
+
+.screen-cover-subtitle {
+  font-family: var(--font-clean-modern);
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  color: #556B54;
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 680px;
+}
+
+/* ── Screen-Covering Vertical Stack ── */
+.screen-cover-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* ── Screen-Covering 3D Flip Card Box ── */
+.screen-cover-box {
+  perspective: 2000px;
+  width: 100%;
+  min-height: 620px;
+  cursor: pointer;
+  border-radius: 36px;
+}
+
+.screen-cover-box__inner {
+  position: relative;
+  width: 100%;
+  min-height: 620px;
+  border-radius: 36px;
+  transition: transform 0.85s cubic-bezier(0.34, 1.25, 0.64, 1);
+  transform-style: preserve-3d;
+  box-shadow: 0 24px 64px -16px rgba(18, 38, 22, 0.28),
+              0 0 1px 1px rgba(18, 38, 22, 0.1);
+}
+
+/* Hover & Touch Flip Activation */
+.screen-cover-box:hover .screen-cover-box__inner,
+.screen-cover-box.screen-cover-box--touch-active .screen-cover-box__inner {
+  transform: rotateY(180deg);
+  box-shadow: 0 32px 75px -18px rgba(18, 38, 22, 0.38),
+              0 0 1px 1px rgba(18, 38, 22, 0.15);
+}
+
+/* ── Card Faces (Front & Back) ── */
+.screen-cover-box__face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+}
+
+/* ──────────────── FRONT FACE (COVERS SCREEN) ──────────────── */
+.screen-cover-box__front {
+  color: #FAF9F5;
+}
+
+.screen-cover-box__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 14, 8, 0.45) 0%,
+    rgba(6, 14, 8, 0.58) 45%,
+    rgba(6, 14, 8, 0.88) 100%
+  );
+  pointer-events: none;
+}
+
+.screen-cover-box__layout {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 3rem 4rem;
+  gap: 3.5rem;
+}
+
+/* Big Picture Frame */
+.screen-cover-box__media-frame {
+  position: relative;
+  width: 520px;
+  height: 460px;
+  flex-shrink: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.55);
+  background: #000;
+}
+
+.screen-cover-box__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.screen-cover-box:hover .screen-cover-box__image {
+  transform: scale(1.05);
+}
+
+/* Content Area */
+.screen-cover-box__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1rem 0;
+}
+
+.screen-cover-box__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.screen-cover-box__number {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1.1rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: var(--font-clean-modern);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #FAF9F5;
+  text-transform: uppercase;
+}
+
+.screen-cover-box__flip-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #FAF9F5;
+  letter-spacing: 0.02em;
+}
+
+.screen-cover-box__flip-hint svg {
+  color: #8CA18B;
+}
+
+.screen-cover-box__text-group {
+  margin: 2rem 0;
+}
+
+.screen-cover-box__heading {
+  font-family: var(--font-clean-modern);
+  font-size: clamp(2.4rem, 3.8vw, 3.35rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  margin-bottom: 1.1rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+.screen-cover-box__one-liner {
+  font-family: var(--font-clean-modern);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.94);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  max-width: 680px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.screen-cover-box__footer {
+  display: flex;
+  align-items: center;
+}
+
+.screen-cover-box__explore-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-clean-modern);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #8CA18B;
+  transition: color 0.2s ease;
+}
+
+.screen-cover-box:hover .screen-cover-box__explore-link {
+  color: #C5D3C4;
+}
+
+/* ──────────────── BACK FACE (FLIPPED DETAILS) ──────────────── */
+.screen-cover-box__back {
+  transform: rotateY(180deg);
+  color: #FAF9F5;
+  background-color: #101811;
+}
+
+.screen-cover-box__back-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 18, 12, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(140, 161, 139, 0.4);
+  border-radius: 36px;
+  pointer-events: none;
+}
+
+.screen-cover-box__back-layout {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 3rem 4rem;
+  gap: 3.5rem;
+}
+
+/* Back Left Sidebar */
+.screen-cover-box__back-left {
+  width: 360px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.screen-cover-box__back-thumb {
+  width: 100%;
+  height: 280px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+.screen-cover-box__back-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.screen-cover-box__back-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.screen-cover-box__back-heading {
+  font-family: var(--font-clean-modern);
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #FAF9F5;
+  line-height: 1.2;
+}
+
+/* Back Right Content */
+.screen-cover-box__back-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.screen-cover-box__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.screen-cover-box__feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-family: var(--font-clean-modern);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #E2E8E1;
+}
+
+.screen-cover-box__check-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.screen-cover-box__actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 1rem;
+}
+
+.screen-cover-box__specs {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+}
+
+.screen-cover-box__spec-item {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
-.quest-mission__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(140, 161, 139, 0.16);
-  border: 1px solid rgba(140, 161, 139, 0.35);
-  color: #1E2D1D;
-  font-family: var(--font-mono, "SF Mono", Menlo, Consolas, monospace);
-  font-size: 0.72rem;
+.screen-cover-box__spec-key {
+  font-family: var(--font-clean-modern);
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  padding: 0.35rem 0.95rem;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
   text-transform: uppercase;
-}
-
-.quest-mission__badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #8CA18B;
-  display: inline-block;
-}
-
-.quest-mission__title {
-  font-family: var(--font-mono, "SF Mono", Menlo, Consolas, monospace);
-  font-size: clamp(1.4rem, 2.5vw, 1.95rem);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 1.35;
-  color: #1E2D1D;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.quest-mission__triangle {
-  font-size: 0.85em;
-  margin-right: 0.45rem;
   color: #8CA18B;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.quest-mission__divider {
-  width: 90px;
-  height: 2.5px;
-  background-color: #8CA18B;
-  margin-top: 1rem;
-  border-radius: 2px;
-}
-
-/* ── 3 HORIZONTAL CARDS GRID ── */
-.mission-horizontal-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: stretch;
-}
-
-@media (min-width: 768px) {
-  .mission-horizontal-cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.75rem;
-  }
-}
-
-@media (min-width: 1100px) {
-  .mission-horizontal-cards-grid {
-    gap: 2.25rem;
-  }
-}
-
-/* ── SINGLE BROWSER-STYLE CARD ── */
-.mission-browser-card {
-  position: relative;
-  background: #FFFFFF;
-  border: 2.5px solid #143E2B;
-  border-radius: 24px;
-  box-shadow: 0 16px 40px rgba(20, 62, 43, 0.08), 0 2px 8px rgba(0, 0, 0, 0.03);
-  display: flex;
-  flex-direction: column;
-  overflow: visible;
-  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.mission-browser-card:hover {
-  transform: translateY(-8px);
-  border-color: #20A766;
-  box-shadow: 0 26px 55px rgba(20, 62, 43, 0.16);
-}
-
-/* ── TOP BROWSER BAR (EMERALD GREEN WITH 3 DOTS & URL) ── */
-.mission-browser-card__top-bar {
-  background: linear-gradient(135deg, #22B06B 0%, #178D53 100%);
-  height: 40px;
-  border-top-left-radius: 21px;
-  border-top-right-radius: 21px;
-  border-bottom: 2px solid #143E2B;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1.25rem;
-  position: relative;
-  z-index: 2;
-}
-
-.mission-browser-card__dots {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.mission-browser-card__dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #0A3D22;
-  display: inline-block;
-  opacity: 0.9;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-
-/* ── WHITE CARD BODY ── */
-.mission-browser-card__body {
-  position: relative;
-  background: #FFFFFF;
-  border-bottom-left-radius: 21px;
-  border-bottom-right-radius: 21px;
-  padding: 2.2rem 1.85rem 6.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
-  min-height: 390px;
-}
-
-/* Top Meta: Pillar Badge + Title */
-.mission-browser-card__head {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-  position: relative;
-  z-index: 2;
-}
-
-.mission-browser-card__pillar-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  width: fit-content;
-  background: rgba(140, 161, 139, 0.15);
-  border: 1px solid rgba(140, 161, 139, 0.35);
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #143E2B;
   letter-spacing: 0.08em;
 }
 
-.mission-browser-card__pillar-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #20A766;
+.screen-cover-box__spec-val {
+  font-family: var(--font-clean-modern);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.mission-browser-card__title {
-  font-family: var(--font-heading, sans-serif);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #143E2B;
-  line-height: 1.3;
-  margin: 0;
-  letter-spacing: -0.015em;
-}
-
-/* Content paragraphs */
-.mission-browser-card__content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  position: relative;
-  z-index: 2;
-}
-
-.mission-browser-card__text {
-  font-family: var(--font-body, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: 0.98rem;
-  font-weight: 400;
-  color: #264A38;
-  line-height: 1.65;
-  letter-spacing: -0.01em;
-  margin: 0;
-}
-
-/* ── FOOTER: LEAVES PEAKING AT BOTTOM LEFT, CIRCULAR SEAL AT RIGHT ── */
-.mission-browser-card__footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 0 1.5rem 1.25rem 0.5rem;
-  pointer-events: none;
-  z-index: 3;
-}
-
-/* Leaves Illustration peeking up from bottom-left corner */
-.mission-browser-card__leaves-wrap {
-  width: 105px;
-  height: 105px;
-  margin-left: -12px;
-  margin-bottom: -10px;
-  filter: drop-shadow(0 4px 10px rgba(13, 75, 43, 0.16));
-}
-
-.mission-browser-card__leaves {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* ── ATTRACTIVE CIRCULAR SEAL STAMP AT BOTTOM RIGHT ── */
-.mission-browser-card__seal-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-bottom: 0.5rem;
-  margin-right: 0.25rem;
-}
-
-.mission-browser-card__seal {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  background: #FAF9F5;
-  border: 1.5px solid rgba(140, 161, 139, 0.45);
-  padding: 0.45rem 0.85rem 0.45rem 0.55rem;
-  border-radius: 9999px;
-  box-shadow: 0 4px 12px rgba(20, 62, 43, 0.08);
-  transition: all 0.3s ease;
-}
-
-.mission-browser-card:hover .mission-browser-card__seal {
-  border-color: #20A766;
-  background: #FFFFFF;
-  transform: scale(1.04);
-}
-
-.mission-browser-card__seal-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: rgba(140, 161, 139, 0.25);
-  display: flex;
+.screen-cover-box__cta-btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 1.1rem 2rem;
+  border-radius: 9999px;
+  background: #8CA18B;
+  color: #0E1810;
+  font-family: var(--font-clean-modern);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(140, 161, 139, 0.4);
   flex-shrink: 0;
 }
 
-.mission-browser-card__seal-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-  text-align: left;
+.screen-cover-box__cta-btn:hover {
+  background: #A2B5A1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(140, 161, 139, 0.55);
 }
 
-.mission-browser-card__seal-main {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: #143E2B;
-  letter-spacing: 0.06em;
+/* ── Responsive Styling ── */
+@media (max-width: 1100px) {
+  .screen-cover-box__layout,
+  .screen-cover-box__back-layout {
+    gap: 2.25rem;
+    padding: 2.25rem;
+  }
+
+  .screen-cover-box__media-frame {
+    width: 400px;
+    height: 380px;
+  }
+
+  .screen-cover-box__back-left {
+    width: 280px;
+  }
 }
 
-.mission-browser-card__seal-sub {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.52rem;
-  font-weight: 700;
-  color: #6C826B;
-  letter-spacing: 0.08em;
+@media (max-width: 860px) {
+  .screen-cover-box {
+    min-height: auto;
+  }
+
+  .screen-cover-box__inner {
+    min-height: 720px;
+  }
+
+  .screen-cover-box__layout {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 1.75rem;
+  }
+
+  .screen-cover-box__media-frame {
+    width: 100%;
+    height: 260px;
+  }
+
+  .screen-cover-box__back-layout {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    overflow-y: auto;
+  }
+
+  .screen-cover-box__back-left {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .screen-cover-box__back-thumb {
+    width: 100px;
+    height: 100px;
+  }
+
+  .screen-cover-box__actions-bar {
+    flex-direction: column;
+    width: 100%;
+    gap: 1.25rem;
+  }
+
+  .screen-cover-box__specs {
+    width: 100%;
+  }
+
+  .screen-cover-box__cta-btn {
+    width: 100%;
+  }
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
+import IntroSplashVideo from './components/IntroSplashVideo';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -16,6 +17,15 @@ export default function App() {
   const [selectedProduct, setSelectedProduct] = useState('yarns');
   const [selectedTechStage, setSelectedTechStage] = useState(0);
   const [partnerModalOpen, setPartnerModalOpen] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
+
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+  };
+
+  const handleReplayIntro = () => {
+    setShowIntro(true);
+  };
 
   // Auto scroll to top on tab change
   useEffect(() => {
@@ -97,32 +107,41 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#FAF9F5] text-[#1E2D1D] selection:bg-[#8CA18B] selection:text-[#1E2D1D]">
+    <>
+      {/* Vi & Hero Bike App Inspired Opening Video Reveal */}
+      {showIntro && (
+        <IntroSplashVideo onComplete={handleIntroComplete} />
+      )}
 
-      {/* Navigation Header */}
-      <Navbar
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        onOpenPartnerModal={() => setPartnerModalOpen(true)}
-      />
+      <div className="min-h-screen flex flex-col justify-between bg-[#FAF9F5] text-[#1E2D1D] selection:bg-[#8CA18B] selection:text-[#1E2D1D]">
 
-      {/* Main Page View Container */}
-      <main className="flex-1">
-        {renderActivePage()}
-      </main>
+        {/* Navigation Header */}
+        <Navbar
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          onOpenPartnerModal={() => setPartnerModalOpen(true)}
+          onReplayIntro={handleReplayIntro}
+        />
 
-      {/* Global Footer */}
-      <Footer
-        setActiveTab={setActiveTab}
-        onOpenPartnerModal={() => setPartnerModalOpen(true)}
-      />
+        {/* Main Page View Container */}
+        <main className="flex-1">
+          {renderActivePage()}
+        </main>
 
-      {/* Commercial Collaboration & Swatch Request Modal */}
-      <ContactModal
-        isOpen={partnerModalOpen}
-        onClose={() => setPartnerModalOpen(false)}
-      />
+        {/* Global Footer */}
+        <Footer
+          setActiveTab={setActiveTab}
+          onOpenPartnerModal={() => setPartnerModalOpen(true)}
+          onReplayIntro={handleReplayIntro}
+        />
 
-    </div>
+        {/* Commercial Collaboration & Swatch Request Modal */}
+        <ContactModal
+          isOpen={partnerModalOpen}
+          onClose={() => setPartnerModalOpen(false)}
+        />
+
+      </div>
+    </>
   );
 }

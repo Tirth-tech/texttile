@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2, Globe, Share2, Mail, ExternalLink } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Globe, Share2, Mail, Play } from 'lucide-react';
 
-export default function Footer({ setActiveTab, onOpenPartnerModal }) {
+export default function Footer({ setActiveTab, onOpenPartnerModal, onReplayIntro }) {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -117,6 +117,17 @@ export default function Footer({ setActiveTab, onOpenPartnerModal }) {
                   </button>
                 </li>
               ))}
+              {onReplayIntro && (
+                <li>
+                  <button 
+                    onClick={onReplayIntro}
+                    className="hover:text-[#8CA18B] transition-colors flex items-center gap-1.5 text-white/90"
+                  >
+                    <Play className="w-3 h-3 text-[#8CA18B] fill-current" />
+                    <span>Watch Opening Intro</span>
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 

@@ -1,158 +1,249 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './QuestSection.css';
-import { Sprout, Users, RefreshCw, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, RotateCw } from 'lucide-react';
 
-/* ── Lush Botanical Green Leaves Matching Reference Drawing ── */
-const BotanicalLeaves = () => (
-  <svg viewBox="0 0 120 120" className="mission-browser-card__leaves" aria-hidden="true">
-    {/* Base stem */}
-    <path d="M15,115 Q35,80 40,40" stroke="#0D4B2B" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-    
-    {/* Leaf 1 (Leftmost round leaf) */}
-    <path d="M35,115 C10,95 5,65 18,48 C30,42 42,60 40,82 C38,100 35,115 35,115 Z" fill="#1EB56D" stroke="#0D4B2B" strokeWidth="2.5" />
-    <path d="M28,100 C22,80 20,65 22,50" stroke="#0D4B2B" strokeWidth="2" fill="none" strokeLinecap="round" />
-    <line x1="24" y1="78" x2="16" y2="70" stroke="#0D4B2B" strokeWidth="1.8" strokeLinecap="round" />
-    <line x1="25" y1="88" x2="32" y2="80" stroke="#0D4B2B" strokeWidth="1.8" strokeLinecap="round" />
-    
-    {/* Leaf 2 (Tall Center leaf with veins) */}
-    <path d="M42,115 C30,85 28,45 42,18 C56,18 64,38 58,68 C52,95 42,115 42,115 Z" fill="#28D685" stroke="#0D4B2B" strokeWidth="2.5" />
-    <path d="M42,110 C40,80 42,48 44,22" stroke="#0D4B2B" strokeWidth="2" fill="none" strokeLinecap="round" />
-    <line x1="41" y1="60" x2="33" y2="52" stroke="#0D4B2B" strokeWidth="1.8" strokeLinecap="round" />
-    <line x1="43" y1="75" x2="52" y2="66" stroke="#0D4B2B" strokeWidth="1.8" strokeLinecap="round" />
-    <line x1="42" y1="42" x2="50" y2="35" stroke="#0D4B2B" strokeWidth="1.8" strokeLinecap="round" />
-    <line x1="41" y1="92" x2="34" y2="86" stroke="#0D4B2B" strokeWidth="1.8" strokeLinecap="round" />
-
-    {/* Leaf 3 (Right Frilled leaf) */}
-    <path d="M48,115 C55,95 68,75 78,58 C84,62 80,75 70,88 C60,100 48,115 48,115 Z" fill="#1EB56D" stroke="#0D4B2B" strokeWidth="2.5" />
-    <path d="M52,108 C62,90 70,75 75,60" stroke="#0D4B2B" strokeWidth="2" fill="none" strokeLinecap="round" />
-    <line x1="60" y1="92" x2="54" y2="86" stroke="#0D4B2B" strokeWidth="1.8" strokeLinecap="round" />
-    <line x1="66" y1="80" x2="74" y2="72" stroke="#0D4B2B" strokeWidth="1.8" strokeLinecap="round" />
-
-    {/* Back small leaf */}
-    <path d="M55,115 C65,100 78,90 85,82 C90,86 86,96 78,104 C68,112 55,115 55,115 Z" fill="#169356" stroke="#0D4B2B" strokeWidth="2.2" />
-  </svg>
-);
-
-const MISSION_CARDS = [
+const SECTIONS_DATA = [
   {
-    id: '01',
-    pill: 'PILLAR 01',
-    title: 'Revolutionizing Natural Bast',
-    paragraphs: [
-      "I was really impressed by the softness of the product when I received it.",
-      "It was much softer than I anticipated and it feels great to use."
+    id: 'fabrics',
+    colorName: 'green',
+    title: 'Sustainable Fabrics',
+    bgImage: '/images/fabric-green.jpg',
+    itemImage: '/images/sustainable-fabrics-item.jpg',
+    itemAlt: 'Sustainable fabric sample',
+    themeColor: '#107C41',
+    accentColor: '#4ADE80',
+    number: '01',
+    oneLiner: 'Eco-engineered, zero-waste circular fabrics tailored for global luxury and everyday fashion.',
+    features: [
+      '100% plant-derived & biodegradable bast cellulose fibers',
+      'Zero synthetic microplastics & zero toxic effluent in processing',
+      'Soft-touch premium handfeel rivaling luxury linen & combed cotton',
+      'Regenerative supply chain creating +35% income for agricultural farmers'
     ],
-    sealTitle: 'BAST CELLULOSE',
-    sealSub: 'ECO-REFINED',
-    icon: Sprout,
+    specs: {
+      weight: '120 - 320 GSM',
+      composition: 'Bast Hemp / Organic Cotton',
+      finish: 'Enzymatic Softened'
+    },
+    ctaText: 'Explore Sustainable Fabrics',
+    productId: 'fabric'
   },
   {
-    id: '02',
-    pill: 'PILLAR 02',
-    title: 'Empowering Farming Communities',
-    paragraphs: [
-      "To empower farming communities by creating fair-trade supply chains that uplift livelihoods.",
-      "Transforming post-harvest agricultural crop residue into fair-trade income for cooperatives."
+    id: 'fibers-yarns',
+    colorName: 'blue',
+    title: 'Natural Fibers & Yarns',
+    bgImage: '/images/fabric-blue.jpg',
+    itemImage: '/images/natural-yarns-item.jpg',
+    itemAlt: 'Natural bast yarn spools and cones',
+    themeColor: '#0E7490',
+    accentColor: '#38BDF8',
+    number: '02',
+    oneLiner: 'High-tensile bast fiber yarns engineered for industrial high-speed spinning and weaving.',
+    features: [
+      'Proprietary mechanical & enzymatic decortication technology',
+      'Counts ranging from 10s Ne to 60s Ne in ring-spun and rotor blends',
+      'Naturally breathable, moisture-wicking, and hypoallergenic properties',
+      'Seamlessly drops into standard commercial textile mills without retooling'
     ],
-    sealTitle: 'FAIR HARVEST',
-    sealSub: '+35% INCOME',
-    icon: Users,
+    specs: {
+      yarnCounts: '10s to 60s Ne',
+      strength: 'High Tensile Bast',
+      type: 'Ring & Rotor Spun'
+    },
+    ctaText: 'Explore Fibers & Yarns',
+    productId: 'yarns'
   },
   {
-    id: '03',
-    pill: 'PILLAR 03',
-    title: 'Uncompromising Planet Care',
-    paragraphs: [
-      "To revolutionize the textile industry by transforming natural jute fibres into high-performance materials.",
-      "Proving that true biological circularity and luxury apparel quality coexist without compromise."
+    id: 'custom-solutions',
+    colorName: 'yellow',
+    title: 'Custom Textile Solution',
+    bgImage: '/images/fabric-yellow.jpg',
+    itemImage: '/images/custom-textile-item.jpg',
+    itemAlt: 'Custom textile swatches with measuring tools',
+    themeColor: '#B45309',
+    accentColor: '#FBBF24',
+    number: '03',
+    oneLiner: 'Tailor-made fiber formulations, custom GSM weaves, and private-label fabric engineering.',
+    features: [
+      'Bespoke weights from 80 GSM featherlight to 450 GSM structural canvas',
+      'Custom natural dyeing, pantone color matching & botanical pigments',
+      'Rapid prototyping with comprehensive lab-dip swatch sampling',
+      'Full LCA (Life Cycle Assessment) transparency on carbon and water savings'
     ],
-    sealTitle: 'ZERO PLASTICS',
-    sealSub: '100% CIRCULAR',
-    icon: RefreshCw,
-  },
+    specs: {
+      customGSM: '80 - 450 GSM',
+      sampling: 'Rapid 7-Day Swatches',
+      MOQ: 'Flexible Scalability'
+    },
+    ctaText: 'Request Custom Swatch',
+    productId: null
+  }
 ];
 
-export default function QuestSection() {
-  return (
-    <section className="quest-section" id="mission">
-      <div className="quest-section__container">
-        
-        {/* Section Header */}
-        <div className="quest-mission__header">
-          <div className="quest-mission__badge">
-            <span className="quest-mission__badge-dot" />
-            <span>PURPOSE & IMPACT</span>
-          </div>
-          <h2 className="quest-mission__title">
-            <span className="quest-mission__triangle">▼</span>OUR MISSION
-          </h2>
-          <div className="quest-mission__divider" />
-        </div>
+export default function QuestSection({ onSelectProduct, onOpenPartnerModal, setActiveTab }) {
+  const [activeFlippedId, setActiveFlippedId] = useState(null);
 
-        {/* 3 Different Horizontal Browser-Styled Cards (No Brand Logos, Enhanced Aesthetics) */}
-        <div className="mission-horizontal-cards-grid">
-          {MISSION_CARDS.map((card) => {
-            const Icon = card.icon;
-            return (
-              <div key={card.id} className="mission-browser-card">
+  const handleCardClick = (id) => {
+    setActiveFlippedId((prev) => (prev === id ? null : id));
+  };
+
+  const handleCtaClick = (e, item) => {
+    e.stopPropagation();
+    if (!item.productId) {
+      if (onOpenPartnerModal) onOpenPartnerModal();
+    } else {
+      if (onSelectProduct) {
+        onSelectProduct(item.productId);
+      } else if (setActiveTab) {
+        setActiveTab(`product-${item.productId}`);
+      }
+    }
+  };
+
+  return (
+    <section className="screen-cover-section" id="mission">
+      
+      {/* Section Header */}
+      <div className="screen-cover-header">
+        <h2 className="screen-cover-title">
+          A world of sustainable textile
+        </h2>
+        <p className="screen-cover-subtitle">
+          Hover over each screen section below to flip and inspect in-depth specifications.
+        </p>
+      </div>
+
+      {/* Screen-Covering Vertical Boxes */}
+      <div className="screen-cover-stack">
+        {SECTIONS_DATA.map((item) => {
+          const isFlipped = activeFlippedId === item.id;
+
+          return (
+            <div
+              key={item.id}
+              className={`screen-cover-box ${isFlipped ? 'screen-cover-box--touch-active' : ''}`}
+              onClick={() => handleCardClick(item.id)}
+            >
+              <div className="screen-cover-box__inner">
                 
-                {/* Emerald Green Browser Header Bar with 3 Dots */}
-                <div className="mission-browser-card__top-bar">
-                  <div className="mission-browser-card__dots">
-                    <span className="mission-browser-card__dot" />
-                    <span className="mission-browser-card__dot" />
-                    <span className="mission-browser-card__dot" />
+                {/* ──────────────── FRONT FACE (COVERS SCREEN) ──────────────── */}
+                <div
+                  className="screen-cover-box__face screen-cover-box__front"
+                  style={{ backgroundImage: `url(${item.bgImage})` }}
+                >
+                  <div className="screen-cover-box__overlay" />
+
+                  <div className="screen-cover-box__layout">
+                    
+                    {/* Big Picture Frame */}
+                    <div className="screen-cover-box__media-frame">
+                      <img
+                        src={item.itemImage}
+                        alt={item.itemAlt}
+                        className="screen-cover-box__image"
+                      />
+                    </div>
+
+                    {/* Content Pane */}
+                    <div className="screen-cover-box__content">
+                      <div className="screen-cover-box__eyebrow">
+                        <span className="screen-cover-box__number">
+                          PILLAR {item.number}
+                        </span>
+                        <div className="screen-cover-box__flip-hint">
+                          <RotateCw className="w-4 h-4 animate-spin-slow" />
+                          <span>Hover to Flip</span>
+                        </div>
+                      </div>
+
+                      <div className="screen-cover-box__text-group">
+                        <h3 className="screen-cover-box__heading">
+                          {item.title}
+                        </h3>
+                        <p className="screen-cover-box__one-liner">
+                          {item.oneLiner}
+                        </p>
+                      </div>
+
+                      <div className="screen-cover-box__footer">
+                        <span className="screen-cover-box__explore-link">
+                          Explore Full Technical Specifications
+                          <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1.5" />
+                        </span>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
 
-                {/* White Card Body */}
-                <div className="mission-browser-card__body">
-                  
-                  {/* Top Meta: Pillar Badge & Title */}
-                  <div className="mission-browser-card__head">
-                    <div className="mission-browser-card__pillar-badge">
-                      <span className="mission-browser-card__pillar-dot" />
-                      <span>{card.pill}</span>
-                    </div>
-                    <h3 className="mission-browser-card__title">{card.title}</h3>
-                  </div>
+                {/* ──────────────── BACK FACE (FLIPPED DETAILS) ──────────────── */}
+                <div
+                  className="screen-cover-box__face screen-cover-box__back"
+                  style={{ backgroundImage: `url(${item.bgImage})` }}
+                >
+                  <div className="screen-cover-box__back-overlay" />
 
-                  {/* Main Quote / Statement Body */}
-                  <div className="mission-browser-card__content">
-                    {card.paragraphs.map((p, idx) => (
-                      <p key={idx} className="mission-browser-card__text">
-                        {p}
-                      </p>
-                    ))}
-                  </div>
-
-                  {/* Bottom Footer: Leaves (Left) & Elegant Circular Seal Stamp (Right - No commercial logos) */}
-                  <div className="mission-browser-card__footer">
-                    <div className="mission-browser-card__leaves-wrap">
-                      <BotanicalLeaves />
-                    </div>
-
-                    <div className="mission-browser-card__seal-wrap">
-                      <div className="mission-browser-card__seal">
-                        <div className="mission-browser-card__seal-icon">
-                          <Icon className="w-4 h-4 text-[#1E2D1D]" />
-                        </div>
-                        <div className="mission-browser-card__seal-text">
-                          <span className="mission-browser-card__seal-main">{card.sealTitle}</span>
-                          <span className="mission-browser-card__seal-sub">{card.sealSub}</span>
-                        </div>
+                  <div className="screen-cover-box__back-layout">
+                    
+                    {/* Left: Thumbnail & Heading */}
+                    <div className="screen-cover-box__back-left">
+                      <div className="screen-cover-box__back-thumb">
+                        <img
+                          src={item.itemImage}
+                          alt={item.itemAlt}
+                        />
+                      </div>
+                      <div className="screen-cover-box__back-title-wrap">
+                        <span className="screen-cover-box__number">
+                          PILLAR {item.number}
+                        </span>
+                        <h4 className="screen-cover-box__back-heading">
+                          {item.title}
+                        </h4>
                       </div>
                     </div>
-                  </div>
 
+                    {/* Right: Full Features & Specs */}
+                    <div className="screen-cover-box__back-right">
+                      <ul className="screen-cover-box__features">
+                        {item.features.map((feature, idx) => (
+                          <li key={idx} className="screen-cover-box__feature-item">
+                            <CheckCircle2 className="screen-cover-box__check-icon" style={{ color: item.accentColor }} />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="screen-cover-box__actions-bar">
+                        <div className="screen-cover-box__specs">
+                          {Object.entries(item.specs).map(([key, val]) => (
+                            <div key={key} className="screen-cover-box__spec-item">
+                              <span className="screen-cover-box__spec-key">{key}</span>
+                              <span className="screen-cover-box__spec-val">{val}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={(e) => handleCtaClick(e, item)}
+                          className="screen-cover-box__cta-btn"
+                        >
+                          <span>{item.ctaText}</span>
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
 
               </div>
-            );
-          })}
-        </div>
-
+            </div>
+          );
+        })}
       </div>
+
     </section>
   );
 }
